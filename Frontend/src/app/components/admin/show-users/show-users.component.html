@@ -1,0 +1,17 @@
+<h1>Thông Tin Khách Hàng</h1>
+<table style="width:100%">
+  <tr>
+    <th>Account</th>
+    <th>Password</th>
+    <th>Name</th>
+    <th>Phone</th>
+    <th>Address</th>
+  </tr>
+  <tr *ngFor = "let i of user" >
+    <td>{{i.userAccount}}</td>
+    <td>{{i.userPassword}}</td>
+    <td>{{i.userName}}</td>
+    <td>{{i.userPhone}}</td>
+    <td>{{i.userAddress}}</td>
+  </tr>
+</table>

@@ -1,0 +1,36 @@
+<h1>Nhập Sản Phẩm Bạn Muốn Bán</h1>
+<form #userPost ="ngForm" (ngSubmit)="onSubmit(userPost.value)" style="text-align: center;" >
+    <input type="text" name="productName" placeholder="Tên Sản Phẩm" ngModel > <br>
+    <input type="text" name="productPrice" placeholder="Giá Sản Phảm" ngModel > <br>
+    <input type="text" name="description" placeholder="Mô tả" ngModel > <br>
+    <p>Chọn Tỉnh Thành</p>
+    <select name="productAddress" ngModel >
+      <option>Hồ Chí Minh</option>
+      <option>Hà Nội</option>
+      <option>Đà Năng</option>
+      <option>Vũng Tàu</option>
+      <option>Tiền Giang</option>
+      <option>Trà Vinh</option>
+      <option>Vĩnh Long</option>
+      <option>Cần Thơ</option>
+      <option>Hải Phòng</option>
+      <option>Long An</option>
+      <option>Bạc Liêu</option>
+      <option>Sóc Trăng</option>
+      <option>Bình Dương</option>
+      <option>Cà Mau</option>
+      <option>An Giang</option>
+      <option>Đà Lạt</option>
+      <option>Bình Thuận</option>
+      <option>Ninh Thuận</option>
+    </select> <br>
+    <p>Chọn Loại Sản Phẩm</p>
+    <select name="loai_sp" ngModel >
+      <option>Xe Cộ</option>
+      <option>Đồ Điện Tử</option>
+      <option>Bất Động Sản</option>
+    </select> <br>
+    <input type="file" id="img" name="img" accept="image/*">
+    <input type="submit" value="Submit">
+</form>
+

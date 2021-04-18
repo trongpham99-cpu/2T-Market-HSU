@@ -1,0 +1,34 @@
+
+    <div *ngFor="let i of product" class="AdItem__Item-sc-1ewf82b-0 eIgKqv item___DjEGG">
+        <div class="wrapperLink___22Hpy">
+            <div class="thumbnailWrapper___927DE">
+                <a target="_blank" rel="noopener noreferrer" class="thumbnailImg___3UKHb">
+                    <img src="../../../../assets/iPhoneXs.jpeg" alt="">
+                </a>
+            </div>
+            <div class="caption___3JllO">
+                <a target="_blank" rel="noopener noreferrer" class="adTitleGrid___mC6FC">
+                {{i.productName}}
+                </a>
+                <div>
+                    <span class="price___1yCK1">{{i.productPrice}}.000 đ</span>
+                </div>
+            </div>
+            <div class="footer___2QdZm">
+                <a rel="noopener noreferrer" target="_blank">
+                    <img class="image___3OzO2 round___2BtjT" height="16" width="16" src="https://static.chotot.com/storage/chotot-icons/svg/user.svg" alt="">
+                </a>
+                <div class="deviderWrapper___3umBa"></div>
+                <div class="adItemPostedTime___2i72W">
+                    <span class="text___19FS4">trong.phamtranduc</span>
+                </div>
+                <div class="deviderWrapper___3umBa"></div>
+                <span class="adItemPostedTime___2i72W location___2mJlP">
+                    <span class="text___19FS4">{{i.productAddress}}</span>
+                </span>
+                <p>{{i._id}}</p>
+                <button (click)="ProductsService.click(i._id)" >showID</button>
+            </div>
+
+        </div>
+    </div>

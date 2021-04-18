@@ -1,0 +1,31 @@
+<h1>Trang Quản Quản Trị Viên</h1>
+<div style="display: flex;" >
+    <div class="div1" >
+        <h2>Quản lý hệ thống</h2>
+        <ul>
+            <li (click)="showlistProduct()">Quản lý sản phẩm</li>
+            <ul>
+                <li *ngIf="!this.showProduct" (click)="Userservice.showIfProduct()" >Xem sản phẩm đang bán(xóa,sửa)</li>
+                <li *ngIf="!this.showProduct">Xem sản phẩm đã bán</li>
+                <li *ngIf="!this.showProduct">Duyệt Sản Phẩm</li>
+                <li *ngIf="!this.showProduct">Xem doanh thu sản phẩm</li>
+                <li *ngIf="!this.showProduct" (click)="Userservice.showUpdate()" >Sửa Sản Phẩm</li>
+            </ul>
+            <li (click)="showlistUser()">Quản lý người dùng</li>
+            <ul>
+                <li *ngIf="!this.showUser" (click)="Userservice.showIfUser()">Xem hồ sơ người dùng</li>
+                <li *ngIf="!this.showUser">Xem doanh thu người dùng</li>
+            </ul>
+            <li (click)="showlistAds()">Quản lý ads</li>
+            <ul>
+                <li *ngIf="!this.showAds">ads home</li>
+                <li *ngIf="!this.showAds">ads product</li>
+            </ul>
+        </ul>
+    </div>
+    <div class="div2" >
+        <app-show-users *ngIf="!this.Userservice.showUser"></app-show-users>
+        <app-show-product *ngIf="!this.Userservice.showProduct" ></app-show-product>
+        <app-update-product *ngIf="!this.Userservice.suaSp" ></app-update-product>
+    </div>
+</div>
