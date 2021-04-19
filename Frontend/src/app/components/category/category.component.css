@@ -10,9 +10,7 @@
 }
 
 .categogy{
-  margin-left: auto;
-  margin-right: auto;
-  width: 60%;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
 
@@ -21,10 +19,12 @@
   cursor: pointer;
 }
 .div1 {
-  width: 60%;
-  margin: auto;
-  border: solid 0.2px;
-  border-radius: 10px;
+  margin: 0px auto;
+  width: 80%;
+  background-color: white;
+  border-radius: 20px;
+  /* border: solid 0.2px;
+  border-radius: 10px; */
 }
 
 p {
@@ -32,6 +32,6 @@ p {
   font-weight: bold;
 }
 
-h1 {
-  text-align: center;
+h3 {
+  padding: 10px 0px 0px 12px;
 }
