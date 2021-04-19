@@ -80,7 +80,7 @@ app.post("/users",async (req,res)=>{
 //product/id
 app.post("/product",async (req,res)=>{
     
-    const {id} = req.body;
+    const {id} = req.query;
     try{
         let product_id = await Database.instance.findOneProduct(id);
         res.send(` ${product_id}`);

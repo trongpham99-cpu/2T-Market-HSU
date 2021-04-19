@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import {HttpClient,HttpErrorResponse,HttpHeaders, HttpParams, HttpRequest} from '@angular/common/http';
 import { Product } from '../models/product.model';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 
 
 
@@ -21,6 +21,11 @@ export class ProductsService {
   getData(){
     return this.http.get(this.baseUrl);
   }
+
+  getDataProduct(): Observable<any>{
+    return this.http.get("http://127.0.0.1:8080/product?id=607927d56833a637bfa809b0");
+  }
+
   getData_xe(){
     return this.http.get("http://127.0.0.1:8080/products/xe")
   }
@@ -40,10 +45,12 @@ export class ProductsService {
     ).subscribe(()=>{ return;
      })
 }
+  getProductDetail(id: String): Observable<any>{
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.get<any>(url);
+}  
   
-  getDataProduct(){
-    return this.http.get("http://127.0.0.1:8080/product?id=607927d56833a637bfa809b0");
-  }
+ 
 ////////////////////////////
 
 
