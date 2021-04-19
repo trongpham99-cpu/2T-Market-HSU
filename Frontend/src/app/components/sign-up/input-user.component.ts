@@ -13,6 +13,8 @@ export class InputUserComponent implements OnInit {
 
   constructor(public UsersService:UsersService,private http:HttpClient) { }
 
+
+
   ngOnInit(): void {
   }
 

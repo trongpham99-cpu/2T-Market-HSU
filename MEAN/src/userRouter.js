@@ -16,26 +16,26 @@ const signToken=userID=>{
 }
 
     //regis
-    userRouter.post('/register', async (req,res)=>{
-    const {userAccount,userPassword,userName,userPhone,userAddress,userImage,userCoin,role} = req.body;
-    let temp;
-    let check = await Database.instance.checkAccount(userAccount);
-    console.log(check == false);
-       if(check == false) {
-        await bcrypt.genSalt(saltRounds,(err,salt)=>{
-            bcrypt.hash(userPassword, salt, (err, hash)=>{
-                temp = hash;
+//     userRouter.post('/register', async (req,res)=>{
+//     const {userAccount,userPassword,userName,userPhone,userAddress,userImage,userCoin,role} = req.body;
+//     let temp;
+//     let check = await Database.instance.checkAccount(userAccount);
+//     console.log(check == false);
+//        if(check == false) {
+//         await bcrypt.genSalt(saltRounds,(err,salt)=>{
+//             bcrypt.hash(userPassword, salt, (err, hash)=>{
+//                 temp = hash;
                
-                Database.instance.createUser(new User(userAccount,temp,userName,userPhone,userAddress,userImage,userCoin,role));
-                console.log("thanh cong ", temp);
-                res.send(`Created success: ${userAccount}`);
-          } );
-        })
-       }else {
-           console.log("fail")
-           res.send("fail")
-       }
-})
+//                 Database.instance.createUser(new User(userAccount,temp,userName,userPhone,userAddress,userImage,userCoin,role));
+//                 console.log("thanh cong ", temp);
+//                 res.send(`Created success: ${userAccount}`);
+//           } );
+//         })
+//        }else {
+//            console.log("fail")
+//            res.send("fail")
+//        }
+// })
     
 //login
 // userRouter.post('/login',passport.authenticate('local',
@@ -51,26 +51,26 @@ const signToken=userID=>{
 //     }
 // })
 
-userRouter.post('/login',async (req,res)=>{
-    const {userAccount,userPassword}=req.body;
-    // let user =  await Database.instance.findUser(userAccount);  
-    const user = (await   this.userSchema.find( {
-        "userAccount" : userAccount
-    }))
-    console.log(user);
-        if (!user) {
-          res.status(401).json({ message: 'Authentication failed. User not found.' });
-        } else if (user) {
-            bcrypt.compare(userPassword, user[0].userPassword, function(err,resp){
-                if(resp){
-                       return res.json({token: jwt.sign({ userAccount: user.userAccount,role:user.role}, 'RESTFULAPIs')});
-                      }
-                   else {
-                      return   res.status(401).json({ message: 'Authentication failed. Wrong password.' });
-                    }
-            })
-        }    
-})
+// userRouter.post('/login',async (req,res)=>{
+//     const {userAccount,userPassword}=req.body;
+//     // let user =  await Database.instance.findUser(userAccount);  
+//     const user = (await   this.userSchema.find( {
+//         "userAccount" : userAccount
+//     }))
+//     console.log(user);
+//         if (!user) {
+//           res.status(401).json({ message: 'Authentication failed. User not found.' });
+//         } else if (user) {
+//             bcrypt.compare(userPassword, user[0].userPassword, function(err,resp){
+//                 if(resp){
+//                        return res.json({token: jwt.sign({ userAccount: user.userAccount,role:user.role}, 'RESTFULAPIs')});
+//                       }
+//                    else {
+//                       return   res.status(401).json({ message: 'Authentication failed. Wrong password.' });
+//                     }
+//             })
+//         }    
+// })
 //logout
 // userRouter.get('/logout',passport.authenticate('jwt',{session : false}),(req,res)=>{
 //     res.clearCookie('access_token');

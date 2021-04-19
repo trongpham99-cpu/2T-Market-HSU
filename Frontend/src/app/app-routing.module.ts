@@ -11,8 +11,7 @@ const routes: Routes = [
 { path: 'admin', loadChildren: () => import('./pages/admin/admin.module').then(m => m.AdminModule) },
 { path: 'loaisp', loadChildren: () => import('./pages/loaisp/loaisp.module').then(m => m.LoaispModule) },
 { path: 'viewdetail',component:ViewDetailComponent },
-{ path: 'signin',component:SignInComponentComponent},
-{ path: 'signup',component:InputUserComponent}];
+{ path: 'user', loadChildren: () => import('./pages/user/user.module').then(m => m.UserModule) }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
