@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DuctrongComponent } from './ductrong.component';
+import { ViewDetailComponent } from './view-detail.component';
 
-describe('DuctrongComponent', () => {
-  let component: DuctrongComponent;
-  let fixture: ComponentFixture<DuctrongComponent>;
+describe('ViewDetailComponent', () => {
+  let component: ViewDetailComponent;
+  let fixture: ComponentFixture<ViewDetailComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DuctrongComponent ]
+      declarations: [ ViewDetailComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DuctrongComponent);
+    fixture = TestBed.createComponent(ViewDetailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

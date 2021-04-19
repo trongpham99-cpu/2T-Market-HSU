@@ -1,16 +1,18 @@
+import { FormsModule } from '@angular/forms';
+import { InputUserComponent } from '../app/components/sign-up/input-user.component';
+import { SignInComponentComponent } from '../app/components/sign-in/sign-in-component.component';
+import { ViewDetailComponent } from './components/view-detail/view-detail.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-{ path: 'sign-in', loadChildren: () => import('./pages/sign-in/sign-in.module').then(m => m.SignInModule) },
 { path: 'input-product', loadChildren: () => import('./pages/input-product/input-product.module').then(m => m.InputProductModule) },
 { path: 'home', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule) },
-{ path: 'sign-up', loadChildren: () => import('./pages/sign-up/sign-up.module').then(m => m.SignUpModule) },
 { path: 'admin', loadChildren: () => import('./pages/admin/admin.module').then(m => m.AdminModule) },
 { path: 'loaisp', loadChildren: () => import('./pages/loaisp/loaisp.module').then(m => m.LoaispModule) },
-{ path: 'product', loadChildren: () => import('./pages/product/product.module').then(m => m.ProductModule) },
-{path: 'ductrong', loadChildren: () => import('./pages/ductrong/ductrong.module').then(m => m.DuctrongModule) },
-{ path: 'trongtest', loadChildren: () => import('./pages/trongtest/trongtest.module').then(m => m.TrongtestModule) },];
+{ path: 'viewdetail',component:ViewDetailComponent },
+{ path: 'signin',component:SignInComponentComponent},
+{ path: 'signup',component:InputUserComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

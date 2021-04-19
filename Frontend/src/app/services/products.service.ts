@@ -16,8 +16,9 @@ const httpOptions = {
 export class ProductsService {
   baseUrl: string ="http://127.0.0.1:8080/products";
   products : Product[];
-  name: string;
+
   constructor(private http:HttpClient) { }
+
   getData(){
     return this.http.get(this.baseUrl);
   }
@@ -40,7 +41,7 @@ export class ProductsService {
     ).subscribe(()=>{ return;
      })
 }
-  
+
   getDataProduct(){
     return this.http.get("http://127.0.0.1:8080/product?id=607927d56833a637bfa809b0");
   }
@@ -59,5 +60,20 @@ export class ProductsService {
       console.log("Updated");
     });
   }
+
+  //detail
+
+  private productDetail: Product;
+
+  getProductDetail(id: string){
+      let productDetail: Product;
+      this.http.get<{user: any}>("http://127.0.0.1:8080/product/" + id)
+      .subscribe(response => {
+        productDetail = response.user;
+        this.productDetail = productDetail;
+      });
+      console.log(this.productDetail);
+    }
+
 
 }

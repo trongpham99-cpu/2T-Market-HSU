@@ -18,7 +18,6 @@ export class InputComponent implements OnInit {
       console.warn("result",result)
     });
   }
-  product : Product;
   constructor(private productService: ProductsService,private http:HttpClient) { }
   ngOnInit(): void {
   }

@@ -1,4 +1,4 @@
-import { LoginsService } from './../../services/logins.service';
+import { LoginsService } from '../../services/logins.service';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 

@@ -8,20 +8,24 @@ import { FooterComponent } from './components/footer/footer.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from './../environments/environment';
-
+import { FormsModule }   from '@angular/forms';
+import { ReactiveFormsModule} from '@angular/forms'
 
 
 
 @NgModule({
   declarations: [
-    AppComponent,NavBarComponent, FooterComponent,
+    AppComponent,NavBarComponent, FooterComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule ,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
