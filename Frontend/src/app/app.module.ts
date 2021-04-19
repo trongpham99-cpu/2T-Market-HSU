@@ -11,6 +11,7 @@ import { environment } from './../environments/environment';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,NavBarComponent, FooterComponent,

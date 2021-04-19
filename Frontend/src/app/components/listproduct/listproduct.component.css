@@ -8,6 +8,7 @@
 .cYlzLi {
   margin: 0px auto;
   max-width: 960px;
+  background: transparent;
 }
 
 @media (max-width: 768px){
@@ -17,7 +18,7 @@
 }
 
 .jIaCnJ {
-  background: rgb(255, 255, 255);
+  background: transparent;
   margin-top: 12px;
 }
 
@@ -65,7 +66,7 @@
 .item___DjEGG {
   overflow: hidden;
   background: #fff;
-  padding: 12px;
+  padding: 20px;
 }
 
 .item___DjEGG .wrapperLink___22Hpy {
@@ -260,4 +261,5 @@ h1 {
   flex-wrap: wrap;
   grid-template-columns: repeat(5, 1fr);
   border-top: 1px solid rgb(244, 244, 244);
+  padding: 10px;
 }
