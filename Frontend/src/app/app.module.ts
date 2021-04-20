@@ -10,12 +10,16 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from './../environments/environment';
 import { FormsModule }   from '@angular/forms';
 import { ReactiveFormsModule} from '@angular/forms'
-
+import { InputUserComponent } from './components/sign-up/input-user.component';
+import  { SignInComponentComponent } from './components/sign-in/sign-in-component.component';
+import { InputComponent } from './components/input-product/input.component';
+import { ProductXeComponent } from './components/show-products-xe/product-xe/product-xe.component';
+import { ShowProductsXeComponent } from './components/show-products-xe/show-products-xe.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent,NavBarComponent, FooterComponent
+    AppComponent,NavBarComponent, FooterComponent,InputUserComponent,InputComponent,SignInComponentComponent,ProductXeComponent,ShowProductsXeComponent
   ],
   imports: [
     BrowserModule,
