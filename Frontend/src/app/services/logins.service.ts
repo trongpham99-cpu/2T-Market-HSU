@@ -27,17 +27,17 @@ export class LoginsService implements OnInit {
     });
   }
 
-  async loginGoogle() {
-    const provider = new firebase.default.auth.GoogleAuthProvider();
-    try{
-      await this.fireauth.signInWithPopup(provider);
-      console.log(this.user_google);
-      this.router.navigate(['home']);
-      
-    }catch(err){
-      console.log(err);
-    }
-  }
+  // async loginGoogle() {
+  //   const provider = new firebase.default.auth.GoogleAuthProvider();
+  //   try{
+  //     await this.fireauth.signInWithPopup(provider);
+  //     console.log(this.user_google);
+  //     this.router.navigate(['home']);
+
+  //   }catch(err){
+  //     console.log(err);
+  //   }
+  // }
 
   async logout(){
     try{
@@ -53,7 +53,5 @@ export class LoginsService implements OnInit {
     .subscribe((result)=>{
       console.warn("result",result)
     });
-
   }
-
 }

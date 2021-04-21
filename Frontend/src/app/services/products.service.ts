@@ -3,6 +3,7 @@ import {HttpClient,HttpErrorResponse,HttpHeaders, HttpParams, HttpRequest} from 
 import { Product } from '../models/product.model';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 
 
@@ -42,9 +43,9 @@ export class ProductsService {
      })
 }
 
-  getDataProduct(){
-    return this.http.get("http://127.0.0.1:8080/product?id=607927d56833a637bfa809b0");
-  }
+  // getDataProduct(){
+  //   return this.http.get("http://127.0.0.1:8080/product?id=607927d56833a637bfa809b0");
+  // }
 ////////////////////////////
 
 
@@ -65,15 +66,19 @@ export class ProductsService {
 
   private productDetail: Product;
 
-  getProductDetail(id: string){
-      let productDetail: Product;
-      this.http.get<{user: any}>("http://127.0.0.1:8080/product/" + id)
-      .subscribe(response => {
-        productDetail = response.user;
-        this.productDetail = productDetail;
-      });
-      console.log(this.productDetail);
-    }
+  // getProductDetail(id: string){
+  //     let productDetail: Product;
+  //     this.http.get<{user: any}>("http://127.0.0.1:8080/product/" + id)
+  //     .subscribe(response => {
+  //       productDetail = response.user;
+  //       this.productDetail = productDetail;
+  //     });
+  //     console.log(this.productDetail);
+  //   }
 
+
+  getOne(id){
+    return this.http.get('http://127.0.0.1:8080/product/?id='+ id);
+  }
 
 }

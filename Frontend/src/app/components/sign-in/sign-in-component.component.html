@@ -12,10 +12,10 @@
       <label>
         <input type="checkbox" checked="checked" name="remember" /> Remember me
       </label>
-      <p>Bạn chưa có tài khoản ? <a>Đăng ký</a></p>
+      <p>Bạn chưa có tài khoản ? <a [routerLink]="['/signup']" >Đăng ký</a></p>
       <p>
         Đăng nhập bằng Google ?
-        <a class="login-gg" (click)="this.LoginsService.loginGoogle()">Đăng Nhập</a>
+        <a class="login-gg">Đăng Nhập</a>
       </p>
     </div>
   </div>
