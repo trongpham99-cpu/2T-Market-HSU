@@ -1,0 +1,7 @@
+<h1>All Profiles</h1>
+<div *ngIf="profiles.length > 0">
+  <div *ngFor="let profile of profiles" class="profile">
+    <img style="width: 150px; height: auto;" [src]="profile.imagePath" [alt]="profile.productName" />
+    <h1>{{profile.productName}}</h1>
+  </div>
+</div>

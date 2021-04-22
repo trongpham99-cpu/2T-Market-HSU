@@ -16,11 +16,14 @@ import { InputComponent } from './components/input-product/input.component';
 import { ProductXeComponent } from './components/show-products-xe/product-xe/product-xe.component';
 import { ShowProductsXeComponent } from './components/show-products-xe/show-products-xe.component';
 import { CookieService } from 'ngx-cookie-service';
+import { AllProfilesComponent } from './components/test/all-profiles/all-profiles.component';
+import { CreateProfileComponent } from './components/test/create-profile/create-profile.component';
+
 
 
 @NgModule({
   declarations: [
-    AppComponent,NavBarComponent, FooterComponent,InputUserComponent,InputComponent,SignInComponentComponent,ProductXeComponent,ShowProductsXeComponent
+    AppComponent,NavBarComponent, FooterComponent,InputUserComponent,InputComponent,SignInComponentComponent,ProductXeComponent,ShowProductsXeComponent,AllProfilesComponent,CreateProfileComponent
   ],
   imports: [
     BrowserModule,
