@@ -1,7 +1,8 @@
+import { Router } from '@angular/router';
 import { LoginsService } from '../../services/logins.service';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-sign-in-component',
@@ -10,14 +11,14 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SignInComponentComponent {
 
-  onSubmit(postData) {
-    this.http.post('http://127.0.0.1:8080/user/login',postData)
-    .subscribe((result)=> {
-      console.warn("result",result)
-    });
+  ngOnInit(): void {
   }
 
-  constructor(public LoginsService:LoginsService,private http:HttpClient) { }
 
+  constructor(public LoginsService:LoginsService,private http:HttpClient,private cookieService: CookieService,private router:Router) { }
 
+  onSubmit(data) {
+    this.LoginsService.loginAcc(data);
+    // console.log(data);
+  }
 }
