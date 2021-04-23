@@ -1,14 +1,8 @@
 img {
-  width: 100%;
+  width: 60%;
+  border-radius: 10px;
   margin-left: auto;
   margin-right: auto;
   display: block;
-}
-
-.wrap{
-  margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 20px;
-  width: 71%;
+  margin-top: 1%;
 }

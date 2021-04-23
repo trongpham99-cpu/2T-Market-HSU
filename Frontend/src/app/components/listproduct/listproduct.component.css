@@ -6,8 +6,8 @@
 }
 
 .cYlzLi {
-  margin: 20px auto 20px;
-  width: 76%;
+  margin: 0px auto;
+  max-width: 960px;
   background: transparent;
 }
 
@@ -259,6 +259,7 @@ h1 {
 .app-product{
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   grid-template-columns: repeat(5, 1fr);
+  border-top: 1px solid rgb(244, 244, 244);
+  padding: 10px;
 }
