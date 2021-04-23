@@ -10,8 +10,8 @@
       <li><a href="#">Services</a></li>
       <li><a href="#">Contact</a></li>
       <li><a href="#">Feedback</a></li>
-      <li><a *ngIf="LoginsService.user_google == null" class="Sign-in" [routerLink]="['/inputproduct']" >Đăng Tin</a></li>
-      <li><a *ngIf="LoginsService.user_google == null" class="Sign-in" [routerLink]="['/signin']" >Sign In</a></li>
-      <li><a *ngIf="LoginsService.user_google == null" class="Sign-in" (click)="this.LoginsService.logout()" >Sign Out</a></li>
+      <li><a *ngIf="this.LoginsService.user" [routerLink]="['/inputproduct']" >Đăng Tin</a></li>
+      <li><a  [routerLink]="['/signin']" >Sign In</a></li>
+      <li><a>Sign Out</a></li>
     </ul>
   </nav>

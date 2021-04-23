@@ -1,0 +1,28 @@
+<h1>Create Profile</h1>
+<hr />
+<form [formGroup]="form" (submit)="onSubmit()">
+  <div>
+    <input formControlName="name" type="text" placeholder="Enter name..." />
+  </div>
+  <div>
+    <input formControlName="price" type="text" placeholder="Enter price..." />
+  </div>
+  <div>
+    <input formControlName="description" type="text" placeholder="Enter description..." />
+  </div>
+  <div>
+    <input formControlName="address" type="text" placeholder="Enter address..." />
+  </div>
+  <div>
+    <input formControlName="loai_sp" type="text" placeholder="Enter loai_sp..." />
+  </div>
+  <div>
+    <input (change)="onFileSelect($event)" type="file" />
+  </div>
+  <div *ngIf="imageData">
+    <img [src]="imageData" [alt]="form.value.name" />
+  </div>
+  <div>
+    <button type="submit">Create profile</button>
+  </div>
+</form>
