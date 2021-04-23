@@ -1,22 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-import { from, Observable } from 'rxjs';
-import { Product } from '../../../models/product.model';
-import {ProductsService} from '../../../services/products.service';
+import { Component, OnInit, OnDestroy } from "@angular/core";
+import { Subscription } from "rxjs";
+
+import { ProfileService } from "src/app/services/profile.service";
+import { Profile } from "src/app/models/Profile";
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  public product: Product[]=[];
-
-  constructor(private ProductsService:ProductsService){
-    this.ProductsService.getData().subscribe((res :Product[])=>{
-      this.product = res;
-      console.log(res);
-    })
+  profiles: Profile[] = [];
+  private profileSubscription: Subscription;
+  constructor(private profilesService: ProfileService){
   }
   ngOnInit(): void {
+    this.profilesService.getProfiles();
+    this.profileSubscription = this.profilesService
+      .getProfilesStream()
+      .subscribe((profiles: Profile[]) => {
+        this.profiles = profiles;
+      });
   }
 
+  ngOnDestroy() {
+    this.profileSubscription.unsubscribe();
+  }
 }

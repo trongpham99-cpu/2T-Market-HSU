@@ -5,10 +5,8 @@ const profileSchema = mongoose.Schema({
   productPrice: { type: String, required: true },
   description: { type: String, required: true },
   productAddress: { type: String, required: true },
-  checkStatus: { type: String, required: true },
   loai_sp: { type: String, required: true },
-  nguoi_dang: { type: String, required: true },
-  uploaded: { type: Date, default :Date.now },
+  ngay_dang: { type: Date, default :Date.now},
   imagePath: { type: String, required: true },
 });
 

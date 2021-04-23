@@ -1,18 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { ProfileService } from "src/app/services/profile.service";
-import { Profile } from "../../../models/Profile";
-import { Subscription } from 'rxjs';
-@Component({
-  selector: 'app-all-profiles',
-  templateUrl: './all-profiles.component.html',
-  styleUrls: ['./all-profiles.component.css']
-})
-export class AllProfilesComponent implements OnInit {
+import { Component, OnInit, OnDestroy } from "@angular/core";
+import { Subscription } from "rxjs";
 
+import { ProfileService } from "src/app/services/profile.service";
+import { Profile } from "src/app/models/Profile";
+
+@Component({
+  selector: "app-all-profiles",
+  templateUrl: "./all-profiles.component.html",
+  styleUrls: ["./all-profiles.component.css"],
+})
+export class AllProfilesComponent implements OnInit, OnDestroy {
   profiles: Profile[] = [];
   private profileSubscription: Subscription;
 
-  constructor(private profilesService: ProfileService) { }
+  constructor(private profilesService: ProfileService) {}
 
   ngOnInit(): void {
     this.profilesService.getProfiles();
@@ -26,5 +27,4 @@ export class AllProfilesComponent implements OnInit {
   ngOnDestroy() {
     this.profileSubscription.unsubscribe();
   }
-
 }

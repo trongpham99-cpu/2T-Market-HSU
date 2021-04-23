@@ -12,7 +12,7 @@ import { Subject } from "rxjs";
 export class ProfileService {
   private profiles: Profile[] = [];
   private profiles$ = new Subject<Profile[]>();
-  readonly url = "http://localhost:3000/api/profiles";
+  readonly url = "http://127.0.0.1:8080/api/profiles";
 
   constructor(private http: HttpClient) {}
 
@@ -34,14 +34,13 @@ export class ProfileService {
     return this.profiles$.asObservable();
   }
 
-  addProfile(productName: string,productPrice:string,description:string,productAddress:string,loai_sp:string,nguoi_dang:string,image: File): void {
+  addProfile(productName: string,productPrice:string,description:string,productAddress:string,loai_sp:string,image: File): void {
     const profileData = new FormData();
-    profileData.append("name", productName);
-    profileData.append("price", productPrice);
+    profileData.append("productName", productName);
+    profileData.append("productPrice", productPrice);
     profileData.append("description", description);
-    profileData.append("address", productAddress);
+    profileData.append("productAddress", productAddress);
     profileData.append("loai_sp", loai_sp);
-    profileData.append("nguoi_dang", nguoi_dang);
     profileData.append("image", image, productName);
     this.http
       .post<{ profile: Profile }>(this.url, profileData)
@@ -49,11 +48,10 @@ export class ProfileService {
         const profile: Profile = {
           _id: profileData.profile._id,
           productName: productName,
-          productPrice: productPrice,
+          productPrice:productPrice,
           description:description,
           productAddress:productAddress,
           loai_sp:loai_sp,
-          nguoi_dang:nguoi_dang,
           imagePath: profileData.profile.imagePath,
         };
         this.profiles.push(profile);
