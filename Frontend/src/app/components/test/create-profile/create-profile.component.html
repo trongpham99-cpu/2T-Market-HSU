@@ -2,25 +2,25 @@
 <hr />
 <form [formGroup]="form" (submit)="onSubmit()">
   <div>
-    <input formControlName="name" type="text" placeholder="Enter name..." />
+    <input formControlName="productName" type="text" placeholder="Enter name..." />
   </div>
   <div>
-    <input formControlName="price" type="text" placeholder="Enter price..." />
+    <input formControlName="productPrice" type="text" placeholder="Enter price..." />
   </div>
   <div>
     <input formControlName="description" type="text" placeholder="Enter description..." />
   </div>
   <div>
-    <input formControlName="address" type="text" placeholder="Enter address..." />
+    <input formControlName="productAddress" type="text" placeholder="Enter address..." />
   </div>
   <div>
-    <input formControlName="loai_sp" type="text" placeholder="Enter loai_sp..." />
+    <input formControlName="loai_sp" type="text" placeholder="Enter type..." />
   </div>
   <div>
     <input (change)="onFileSelect($event)" type="file" />
   </div>
   <div *ngIf="imageData">
-    <img [src]="imageData" [alt]="form.value.name" />
+    <img [src]="imageData" [alt]="form.value.productName" />
   </div>
   <div>
     <button type="submit">Create profile</button>

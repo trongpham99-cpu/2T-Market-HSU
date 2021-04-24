@@ -1,17 +1,17 @@
-
-    <div *ngFor="let i of product" class="AdItem__Item-sc-1ewf82b-0 eIgKqv item___DjEGG">
+<!-- <div *ngIf="profiles.length > 0"> -->
+    <div *ngFor="let profile of profiles" class="AdItem__Item-sc-1ewf82b-0 eIgKqv item___DjEGG">
         <div class="wrapperLink___22Hpy">
             <div class="thumbnailWrapper___927DE">
                 <a target="_blank" rel="noopener noreferrer" class="thumbnailImg___3UKHb">
-                    <img src="../../../../assets/iPhoneXs.jpeg" alt="">
+                    <img [src]="profile.imagePath" [alt]="profile.productName">
                 </a>
             </div>
             <div class="caption___3JllO">
                 <a target="_blank" rel="noopener noreferrer" class="adTitleGrid___mC6FC">
-                {{i.productName}}
+                {{profile.productName}}
                 </a>
                 <div>
-                    <span class="price___1yCK1">{{i.productPrice}}.000 đ</span>
+                    <span class="price___1yCK1">{{profile.productPrice}}.000 đ</span>
                 </div>
             </div>
             <div class="footer___2QdZm">
@@ -24,11 +24,10 @@
                 </div>
                 <div class="deviderWrapper___3umBa"></div>
                 <span class="adItemPostedTime___2i72W location___2mJlP">
-                    <span class="text___19FS4">{{i.productAddress}}</span>
+                    <span class="text___19FS4">{{profile.productAddress}}</span>
                 </span>
-                <p>{{i._id}}</p>
-                <button (click)="ProductsService.click(i._id)" [routerLink]="['/viewdetail/' + this.i._id]" >showID</button>
             </div>
-
         </div>
     </div>
+<!-- </div> -->
+

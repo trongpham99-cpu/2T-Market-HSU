@@ -3,8 +3,7 @@ export interface Profile {
   productName: string;
   productPrice: string;
   description: string;
-  productAddress:string,
-  loai_sp: string,
-  nguoi_dang: string,
+  productAddress: string;
+  loai_sp: string;
   imagePath: string;
 }

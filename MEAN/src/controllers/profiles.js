@@ -6,14 +6,15 @@ exports.getProfiles = async (req, res) => {
 };
 
 exports.postProfile = async (req, res) => {
-  const { productName,productPrice,description,productAddress,loai_sp } = req.body;
-  const imagePath = 'http://localhost:3000/images/' + req.file.filename; // Note: set path dynamically
+  const { productName,productPrice,description,productAddress,loai_sp,ngay_dang } = req.body;
+  const imagePath = 'http://127.0.0.1:8080/images/' + req.file.filename; // Note: set path dynamically
   const profile = new Profile({
     productName,
     productPrice,
     description,
     productAddress,
     loai_sp,
+    ngay_dang,
     imagePath,
   });
   const createdProfile = await profile.save();
