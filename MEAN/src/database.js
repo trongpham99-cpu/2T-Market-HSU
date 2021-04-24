@@ -99,9 +99,10 @@ class Database{
     }
 
     //check user 
-    async checkUser(userAccount,userPassword) {
-            return await this.user.find({userAccount:userAccount,userPassword:userPassword});
+    async checkUser(userAccount) {
+            return await this.user.find({userAccount:userAccount});
     }
+
     //check account 
     async checkAccount(userAccount) {
         return await this.user.find({userAccount:userAccount});
@@ -112,7 +113,7 @@ class Database{
     }
     async findUser(userAccount){
        const users= (await   this.user.find( {
-            "userAccount" : userAccount
+            userAccount : userAccount
         }))
         return users;
     }
@@ -120,6 +121,8 @@ class Database{
     async getDetail(id) {
         return await this.proDuct.findById(id);
     }
+
+    
 
 }
     

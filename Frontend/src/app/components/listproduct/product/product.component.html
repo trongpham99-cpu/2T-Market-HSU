@@ -27,7 +27,7 @@
                     <span class="text___19FS4">{{i.productAddress}}</span>
                 </span>
                 <p>{{i._id}}</p>
-                <button (click)="ProductsService.click(i._id)" >showID</button>
+                <button (click)="ProductsService.click(i._id)" [routerLink]="['/viewdetail/' + this.i._id]" >showID</button>
             </div>
 
         </div>

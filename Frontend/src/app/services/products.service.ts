@@ -3,8 +3,7 @@ import { Observable } from 'rxjs';
 import {HttpClient,HttpErrorResponse,HttpHeaders, HttpParams, HttpRequest} from '@angular/common/http';
 import { Product } from '../models/product.model';
 import { Router } from '@angular/router';
-
-
+import { map } from 'rxjs/operators';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -16,8 +15,9 @@ const httpOptions = {
 export class ProductsService {
   baseUrl: string ="http://127.0.0.1:8080/products";
   products : Product[];
-  name: string;
+
   constructor(private http:HttpClient) { }
+
   getData(){
     return this.http.get(this.baseUrl);
   }
@@ -65,6 +65,25 @@ export class ProductsService {
     return this.http.put("http://127.0.0.1:8080/products" + id,products).subscribe(()=>{
       console.log("Updated");
     });
+  }
+
+  //detail
+
+  private productDetail: Product;
+
+  // getProductDetail(id: string){
+  //     let productDetail: Product;
+  //     this.http.get<{user: any}>("http://127.0.0.1:8080/product/" + id)
+  //     .subscribe(response => {
+  //       productDetail = response.user;
+  //       this.productDetail = productDetail;
+  //     });
+  //     console.log(this.productDetail);
+  //   }
+
+
+  getOne(id){
+    return this.http.get('http://127.0.0.1:8080/product/?id='+ id);
   }
 
 }

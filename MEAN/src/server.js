@@ -7,7 +7,11 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
-
+var cookiesParser = require('cookie-parser');
+//image
+const path = require('path');
+const profilesRoutes = require('./routes/profiles');
+const multer = require('multer');
 const corsOptions = {
     origin: 'http://localhost:4200',
     optionsSuccessStatus: 200
@@ -15,6 +19,7 @@ const corsOptions = {
 const app = express();
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
+app.use(cookiesParser());
 //name-product
 
 app.get("/products/xe",async (req,res)=>{
@@ -56,26 +61,7 @@ app.delete("/products", async(req,res)=>{
 });
 
 
-//register
-app.post("/users",async (req,res)=>{
-    let temp = '';
-    const {userAccount,userPassword,userName,userPhone,userAddress,userImage,userCoin} = req.body;
-    
-    let check = await Database.instance.checkAccount(userAccount);
-    if(!check){
-        await bcrypt.genSalt(saltRounds,(err,salt)=>{
-            bcrypt.hash(userPassword, salt, (err, hash)=>{
-                temp = hash;
-                Database.instance.createUser(new User(userAccount,temp,userName,userPhone,userAddress,userImage,userCoin));
-                console.log("thanh cong ", temp);
-                res.send(`Created success: ${userAccount}`);
-            });
-        });
-        }else {
-            console.log("fail !")
-            res.send(`Created fail: ${userAccount} da ton tai`);
-        }
-});
+
 
 //product/id
 app.post("/product",async (req,res)=>{
@@ -99,33 +85,64 @@ app.get("/product",async (req,res)=>{
     res.send(detail);
 });
 
-app.post("/user/login", async (req,res)=>{
-    const {userAccount,userPassword} = req.body;
-    // res.send(`User Account: ${userAccount} User Password: ${userPassword}` );
+/////////////////////////////////////////////////////////////////////
+//register
+app.post("/register",async (req,res)=>{
+    let temp = '';
+    const {userAccount,userPassword,userName,userPhone,userAddress} = req.body;
+    let check = await Database.instance.findUser(userAccount);
+    if(check == '' ){
+            await bcrypt.genSalt(saltRounds,(err,salt)=>{
+            bcrypt.hash(userPassword, salt, (err, hash)=>{
+                temp = hash;
+                Database.instance.createUser(new User(userAccount,temp,userName,userPhone,userAddress));
+                res.status(200).send({
+                    message:`Created USer: ${userAccount}`
+                })
+            });
+        });
+    }else {
+                res.status(400).send({
+                    message:`Account already exists`
+                })
+    }
+});
 
-    // let login = await Database.instance.checkUser(userAccount,userPassword);
-    let user =  await Database.instance.findUser(userAccount,userPassword);   
-    console.log(user); 
-    // res.send(user);
-   
-        bcrypt.compare(userPassword, user[0].userPassword, function(err,resp){
+//post: login 
+app.post("/login", async (req,res)=>{
+    const {userAccount,userPassword} = req.body;
+    const user = await Database.instance.checkUser(userAccount);
+    await   bcrypt.compare(userPassword, user[0].userPassword, function(err,resp){
                 if(resp){
-                    res.send('dc')
-                    console.log("success");
-                    console.log(userAccount);
-                    console.log(userPassword);
+                    var token = jwt.sign({
+                    _id : user._id},'mk')
+                    return res.json({
+                        message:`Login successfully with account :${userAccount}`,
+                        token:token
+                    })
                 }
                 else {
-                    res.send('fail')
-                    console.log("fail");
+                    res.status(400).send({
+                        message:`Login Fail`
+                    })
                 }
-        })
+    })    
 });
+//get : login
+app.get("/login/:token", (req,res)=>{
+    try{
+        var token = req.params.token;
+        var ketqua  = jwt.verify(token,'mk')
+        console.log(ketqua);
+    }catch(error){
+        return res.json('ban can phai login')
+    }
+});
+
 
 app.get("/users",async (req,res)=>{
     let User = await Database.instance.getAllUser();
     res.send(User);
 });
-
 
 module.exports = app;
