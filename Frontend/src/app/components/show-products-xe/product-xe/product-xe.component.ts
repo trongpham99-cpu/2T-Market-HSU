@@ -8,7 +8,7 @@ import {ProductsService} from '../../../services/products.service';
 })
 export class ProductXeComponent implements OnInit {
   public product_xe: Product[]=[];
-  constructor(private ProductsService:ProductsService) {
+  constructor(public ProductsService:ProductsService) {
     this.ProductsService.getData_xe().subscribe((res :Product[])=>{
       this.product_xe = res;
       console.log(res);
