@@ -1,3 +1,4 @@
+import { UsersService } from 'src/app/services/users.service';
 import { ProductsService } from 'src/app/services/products.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -13,7 +14,7 @@ export class ViewDetailComponent implements OnInit {
   id:any;
   data:any;
 
-  constructor(public ProductsService:ProductsService,private route : ActivatedRoute) {
+  constructor(public ProductsService:ProductsService,private route : ActivatedRoute, public UsersService:UsersService) {
   }
 
   ngOnInit(): void {
