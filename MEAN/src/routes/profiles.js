@@ -7,13 +7,17 @@ const storage = require('../helpers/storage');
 
 const router = express.Router();
 
-router.get('/product', profilesController.getProducts);
+router.get('/product', profilesController.getProfiles);
 
 router.get('/detail', profilesController.getDetail);
 
 router.get('/category', profilesController.getCategory);
 
-router.post('/', storage, profilesController.postProfile);
+router.get('/newproduct',profilesController.getProductsNew);
+
+router.get('/sortprice',profilesController.sortPrice);
+
+router.post('/product', storage, profilesController.postProfile);
 
 router.delete('/product',profilesController.deteleProduct);
 

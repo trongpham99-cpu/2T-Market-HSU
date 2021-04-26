@@ -12,13 +12,28 @@ import { Subject } from "rxjs";
 export class ProfileService {
   private profiles: Profile[] = [];
   private profiles$ = new Subject<Profile[]>();
-  readonly url = "http://127.0.0.1:8080/api/product";
+  readonly url = "http://127.0.0.1:8080/api";
 
   constructor(private http: HttpClient) {}
 
-  getProfiles() {
+  getProductsNew() {
     this.http
-      .get<{ profiles: Profile[] }>(this.url)
+      .get<{ productsNew: Profile[] }>(this.url+"/newproduct")
+      .pipe(
+        map((profileData) => {
+          return profileData.productsNew;
+        })
+      )
+      .subscribe((profiles) => {
+        this.profiles = profiles;
+        this.profiles$.next(this.profiles);
+        console.log(profiles);
+      });
+  }
+
+  getAllProductAdmin() {
+    this.http
+      .get<{ profiles: Profile[] }>(this.url+"/product")
       .pipe(
         map((profileData) => {
           return profileData.profiles;
@@ -27,6 +42,7 @@ export class ProfileService {
       .subscribe((profiles) => {
         this.profiles = profiles;
         this.profiles$.next(this.profiles);
+        console.log(profiles);
       });
   }
 
@@ -54,7 +70,7 @@ export class ProfileService {
     profileData.append("loai_sp", loai_sp);
     profileData.append("image", image, productName);
     this.http
-      .post<{ profile: Profile }>(this.url, profileData)
+      .post<{ profile: Profile }>(this.url + "/product", profileData)
       .subscribe((profileData) => {
         const profile: Profile = {
           _id: profileData.profile._id,
@@ -70,4 +86,3 @@ export class ProfileService {
       });
   }
 }
-//trong

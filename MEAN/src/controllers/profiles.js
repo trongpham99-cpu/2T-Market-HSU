@@ -1,18 +1,38 @@
 const Profile = require('../models/profile');
 //GET ALL PRODUCT
-exports.getProducts = async (req, res) => {
-  const products = await Profile.find();
-  res.status(200).json({ products });
+exports.getProfiles = async (req, res) => {
+  const profiles = await Profile.find();
+  res.status(200).json({ profiles });
   let productALL = 0;  
-  for(let i = 0; i<=products.length;i++){
+  for(let i = 0; i<profiles.length;i++){
     productALL++;
   }
   console.log(`Tổng số sản phẩm là : ` + productALL);
 };
 //GET ALL PRODUCT FOR NEW POST
 exports.getProductsNew = async (req,res) =>{
-  const productsNew = await Profile.find();
-
+  const productsNew = await Profile
+  .find({})
+  .sort({
+    ngay_dang:-1,
+  })
+  .limit(100000); 
+  let count = 0;
+  for(let i=0;i<=productsNew.length;i++){
+    count++;
+  }
+  console.log(count);
+  res.status(200).json({productsNew});
+}
+//SORT ALL BY PRICE
+exports.sortPrice = async (req,res) => {
+  const result = await Profile
+  .find({})
+  .sort({
+    productPrice: -1,
+  })
+  .limit(10000);
+  res.send(result);
 }
 //GET DETAIL
 exports.getDetail = async (req, res) => {

@@ -16,7 +16,7 @@ export class ProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.profilesService.getProfiles();
+    this.profilesService.getAllProductAdmin();
     this.profileSubscription = this.profilesService
       .getProfilesStream()
       .subscribe((profiles: Profile[]) => {

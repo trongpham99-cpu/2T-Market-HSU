@@ -11,6 +11,7 @@ var cookiesParser = require("cookie-parser");
 //image
 const path = require("path");
 const profilesRoutes = require("./routes/profiles");
+const categoriesRoutes = require("./routes/categories");
 const corsOptions = {
     origin: "http://localhost:4200",
     optionsSuccessStatus: 200,
@@ -201,5 +202,8 @@ app.get("/login", async (req, res) => {
 app.use('/images', express.static(path.join('images')));
 
 app.use('/api/', profilesRoutes);
+//CATEGORY
+app.use('/api/',categoriesRoutes);
+
 
 module.exports = app;

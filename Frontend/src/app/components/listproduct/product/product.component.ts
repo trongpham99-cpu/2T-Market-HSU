@@ -14,7 +14,7 @@ export class ProductComponent implements OnInit {
   constructor(public profilesService: ProfileService){
   }
   ngOnInit(): void {
-    this.profilesService.getProfiles();
+    this.profilesService.getProductsNew();
     this.profileSubscription = this.profilesService
       .getProfilesStream()
       .subscribe((profiles: Profile[]) => {
