@@ -18,6 +18,7 @@ import { ShowProductsXeComponent } from './components/show-products-xe/show-prod
 import { CookieService } from 'ngx-cookie-service';
 import { AllProfilesComponent } from './components/test/all-profiles/all-profiles.component';
 import { CreateProfileComponent } from './components/test/create-profile/create-profile.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -33,6 +34,7 @@ import { CreateProfileComponent } from './components/test/create-profile/create-
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
+    BrowserAnimationsModule,
 
   ],
   providers: [CookieService ],

@@ -26,6 +26,7 @@ export class ViewDetailComponent implements OnInit {
     this.ProductsService.getOne(this.id).subscribe(data =>{
       this.data = data;
       console.log(data);
+
     })
   }
 

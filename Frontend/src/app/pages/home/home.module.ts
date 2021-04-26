@@ -7,12 +7,14 @@ import { CategoryComponent } from '../../components/category/category.component'
 import { QuangcaoComponent } from '../../components/ads/quangcao.component';
 import {ProductComponent} from '../../components/listproduct/product/product.component';
 import {ListproductComponent} from '../../components/listproduct/listproduct.component';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [HomeComponent,CategoryComponent,QuangcaoComponent,ListproductComponent,ProductComponent],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    MatTableModule
   ]
 })
 export class HomeModule { }

@@ -27,6 +27,8 @@
                     <span class="text___19FS4">{{profile.productAddress}}</span>
                 </span>
             </div>
+            <p>{{profile._id}}</p>
+            <button (click)="profilesService.click(profile._id)" [routerLink]="['/viewdetail/' + this.profile._id]">Detail</button>
         </div>
     </div>
 <!-- </div> -->

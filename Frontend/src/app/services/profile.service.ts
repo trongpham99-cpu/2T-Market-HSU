@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 import { map } from "rxjs/operators";
 
@@ -12,7 +12,7 @@ import { Subject } from "rxjs";
 export class ProfileService {
   private profiles: Profile[] = [];
   private profiles$ = new Subject<Profile[]>();
-  readonly url = "http://127.0.0.1:8080/api/profiles";
+  readonly url = "http://127.0.0.1:8080/api/product";
 
   constructor(private http: HttpClient) {}
 
@@ -29,6 +29,17 @@ export class ProfileService {
         this.profiles$.next(this.profiles);
       });
   }
+
+  getOne(id:Profile){
+    return this.http.get('http://127.0.0.1:8080/api/detail/?id='+ id);
+  }
+
+  click(id:Profile) {
+    const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
+    return  this.http.get("http://127.0.0.1:8080/api/detail/?id=" +id ,{headers: headers}
+    ).subscribe(()=>{ return;
+     })
+}
 
   getProfilesStream() {
     return this.profiles$.asObservable();

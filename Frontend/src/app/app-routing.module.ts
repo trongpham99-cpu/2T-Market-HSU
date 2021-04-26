@@ -1,4 +1,5 @@
 import { InputUserComponent } from '../app/components/sign-up/input-user.component';
+import { AllProfilesComponent } from '../app/components/test/all-profiles/all-profiles.component';
 import {InputComponent} from '../app/components/input-product/input.component';
 import { SignInComponentComponent } from '../app/components/sign-in/sign-in-component.component';
 import { ViewDetailComponent } from './components/view-detail/view-detail.component';
@@ -12,6 +13,7 @@ const routes: Routes = [
 { path: 'admin', loadChildren: () => import('./pages/admin/admin.module').then(m => m.AdminModule) },
 { path: 'viewdetail/:id',component:ViewDetailComponent },
 { path: 'inputproduct',component:InputComponent },
+{ path: 'crud',component:AllProfilesComponent },
 { path: 'input',component:CreateProfileComponent },
 { path: 'signin',component:SignInComponentComponent },
 { path:'xe',component:ProductXeComponent},

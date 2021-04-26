@@ -11,7 +11,7 @@ import { Profile } from "src/app/models/Profile";
 export class ProductComponent implements OnInit {
   profiles: Profile[] = [];
   private profileSubscription: Subscription;
-  constructor(private profilesService: ProfileService){
+  constructor(public profilesService: ProfileService){
   }
   ngOnInit(): void {
     this.profilesService.getProfiles();

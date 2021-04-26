@@ -48,9 +48,9 @@ export class ProductsService {
   getProductDetail(id: String): Observable<any>{
     const url = `${this.baseUrl}/${id}`;
     return this.http.get<any>(url);
-}  
-  
- 
+}
+
+
 ////////////////////////////
 
 

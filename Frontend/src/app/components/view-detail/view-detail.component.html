@@ -1,6 +1,5 @@
-<div class = "card-wrapper">
+<!-- <div class = "card-wrapper">
   <div class = "card">
-    <!-- card left -->
     <div class = "product-imgs">
       <div class = "img-display">
         <div class = "img-showcase">
@@ -10,7 +9,6 @@
       <div class = "img-select">
       </div>
     </div>
-    <!-- card right -->
     <div class = "product-content">
       <h2 class = "product-title">{{data.productName}}</h2>
 
@@ -27,13 +25,6 @@
       <div class = "product-detail">
         <h2>Chi tiết sản phẩm: </h2>
         <p>{{data.description}}</p>
-        <!-- <ul>
-          <li>Color: <span>Black</span></li>
-          <li>Available: <span>in stock</span></li>
-          <li>Category: <span>Shoes</span></li>
-          <li>Shipping Area: <span>All over the world</span></li>
-          <li>Shipping Fee: <span>Free</span></li>
-        </ul> -->
       </div>
       <hr>
       <br>
@@ -75,4 +66,7 @@
 
     </div>
   </div>
+</div> -->
+<div *ngFor="let profile of profiles">
+  <p>{{profile.producrtName}}</p>
 </div>

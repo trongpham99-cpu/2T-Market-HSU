@@ -200,6 +200,6 @@ app.get("/login", async (req, res) => {
 //TEST IMAGE
 app.use('/images', express.static(path.join('images')));
 
-app.use('/api/profiles', profilesRoutes);
+app.use('/api/', profilesRoutes);
 
 module.exports = app;

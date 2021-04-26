@@ -1,11 +1,10 @@
-<div *ngFor = " let i of product" >
-  <h3><strong>Tên Sản Phẩm: </strong>{{i.productName}}</h3>
-  <p> <strong>Mã Sản Phẩm: </strong>{{i._id}}</p>
-  <p><strong>Giá Sản Phẩm: </strong>{{i.productPrice}}</p>
-  <p><strong>Địa Chỉ: </strong>{{i.productAddress}}</p>
-  <p><strong>Mô Tả: </strong>{{i.description}}</p>
-  <p><strong>Loại Sản Phẩm: </strong>{{i.loai_sp}}</p>
-  <p><strong>Người Đăng: </strong></p>
-  <button (click)="onDelete()" >Xóa</button>
-  <button>Sửa</button>
+<div class="divall" *ngFor="let profile of profiles">
+  <div class="div1" >
+    <img [src]="profile.imagePath" [alt]="profile.productName">
+  </div>
+  <div class="div2" >
+     <p>{{profile.productName}}</p>
+    <p>{{profile.productPrice}}</p>
+    <p>{{profile.productAddress}}</p>
+  </div>
 </div>
