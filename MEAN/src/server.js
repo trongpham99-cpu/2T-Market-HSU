@@ -20,12 +20,7 @@ const app = express();
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(cookiesParser());
-//CATEGORY
 
-app.get("/products/xe", async (req, res) => {
-    let proDucts = await Database.instance.getProductByLoaiSp();
-    res.send(proDucts);
-});
 
 //PRODUCT
 app.post("/products", async (req, res) => {
@@ -200,10 +195,8 @@ app.get("/login", async (req, res) => {
 
 //TEST IMAGE
 app.use('/images', express.static(path.join('images')));
-
-app.use('/api/', profilesRoutes);
-//CATEGORY
 app.use('/api/',categoriesRoutes);
+app.use('/api/',profilesRoutes);
 
 
 module.exports = app;

@@ -4,7 +4,7 @@ exports.getProfiles = async (req, res) => {
   const profiles = await Profile.find();
   res.status(200).json({ profiles });
   let productALL = 0;  
-  for(let i = 0; i<profiles.length;i++){
+  for(let i = 1; i<=profiles.length;i++){
     productALL++;
   }
   console.log(`Tổng số sản phẩm là : ` + productALL);
@@ -18,10 +18,10 @@ exports.getProductsNew = async (req,res) =>{
   })
   .limit(100000); 
   let count = 0;
-  for(let i=0;i<=productsNew.length;i++){
+  for(let i=1;i<=productsNew.length;i++){
     count++;
   }
-  console.log(count);
+  console.log(`Tổng số sản phẩm hot là : ` + count);
   res.status(200).json({productsNew});
 }
 //SORT ALL BY PRICE
@@ -39,7 +39,6 @@ exports.getDetail = async (req, res) => {
   const {id} = req.query;
   console.log(id);
   const detail = await Profile.findById(id);
-  console.log(detail.productName);
   if(detail){
     res.status(200).json({detail})
   }else{
