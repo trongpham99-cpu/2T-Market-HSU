@@ -47,7 +47,7 @@ exports.getDetail = async (req, res) => {
 }
 //GET CATEGORY
 exports.getCategory = async(req, res) =>{
-  const { loai_sp } = req.body;
+  const { loai_sp } = req.query;
   const category = await Profile.find({loai_sp:loai_sp});
   if(category){
     let count = 0;

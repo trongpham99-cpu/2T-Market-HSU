@@ -30,6 +30,21 @@ export class ProfileService {
         console.log(profiles);
       });
   }
+  
+  getCategory(loai_sp) {
+    this.http
+      .get<{ category: Profile[] }>(this.url + "/category/?loai_sp=" + loai_sp )
+      .pipe(
+        map((profileData) => {
+          return profileData.category;
+        })
+      )
+      .subscribe((profiles) => {
+        this.profiles = profiles;
+        this.profiles$.next(this.profiles);
+        console.log(profiles);
+      });
+  }
 
   getAllProductAdmin() {
     this.http
@@ -46,15 +61,20 @@ export class ProfileService {
       });
   }
 
-  getOne(id:Profile){
-    return this.http.get('http://127.0.0.1:8080/api/detail/?id='+ id);
-  }
 
-  click(id:Profile) {
-    const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
-    return  this.http.get("http://127.0.0.1:8080/api/detail/?id=" +id ,{headers: headers}
-    ).subscribe(()=>{ return;
-     })
+  click(id){
+    // console.log(id);
+  this.http
+    .get<{ detail: Profile[] }>("http://127.0.0.1:8080/api/detail/?id=" + id)
+    .pipe(
+      map((profileData) => {
+        return profileData.detail;
+      })
+    )
+    .subscribe((profiles) => {
+      this.profiles = profiles;
+      this.profiles$.next(this.profiles);
+    });
 }
 
   getProfilesStream() {

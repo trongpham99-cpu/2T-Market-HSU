@@ -3,6 +3,9 @@ import { FormGroup, FormControl } from "@angular/forms";
 
 import { Profile } from "../../../models/Profile";
 import { ProfileService } from "src/app/services/profile.service";
+import { CategoriesService } from "src/app/services/categories.service";
+import { Category } from "src/app/models/Category";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: "app-create-profile",
@@ -13,10 +16,18 @@ export class CreateProfileComponent implements OnInit {
   form: FormGroup;
   profile: Profile;
   imageData: string;
+  categories: Category[] = [];
+  private profileSubscription: Subscription;
 
-  constructor(private profileService: ProfileService) {}
+  constructor(private profileService: ProfileService,public CategoriesService: CategoriesService) {}
 
   ngOnInit(): void {
+    this.CategoriesService.getAllCategory();
+    this.profileSubscription = this.CategoriesService
+      .getProfilesStream()
+      .subscribe((categories: Category[]) => {
+        this.categories = categories;
+      });
     this.form = new FormGroup({
       productName: new FormControl(null),
       productPrice: new FormControl(null),
@@ -50,5 +61,8 @@ export class CreateProfileComponent implements OnInit {
     this.form.value.image);
     this.form.reset();
     this.imageData = null;
+  }
+  ngOnDestroy() {
+    this.profileSubscription.unsubscribe();
   }
 }

@@ -1,8 +1,11 @@
+import { ProfileService } from 'src/app/services/profile.service';
 import { UsersService } from 'src/app/services/users.service';
 import { ProductsService } from 'src/app/services/products.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/models/product.model';
+import { Profile } from 'src/app/models/Profile';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-view-detail',
@@ -11,23 +14,24 @@ import { Product } from 'src/app/models/product.model';
 })
 export class ViewDetailComponent implements OnInit {
 
+  public profiles: Profile[] ;
   id:any;
-  data:any;
-
-  constructor(public ProductsService:ProductsService,private route : ActivatedRoute, public UsersService:UsersService) {
+  public profileSubscription: Subscription;
+  constructor(public profilesService: ProfileService){
   }
-
   ngOnInit(): void {
-      this.id = this.route.snapshot.params['id'];
-      this.getOne();
+    this.profilesService.click(this.id);
+    this.profileSubscription = this.profilesService
+      .getProfilesStream()
+      .subscribe((profiles: Profile[]) => {
+        this.profiles = profiles;
+        // console.log(profiles);
+      });
   }
 
-  getOne(){
-    this.ProductsService.getOne(this.id).subscribe(data =>{
-      this.data = data;
-      console.log(data);
-
-    })
+  ngOnDestroy() {
+    this.profileSubscription.unsubscribe();
   }
+
 
 }

@@ -33,12 +33,8 @@
     </select>
   </div>
   <div>
-    <select formControlName="loai_sp">
-      <!-- <p>{{category.name}}</p> -->
-      <option>Xe</option>
-      <option>Đồ Điện Tử</option>
-      <option>Bất Động Sản</option>
-      <option>Sách</option>
+    <select  formControlName="loai_sp">
+      <option *ngFor="let category of categories" >{{category.name}}</option>
     </select>
   </div>
   <div>

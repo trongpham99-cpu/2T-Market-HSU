@@ -12,6 +12,7 @@ var cookiesParser = require("cookie-parser");
 const path = require("path");
 const profilesRoutes = require("./routes/profiles");
 const categoriesRoutes = require("./routes/categories");
+const adssRoutes = require("./routes/adss");
 const corsOptions = {
     origin: "http://localhost:4200",
     optionsSuccessStatus: 200,
@@ -197,6 +198,7 @@ app.get("/login", async (req, res) => {
 app.use('/images', express.static(path.join('images')));
 app.use('/api/',categoriesRoutes);
 app.use('/api/',profilesRoutes);
+app.use('/api',adssRoutes);
 
 
 module.exports = app;

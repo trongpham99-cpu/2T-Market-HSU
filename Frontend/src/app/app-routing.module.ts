@@ -5,7 +5,6 @@ import {ProductXeComponent} from '../app/components/show-products-xe/product-xe/
 import { CreateProfileComponent } from '../app/components/test/create-profile/create-profile.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
 const routes: Routes = [
 { path: 'home', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule) },
 { path: 'admin', loadChildren: () => import('./pages/admin/admin.module').then(m => m.AdminModule) },
@@ -13,7 +12,9 @@ const routes: Routes = [
 { path: 'input',component:CreateProfileComponent },
 { path: 'signin',component:SignInComponentComponent },
 { path:'xe',component:ProductXeComponent},
-{ path: 'signup',component:InputUserComponent },];
+{ path: 'signup',component:InputUserComponent },
+{ path: 'category', loadChildren: () => import('./pages/category/category.module').then(m => m.CategoryModule) },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

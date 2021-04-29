@@ -12,7 +12,7 @@ export class CategoriesService {
   private categories$ = new Subject<Category[]>();
   readonly url = "http://127.0.0.1:8080/api";
   constructor(private http: HttpClient) { }
-
+  
   getAllCategory() {
     this.http
       .get<{ categories: Category[] }>(this.url+"/categories")
@@ -27,6 +27,21 @@ export class CategoriesService {
         console.log(categories);
       });
   }
+
+  getCategory() {
+      this.http
+        .get<{ category: Category[] }>(this.url + "/category/?loai_sp=" + "Xe" )
+        .pipe(
+          map((profileData) => {
+            return profileData.category;
+          })
+        )
+        .subscribe((categories) => {
+          this.categories = categories;
+          this.categories$.next(this.categories);
+          console.log(categories);
+        });
+    }
 
 
   getProfilesStream() {
@@ -49,7 +64,6 @@ export class CategoriesService {
         this.categories$.next(this.categories);
       });
   }
-
 }
 
 

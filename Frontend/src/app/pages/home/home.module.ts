@@ -7,10 +7,9 @@ import {ProductComponent} from '../../components/listproduct/product/product.com
 import {ListproductComponent} from '../../components/listproduct/listproduct.component';
 import {MatTableModule} from '@angular/material/table';
 import { CategoryComponent } from '../../components/category/category.component';
-import { CategoriesComponent } from '../../components/categories/categories.component';
 
 @NgModule({
-  declarations: [HomeComponent,CategoryComponent,QuangcaoComponent,ListproductComponent,ProductComponent,CategoriesComponent],
+  declarations: [HomeComponent,CategoryComponent,QuangcaoComponent,ListproductComponent,ProductComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
