@@ -11,5 +11,6 @@ import { Component, OnInit } from '@angular/core';
 export class NavBarComponent {
 
   constructor( public LoginsService:LoginsService ) { }
+  // user : any;
 }
 // this.router.navigate(['/signin']);

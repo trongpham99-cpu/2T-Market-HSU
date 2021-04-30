@@ -12,9 +12,11 @@ import { Subject } from "rxjs";
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
+
   categories: Category[] = [];
   private profileSubscription: Subscription;
   profiles: Profile[] = [];
+  name:any;
   private profiles$ = new Subject<Profile[]>();
   readonly url = "http://127.0.0.1:8080/api";
   constructor(public CategoriesService: CategoriesService, public ProfileService:ProfileService,private http: HttpClient) { }

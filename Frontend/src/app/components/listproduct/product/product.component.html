@@ -1,7 +1,8 @@
-    <div *ngFor="let profile of profiles" class="AdItem__Item-sc-1ewf82b-0 eIgKqv item___DjEGG">
+<!-- <div *ngIf="profiles.length > 0"> -->
+    <div *ngFor="let profile of profiles" class="AdItem__Item-sc-1ewf82b-0 eIgKqv item___DjEGG" >
         <div class="wrapperLink___22Hpy">
             <div class="thumbnailWrapper___927DE">
-                <a target="_blank" rel="noopener noreferrer" class="thumbnailImg___3UKHb">
+                <a target="_blank" rel="noopener noreferrer" class="thumbnailImg___3UKHb" >
                     <img [src]="profile.imagePath" [alt]="profile.productName">
                 </a>
             </div>
@@ -26,7 +27,7 @@
                     <span class="text___19FS4">{{profile.productAddress}}</span>
                 </span>
             </div>
-            <!-- <button (click)="profilesService.click(profile._id)" [routerLink]="['/viewdetail/' + this.profile._id]">Detail</button> -->
         </div>
     </div>
+<!-- </div> -->
 

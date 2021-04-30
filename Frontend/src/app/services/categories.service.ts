@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { map } from "rxjs/operators";
 import { Category } from "../models/Category";
-import { Subject } from "rxjs";
-
+import { Observable, Subject } from "rxjs";
+import {Router} from '@angular/router';
+import { Profile } from '../models/Profile';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +12,7 @@ export class CategoriesService {
   private categories: Category[] = [];
   private categories$ = new Subject<Category[]>();
   readonly url = "http://127.0.0.1:8080/api";
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, public router:Router) { }
   
   getAllCategory() {
     this.http
@@ -28,9 +29,10 @@ export class CategoriesService {
       });
   }
 
-  getCategory() {
+  getCategory(name) {
+    console.log(name)
       this.http
-        .get<{ category: Category[] }>(this.url + "/category/?loai_sp=" + "Xe" )
+        .get<{ category: Category[] }>(this.url + "/category/?loai_sp=" + name )
         .pipe(
           map((profileData) => {
             return profileData.category;
@@ -39,9 +41,13 @@ export class CategoriesService {
         .subscribe((categories) => {
           this.categories = categories;
           this.categories$.next(this.categories);
-          console.log(categories);
         });
+        // this.router.navigate.(['category',this..name])
     }
+  getCa(): Observable<Profile[]> {
+    return this.http.get<Profile[]>(this.url + "/category?loai_sp" + "Xe");
+  }
+
 
 
   getProfilesStream() {

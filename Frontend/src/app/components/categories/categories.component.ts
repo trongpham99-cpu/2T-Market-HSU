@@ -6,6 +6,7 @@ import { Profile } from "src/app/models/Profile";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { map } from "rxjs/operators";
 import { Subject } from "rxjs";
+import { Category } from "src/app/models/Category";
 @Component({
   selector: 'app-categories',
   templateUrl: './categories.component.html',
@@ -14,19 +15,24 @@ import { Subject } from "rxjs";
 export class CategoriesComponent implements OnInit {
   id:any;
   profiles: Profile[] = [];
+  categories: Category[] = [];
+  name:any;
   private profileSubscription: Subscription;
   constructor(public profilesService: ProfileService,public CategoriesService:CategoriesService) { }
   ngOnInit(): void {
-    // this.profilesService.getCategory(this.loai_sp);
-    this.profilesService.getProductsNew();
-    this.profileSubscription = this.profilesService
+    // this.CategoriesService.getCategory();
+    this.CategoriesService.getCa().subscribe((products)=>{
+      this.profiles = products;
+      // console.log(products);
+    })
+    this.profileSubscription = this.CategoriesService
       .getProfilesStream()
-      .subscribe((profiles: Profile[]) => {
-        this.profiles = profiles;
+      .subscribe((categories: Category[]) => {
+        this.categories = categories;
       });
   }
 
-  ngOnDestroy() {
-    this.profileSubscription.unsubscribe();
-  }
+    ngOnDestroy() {
+      this.profileSubscription.unsubscribe();
+    }
 }

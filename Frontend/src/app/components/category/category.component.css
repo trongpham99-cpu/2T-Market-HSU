@@ -6,7 +6,9 @@
 .muc{
   display: flex;
   list-style-type: none;
-  margin: 20px;
+  margin-top: 15px;
+  margin-left: 10px;
+  margin-right: 10px
 }
 
 .categogy{
@@ -14,18 +16,21 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 10px;
 
 }
 .categogy:hover {
   cursor: pointer;
-  background-color: gray;
 }
 .div1 {
-  margin: 20px auto 20px;
+  margin: 5px auto 5px;
   width: 71%;
   background-color: white;
   justify-content: center;
+  /* border: solid 0.2px; */
+  border-radius: 10px;
   display: grid;
+  grid-gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
 
