@@ -13,26 +13,17 @@ import { Category } from "src/app/models/Category";
   styleUrls: ['./categories.component.css']
 })
 export class CategoriesComponent implements OnInit {
-  id:any;
-  profiles: Profile[] = [];
-  categories: Category[] = [];
-  name:any;
-  private profileSubscription: Subscription;
-  constructor(public profilesService: ProfileService,public CategoriesService:CategoriesService) { }
-  ngOnInit(): void {
-    // this.CategoriesService.getCategory();
-    this.CategoriesService.getCa().subscribe((products)=>{
-      this.profiles = products;
-      // console.log(products);
-    })
-    this.profileSubscription = this.CategoriesService
-      .getProfilesStream()
-      .subscribe((categories: Category[]) => {
-        this.categories = categories;
-      });
-  }
-
+    // profiles: Profile[] = [];
+    name:any;
+    profiles: Profile[] = [] ;
+    private profiles$ = new Subject<Profile[]>();
+    readonly url = "http://127.0.0.1:8080/api";
+    constructor(public profilesService: ProfileService,public CategoriesService:CategoriesService){
+    }
+    ngOnInit(): void {
+      this.CategoriesService.getCategory(this.name);
+    }
+  
     ngOnDestroy() {
-      this.profileSubscription.unsubscribe();
     }
 }

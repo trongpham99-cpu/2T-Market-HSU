@@ -19,7 +19,7 @@ export class CategoryComponent implements OnInit {
   name:any;
   private profiles$ = new Subject<Profile[]>();
   readonly url = "http://127.0.0.1:8080/api";
-  constructor(public CategoriesService: CategoriesService, public ProfileService:ProfileService,private http: HttpClient) { }
+  constructor(private CategoriesService: CategoriesService, private ProfileService:ProfileService,private http: HttpClient) { }
 
   ngOnInit(): void {
     this.CategoriesService.getAllCategory();

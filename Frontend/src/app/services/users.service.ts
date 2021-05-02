@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user.model';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,10 @@ export class UsersService {
 
   getDataUser(){
     return this.http.get(this.baseUrl);
+  }
+
+  getUser(): Observable<User[]> {
+    return this.http.get<User[]>("http://127.0.0.1:8080/user/?id=608c3e4bcca0d2594e873f2b");
   }
 
   onSubmit(postData) {

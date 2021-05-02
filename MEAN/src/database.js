@@ -55,13 +55,7 @@ class Database{
             });
         });
     } 
-    /**
-     * 
-     * @param {proDuct} proDuct 
-     */
-    async createProduct(proDuct){
-        await this.proDuct.create(proDuct);
-    }
+
     /**
      * 
      * @param {user} user 
@@ -69,61 +63,21 @@ class Database{
     async createUser(user) {
         await this.user.create(user);
     }
-
-    async getAllUser() {
-        return await this.user.find();
-    }
-
-    async getAllProducts(){
-        return await this.proDuct.find();
-    }
-
-    // async getProductByPrice(from, to){
-    //     return await this.proDuct.find({ price: { $gte:from} })
-    // }
-    async getProductByLoaiSp(loai_sp) {
-        return await this.proDuct.find({loai_sp:"Xe Cộ"});
-    }
-
-    /**
-     * 
-     * @param {String} id
-     * @param {proDuct} proDuct 
-     */
-    async updateProduct(id, proDuct) {
-        await this.proDuct.findByIdAndUpdate(id, proDuct);
-    }
-
-    async deleteProduct(id) {
-        await this.proDuct.findOneAndRemove(id);
-    }
-
-    //check user 
-    async checkUser(userAccount) {
-            return await this.user.find({userAccount:userAccount});
-    }
-
     //check account 
     async checkAccount(userAccount) {
         return await this.user.find({userAccount:userAccount});
     }
-
-    async findOneProduct(id) {
-        return await this.proDuct.findById(id);
+    async getUsers() {
+        return await this.user.find();
     }
-    async findUser(userAccount){
-       const users= (await   this.user.find( {
-            userAccount : userAccount
-        }))
-        return users;
+    /**
+     * 
+     * @param {string} id 
+     * @returns 
+     */
+    async getUser(id) {
+        return await this.user.findById(id);
     }
- 
-    async getDetail(id) {
-        return await this.proDuct.findById(id);
-    }
-
-    
-
 }
     
 module.exports = Database;

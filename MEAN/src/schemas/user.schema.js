@@ -6,8 +6,8 @@ const userSchema = new mongoose.Schema({
     userName:String,
     userPhone:Number,
     userAddress:String,
-    userImage:String,
-    userCoin:Number,
+    rule:String,
+    ngay_dang_ky: { type: Date, default :Date.now },
 });
 
 module.exports = userSchema;

@@ -14,24 +14,26 @@ import { Subscription } from 'rxjs';
 })
 export class ViewDetailComponent implements OnInit {
 
-  public profiles: Profile[] ;
+  public profile: any;
   id:any;
+  data:any;
   public profileSubscription: Subscription;
-  constructor(public profilesService: ProfileService){
+  constructor(private profilesService: ProfileService, public route:ActivatedRoute){
   }
   ngOnInit(): void {
-    this.profilesService.click(this.id);
-    this.profileSubscription = this.profilesService
-      .getProfilesStream()
-      .subscribe((profiles: Profile[]) => {
-        this.profiles = profiles;
-        // console.log(profiles);
-      });
+    // this.profilesService.getDetail(this.id)
+    // .subscribe((profile:Profile[])=>{
+    //   this.profile = profile;
+    //   console.log(profile);
+    // })
+    this.id = this.route.snapshot.params['id'];
+    this.getOne();
   }
 
-  ngOnDestroy() {
-    this.profileSubscription.unsubscribe();
+  getOne(){
+    this.profilesService.getDetail(this.id).subscribe(data =>{
+      this.data = data;
+      console.log(data);
+    })
   }
-
-
 }

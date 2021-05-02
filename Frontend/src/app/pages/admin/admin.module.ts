@@ -10,7 +10,6 @@ import { ShowProductComponent } from '../../components/admin/show-product/show-p
 import { UpdateProductComponent } from '../../components/admin/update-product/update-product.component';
 import { ProductComponent } from '../../components/admin/show-product/product/product.component';
 import { InputCategoryComponent } from '../../components/admin/input-category/input-category.component';
-import { from } from 'rxjs';
 
 
 
@@ -21,7 +20,6 @@ import { from } from 'rxjs';
     ReactiveFormsModule,
     CommonModule,
     AdminRoutingModule,
-
   ]
 })
 export class AdminModule { }

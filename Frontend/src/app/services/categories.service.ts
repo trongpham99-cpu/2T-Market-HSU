@@ -11,6 +11,8 @@ import { Profile } from '../models/Profile';
 export class CategoriesService {
   private categories: Category[] = [];
   private categories$ = new Subject<Category[]>();
+  private profiles: Profile[] = [];
+  private profiles$ = new Subject<Profile[]>();
   readonly url = "http://127.0.0.1:8080/api";
   constructor(private http: HttpClient, public router:Router) { }
   
@@ -29,6 +31,21 @@ export class CategoriesService {
       });
   }
 
+  // getCategory(name) {
+  //   this.http
+  //     .get<{ category: Profile[] }>(this.url + "/category/?loai_sp=" + name )
+  //     .pipe(
+  //       map((profileData) => {
+  //         return profileData.category;
+  //       })
+  //     )
+  //     .subscribe((profiles) => {
+  //       this.profiles = profiles;
+  //       this.profiles$.next(this.profiles);
+  //       console.log(profiles);
+  //     });
+  // }
+
   getCategory(name) {
     console.log(name)
       this.http
@@ -41,12 +58,11 @@ export class CategoriesService {
         .subscribe((categories) => {
           this.categories = categories;
           this.categories$.next(this.categories);
+          console.log(categories)
         });
         // this.router.navigate.(['category',this..name])
     }
-  getCa(): Observable<Profile[]> {
-    return this.http.get<Profile[]>(this.url + "/category?loai_sp" + "Xe");
-  }
+  
 
 
 

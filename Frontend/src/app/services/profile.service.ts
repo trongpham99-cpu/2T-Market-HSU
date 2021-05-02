@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { map } from "rxjs/operators";
 
 import { Profile } from "../models/Profile";
-import { Subject } from "rxjs";
+import { Observable, Subject } from "rxjs";
 
 @Injectable({
   providedIn: "root",
@@ -31,21 +31,6 @@ export class ProfileService {
       });
   }
   
-  getCategory(loai_sp) {
-    this.http
-      .get<{ category: Profile[] }>(this.url + "/category/?loai_sp=" + loai_sp )
-      .pipe(
-        map((profileData) => {
-          return profileData.category;
-        })
-      )
-      .subscribe((profiles) => {
-        this.profiles = profiles;
-        this.profiles$.next(this.profiles);
-        console.log(profiles);
-      });
-  }
-
   getAllProductAdmin() {
     this.http
       .get<{ profiles: Profile[] }>(this.url+"/product")
@@ -62,20 +47,10 @@ export class ProfileService {
   }
 
 
-  click(id){
-    // console.log(id);
-  this.http
-    .get<{ detail: Profile[] }>("http://127.0.0.1:8080/api/detail/?id=" + id)
-    .pipe(
-      map((profileData) => {
-        return profileData.detail;
-      })
-    )
-    .subscribe((profiles) => {
-      this.profiles = profiles;
-      this.profiles$.next(this.profiles);
-    });
-}
+
+  getDetail(id) {
+    return this.http.get("http://127.0.0.1:8080/api/detail/?id=" + id)
+  }
 
   getProfilesStream() {
     return this.profiles$.asObservable();

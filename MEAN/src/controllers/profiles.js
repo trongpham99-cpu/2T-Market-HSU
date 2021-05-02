@@ -37,13 +37,15 @@ exports.sortPrice = async (req,res) => {
 //GET DETAIL
 exports.getDetail = async (req, res) => {
   const {id} = req.query;
-  console.log(id);
-  const detail = await Profile.findById(id);
-  if(detail){
-    res.status(200).json({detail})
-  }else{
-    res.status(400).json(`can't find ${id}`);
-  }
+  console.log(id)  
+  const detail = await Profile.findById(id)
+  .then(detail => {
+    res.send(detail);
+  })
+  .catch(err => {
+    res.send(err);
+  });
+ 
 }
 //GET CATEGORY
 exports.getCategory = async(req, res) =>{
