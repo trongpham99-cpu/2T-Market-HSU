@@ -4,11 +4,11 @@
         <ul>
             <li (click)="showlistProduct()">Quản lý sản phẩm</li>
             <ul>
-                <li *ngIf="!this.showProduct" (click)="Userservice.showIfProduct()" >Xem sản phẩm đang bán(xóa,sửa)</li>
+                <li *ngIf="!this.showProduct" (click)="Userservice.showIfProduct()" >Xem sản phẩm đang bán</li>
                 <li *ngIf="!this.showProduct">Xem sản phẩm đã bán</li>
                 <li *ngIf="!this.showProduct">Duyệt Sản Phẩm</li>
                 <li *ngIf="!this.showProduct">Xem doanh thu sản phẩm</li>
-                <li *ngIf="!this.showProduct" (click)="Userservice.showUpdate()" >Sửa Sản Phẩm</li>
+                <!-- <li *ngIf="!this.showProduct" (click)="Userservice.showUpdate()" >Sửa Sản Phẩm</li> -->
             </ul>
             <li (click)="showlistUser()">Quản lý người dùng</li>
             <ul>

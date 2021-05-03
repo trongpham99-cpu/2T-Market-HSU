@@ -30,7 +30,7 @@ export class ProfileService {
         console.log(profiles);
       });
   }
-  
+
   getAllProductAdmin() {
     this.http
       .get<{ profiles: Profile[] }>(this.url+"/product")
@@ -46,10 +46,14 @@ export class ProfileService {
       });
   }
 
-
-
   getDetail(id) {
     return this.http.get("http://127.0.0.1:8080/api/detail/?id=" + id)
+  }
+
+  deleteProduct(id){
+    return this.http.delete(this.url+"/product/?id=" + id  ).subscribe(() =>{
+      console.log("Deleted");
+    })
   }
 
   getProfilesStream() {

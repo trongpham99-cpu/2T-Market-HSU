@@ -1,10 +1,29 @@
-<div class="divall" *ngFor="let profile of profiles">
-  <div class="div1" >
-    <img [src]="profile.imagePath" [alt]="profile.productName">
-  </div>
-  <div class="div2" >
-     <p>{{profile.productName}}</p>
-    <p>{{profile.productPrice}}</p>
-    <p>{{profile.productAddress}}</p>
-  </div>
+<div class="divall">
+  <table>
+    <tr>
+      <th>Hình Ảnh</th>
+      <th>Tên Sản Phẩm</th>
+      <th>Giá sản Phẩm</th>
+      <th>Địa Chỉ</th>
+      <th>Người Bán</th>
+      <th>Sửa</th>
+      <th>Xóa</th>
+      <th>Chi tiết</th>
+    </tr>
+
+        <tr *ngFor="let profile of profiles"  >
+      <td><img [src]="profile.imagePath" [alt]="profile.productName"></td>
+      <td>{{profile.productName}}</td>
+      <td style="color: rgb(190, 10, 10); font-weight: bold;" >{{profile.productPrice}}</td>
+      <td>{{profile.productAddress}}</td>
+      <td (click)="UsersService.getUser()" [routerLink]="['/user/608c3e4bcca0d2594e873f2b']" >trong.phamtranduc</td>
+      <td class="button" ><button>Sửa</button></td>
+      <td class="button" ><button (click)="profilesService.deleteProduct(profile._id)" >Xóa</button></td>
+      <td class="button" ><button  [routerLink]="['/viewdetail/' + profile._id]" (click)="profilesService.getDetail(profile._id)" >Chi tiết</button></td>
+    </tr>
+  </table>
+</div>
+<div>
+  <h2>Tổng số sản phẩm đang bán là: </h2>
+  <h2>Tổng số tiền sản phẩm đang bán là: </h2>
 </div>

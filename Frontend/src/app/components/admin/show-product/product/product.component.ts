@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ProfileService } from "src/app/services/profile.service";
+import { UsersService } from "src/app/services/users.service";
 import { Profile } from "src/app/models/Profile";
 import { Subscription } from 'rxjs';
 
@@ -12,7 +13,7 @@ import { Subscription } from 'rxjs';
 export class ProductComponent implements OnInit {
   profiles: Profile[] = [];
   private profileSubscription: Subscription;
-  constructor(public profilesService: ProfileService){
+  constructor(public profilesService: ProfileService,public UsersService:UsersService){
   }
 
   ngOnInit(): void {

@@ -5,15 +5,22 @@ img {
   display: block;
 }
 
-.div1 {
-  width: 5%;
-  margin: auto;
-}
-.div2 {
-  width: 95%;
-  border: solid 0.2px;
-}
 .divall {
   display: flex;
   margin-top: 0.1px;
 }
+table, td, th {
+  border: 1px solid black;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.button {
+  text-align: center;
+}
+td {
+  text-align: center;
+}
+
