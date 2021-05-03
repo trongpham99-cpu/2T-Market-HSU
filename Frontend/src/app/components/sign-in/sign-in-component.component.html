@@ -13,8 +13,9 @@
       <p>Bạn chưa có tài khoản ? <a [routerLink]="['/signup']" >Đăng ký</a></p>
       <p>
         Đăng nhập bằng Google ?
-        <a class="login-gg">Đăng Nhập</a>
+        <a (click)="LoginsService.loginGoogle()" class="login-gg">Đăng Nhập</a>
       </p>
+      <!-- <p>{{this.LoginsService.user.displayName}}</p> -->
     </div>
   </div>
 </form>

@@ -1,10 +1,9 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-
-import { map } from "rxjs/operators";
-
+import { catchError, map } from "rxjs/operators";
 import { Profile } from "../models/Profile";
-import { Observable, Subject } from "rxjs";
+import { Observable, of, Subject } from "rxjs";
+import { Body } from "@angular/http/src/body";
 
 @Injectable({
   providedIn: "root",
@@ -13,6 +12,9 @@ export class ProfileService {
   private profiles: Profile[] = [];
   private profiles$ = new Subject<Profile[]>();
   readonly url = "http://127.0.0.1:8080/api";
+
+  public count = 0;
+  public price = 0;
 
   constructor(private http: HttpClient) {}
 
@@ -43,7 +45,15 @@ export class ProfileService {
         this.profiles = profiles;
         this.profiles$.next(this.profiles);
         console.log(profiles);
+        for(let i=1; i <= profiles.length;i++){
+        this.count++;
+        // console.log(profiles[i].productPrice);
+        // console.log(profiles[i].productPrice)
+        }
+        // console.log(this.price)
       });
+      // console.log(parseFloat("1.000.000") + parseFloat("1.200.000"));
+
   }
 
   getDetail(id) {

@@ -16,11 +16,27 @@ export class LoginsService implements OnInit {
     private router: Router,
     private HttpClient:HttpClient,
     private cookieService: CookieService) { }
+    public user: any;
 
   ngOnInit(): void {
+    this.fireauth.authState.subscribe((auth)=>{
+      if(auth){
+        this.user = auth;
+      }
+    })
   }
   baseUrl: string ="http://127.0.0.1:8080";
-  public user: any;
+
+  async loginGoogle(){
+    const provider =  new firebase.default.auth.GoogleAuthProvider();
+    try{
+      await this.fireauth.signInWithPopup(provider);
+      console.log("success")
+    }catch(err){
+      console.log("fail !")
+    }
+
+  }
 
   async loginAcc(user: User){
     console.log(user);

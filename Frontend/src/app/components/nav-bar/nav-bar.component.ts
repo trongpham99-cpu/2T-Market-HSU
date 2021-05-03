@@ -9,7 +9,6 @@ import {User} from '../../models/user.model'
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent {
-  public user: any;
   constructor( public LoginsService:LoginsService ) { }
 }
 // this.router.navigate(['/signin']);

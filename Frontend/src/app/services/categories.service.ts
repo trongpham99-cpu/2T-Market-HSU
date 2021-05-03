@@ -15,7 +15,9 @@ export class CategoriesService {
   private profiles$ = new Subject<Profile[]>();
   readonly url = "http://127.0.0.1:8080/api";
   constructor(private http: HttpClient, public router:Router) { }
-  
+
+  public countCategory = 0;
+
   getAllCategory() {
     this.http
       .get<{ categories: Category[] }>(this.url+"/categories")
@@ -27,7 +29,9 @@ export class CategoriesService {
       .subscribe((categories) => {
         this.categories = categories;
         this.categories$.next(this.categories);
-        console.log(categories);
+        for(let i= 1; i<=categories.length;i++){
+          this.countCategory++
+        }
       });
   }
 
@@ -62,7 +66,7 @@ export class CategoriesService {
         });
         // this.router.navigate.(['category',this..name])
     }
-  
+
 
 
 

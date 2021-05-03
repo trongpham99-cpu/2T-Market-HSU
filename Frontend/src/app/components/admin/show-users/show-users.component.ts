@@ -10,11 +10,13 @@ import { Component, OnInit } from '@angular/core';
 export class ShowUsersComponent implements OnInit {
 
   public user: User[]=[];
-
+  public countUser = 0;
   constructor( public UsersService:UsersService ) {
     this.UsersService.getDataUser().subscribe((res: User[])=>{
       this.user = res;
-      console.log(res);
+      for(let i = 1; i<=res.length;i++){
+        this.countUser++;
+      }
     });
    }
 

@@ -1,0 +1,19 @@
+<div class="tong">
+  <div class="divall">
+    <table>
+      <tr>
+        <th>Hình Ảnh</th>
+        <th>Tên Sản Phẩm</th>
+        <th>Xóa</th>
+      </tr>
+      <tr *ngFor="let category of categories" >
+        <td><img [src]="category.imagePath" [alt]="category.name"></td>
+        <td>{{category.name}}</td>
+        <td><button>Xóa</button></td>
+      </tr>
+    </table>
+  </div>
+  <div>
+    <h3><strong>Tổng Số Danh Mục Hiện Có Là: {{CategoriesService.countCategory}}</strong></h3>
+  </div>
+</div>

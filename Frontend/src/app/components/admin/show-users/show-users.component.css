@@ -3,10 +3,16 @@ table, th, td {
   border-collapse: collapse;
   margin-bottom: 50px;
 }
-th, td {
-  padding: 5px;
+td {
+  padding: 10px;
   text-align: left;
 }
 h1 {
+  text-align: center;
+}
+.button {
+  text-align: center;
+}
+th {
   text-align: center;
 }
