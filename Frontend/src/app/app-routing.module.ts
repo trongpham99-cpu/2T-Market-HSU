@@ -4,7 +4,7 @@ import { ViewDetailComponent } from './components/view-detail/view-detail.compon
 import {ProductXeComponent} from '../app/components/show-products-xe/product-xe/product-xe.component';
 import { CreateProfileComponent } from '../app/components/test/create-profile/create-profile.component';
 import { UpdateProductComponent } from '../app/components/admin/update-product/update-product.component';
-import { InfoUserComponent } from '../app/components/user/info-user/info-user.component'
+import { UserPostComponent } from '../app/components/user/user-post/user-post.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
@@ -12,12 +12,13 @@ const routes: Routes = [
 { path: 'admin', loadChildren: () => import('./pages/admin/admin.module').then(m => m.AdminModule) },
 { path: 'viewdetail/:id',component:ViewDetailComponent },
 { path: 'update/:id',component:UpdateProductComponent },
-{ path: 'user/:id',component:InfoUserComponent },
 { path: 'input',component:CreateProfileComponent },
 { path: 'signin',component:SignInComponentComponent },
 { path:'xe',component:ProductXeComponent},
 { path: 'signup',component:InputUserComponent },
+{ path: 'userpost',component:UserPostComponent },
 { path: 'category', loadChildren: () => import('./pages/category/category.module').then(m => m.CategoryModule) },
+{ path: 'user/:id', loadChildren: () => import('./pages/user/user.module').then(m => m.UserModule) },
 ];
 
 @NgModule({

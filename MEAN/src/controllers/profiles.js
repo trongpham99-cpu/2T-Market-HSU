@@ -3,11 +3,6 @@ const Profile = require('../models/profile');
 exports.getProfiles = async (req, res) => {
   const profiles = await Profile.find();
   res.status(200).json({ profiles });
-  let productALL = 0;  
-  for(let i = 1; i<=profiles.length;i++){
-    productALL++;
-  }
-  console.log(`Tổng số sản phẩm là : ` + productALL);
 };
 //GET ALL PRODUCT FOR NEW POST
 exports.getProductsNew = async (req,res) =>{
@@ -17,11 +12,6 @@ exports.getProductsNew = async (req,res) =>{
     ngay_dang:-1,
   })
   .limit(100000); 
-  let count = 0;
-  for(let i=1;i<=productsNew.length;i++){
-    count++;
-  }
-  console.log(`Tổng số sản phẩm hot là : ` + count);
   res.status(200).json({productsNew});
 }
 //SORT ALL BY PRICE
@@ -52,14 +42,20 @@ exports.getCategory = async(req, res) =>{
   const { loai_sp } = req.query;
   const category = await Profile.find({loai_sp:loai_sp});
   if(category){
-    let count = 0;
-    for(var i=0;i<category.length;i++){
-      count++;
-    }
-    console.log(`Số Sản Phẩm ${loai_sp} tim được là :` + count);
     res.status(200).json({category})
   }else{
     res.status(400).json(`can't find ${category}`);
+  }
+}
+
+//GET USER POST 
+exports.getUserPost = async (req,res) => {
+  const {nguoi_dang_sp} = req.query;
+  try{
+    const cart = await Profile.find({nguoi_dang_sp:nguoi_dang_sp});
+    res.status(200).json({cart})
+  }catch(err){
+    res.status(400).send({message :`${nguoi_dang_sp} chưa đăng gì hết !!!`})
   }
 }
 

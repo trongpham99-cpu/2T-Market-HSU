@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user.model';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Profile } from '../models/Profile';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ import { Observable } from 'rxjs';
 export class UsersService {
   baseUrl: string ="http://127.0.0.1:8080/users";
   users : User[];
+  profiles: Profile[];
   user: string;
   constructor(private http:HttpClient, private router: Router,) { }
 

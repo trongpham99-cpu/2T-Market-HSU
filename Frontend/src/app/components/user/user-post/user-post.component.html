@@ -1,0 +1,12 @@
+<div *ngFor="let product of profiles" class="div-all" >
+  <div>
+    <img [src]="product.imagePath" [alt]="product.productName">
+  </div>
+  <div>
+    <h4>{{product.productName}}</h4>
+    <p>{{product.productPrice}}</p>
+    <button>Xóa</button>
+  </div>
+</div>
+<h5><strong>Sản Phẩm Đang Đăng : {{profilesService.count}}</strong></h5>
+<h5><strong>Tổng Số Tiền : {{profilesService.price}}</strong></h5>

@@ -1,3 +1,10 @@
 strong {
     font-size: 12pt;
+    margin-left: 50px;
+}
+p{
+  margin-left: 50px;
+}
+button {
+  margin-left: 50px;
 }
