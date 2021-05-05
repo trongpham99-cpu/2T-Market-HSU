@@ -28,7 +28,7 @@ export class CategoryComponent implements OnInit {
       .subscribe((categories: Category[]) => {
         this.categories = categories;
       });
-  }
+  } 
 
   ngOnDestroy() {
     this.profileSubscription.unsubscribe();

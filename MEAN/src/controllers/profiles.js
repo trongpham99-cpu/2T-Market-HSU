@@ -65,7 +65,7 @@ exports.getCategory = async(req, res) =>{
 
 //DELETE PRODUCT
 exports.deteleProduct = async (req, res) => {
-  const { id } = req.body;
+  const { id } = req.query;
     try {
         await Profile.findByIdAndRemove(id);
         res.send({ massage: `Deleted [${id}] ` });

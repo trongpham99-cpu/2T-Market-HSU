@@ -19,7 +19,6 @@ import { CreateProfileComponent } from './components/test/create-profile/create-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,NavBarComponent, FooterComponent,InputUserComponent,SignInComponentComponent,ProductXeComponent,ShowProductsXeComponent,CreateProfileComponent

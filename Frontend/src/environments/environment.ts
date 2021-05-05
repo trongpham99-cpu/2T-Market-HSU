@@ -6,7 +6,16 @@ export const environment = {
   production: false,
   endpoint:"http://0.0.0.0:8080/",
 
-  firebaseConfig : {   apiKey : "AIzaSyCllM5__VpX7Y31GYVSqKicOg4NMwtTE_k" ,   authDomain : "fir-web-ba939.firebaseapp.com" ,   projectId : "fir-web-ba939" ,   storageBucket : "fir-web-ba939.appspot.com" ,   messagingSenderId : "5455113375" ,   appId : "1: 5455113375: web: 45f6ba70a034eb8bb086aa" ,   measurementId : "G-DK9H9NBNDK" },
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  firebaseConfig : {
+  apiKey: "AIzaSyCSlrFWwkL344eceloQFDlX2GvwC9uz1dA",
+  authDomain: "shop-web-6c38f.firebaseapp.com",
+  projectId: "shop-web-6c38f",
+  storageBucket: "shop-web-6c38f.appspot.com",
+  messagingSenderId: "93096447690",
+  appId: "1:93096447690:web:934859c94cc84e26dbae33",
+  measurementId: "G-B1DE88GM1X"
+  }
 };
 
 /*

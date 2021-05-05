@@ -24,6 +24,9 @@ select {
 input[type=text]:focus{
   border-color:rgb(1, 6, 11);
 }
+img {
+  width: 250px;
+}
 
 
 form {

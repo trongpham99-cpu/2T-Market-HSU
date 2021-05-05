@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "shop-web-6c38f": {
+      "hosting": {
+        "Frontend": [
+          "shop-web-6c38f"
+        ]
+      }
+    }
+  }
+}

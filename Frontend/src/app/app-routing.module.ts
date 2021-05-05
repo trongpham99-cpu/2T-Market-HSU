@@ -3,6 +3,7 @@ import { SignInComponentComponent } from '../app/components/sign-in/sign-in-comp
 import { ViewDetailComponent } from './components/view-detail/view-detail.component';
 import {ProductXeComponent} from '../app/components/show-products-xe/product-xe/product-xe.component';
 import { CreateProfileComponent } from '../app/components/test/create-profile/create-profile.component';
+import { UpdateProductComponent } from '../app/components/admin/update-product/update-product.component';
 import { InfoUserComponent } from '../app/components/user/info-user/info-user.component'
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -10,6 +11,7 @@ const routes: Routes = [
 { path: 'home', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule) },
 { path: 'admin', loadChildren: () => import('./pages/admin/admin.module').then(m => m.AdminModule) },
 { path: 'viewdetail/:id',component:ViewDetailComponent },
+{ path: 'update/:id',component:UpdateProductComponent },
 { path: 'user/:id',component:InfoUserComponent },
 { path: 'input',component:CreateProfileComponent },
 { path: 'signin',component:SignInComponentComponent },
