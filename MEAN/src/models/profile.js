@@ -6,6 +6,7 @@ const profileSchema = mongoose.Schema({
   description: { type: String, required: true },
   productAddress: { type: String, required: true },
   loai_sp: { type: String, required: true },
+  nguoi_dang_sp: { type: String, required: true },
   ngay_dang: { type: Date, default :Date.now},
   imagePath: { type: String, required: true },
 });

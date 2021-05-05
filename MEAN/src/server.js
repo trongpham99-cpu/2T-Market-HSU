@@ -1,7 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const Database = require("./database");
-const proDuct = require("./models/product.model");
 const User = require("./models/user.model");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
@@ -12,6 +11,7 @@ const path = require("path");
 const profilesRoutes = require("./routes/profiles");
 const categoriesRoutes = require("./routes/categories");
 const adssRoutes = require("./routes/adss");
+require('dotenv').config();
 const corsOptions = {
     origin: "http://localhost:4200",
     optionsSuccessStatus: 200,
@@ -67,7 +67,7 @@ app.post("/login", async (req, res) => {
     const user = await Database.instance.checkAccount(userAccount);
     if(user == ''){
         res.status(400).send({
-            message:`Can't find account`
+            message:`Wrong Account`
         })
     }else{
         await bcrypt.compare(
@@ -77,9 +77,9 @@ app.post("/login", async (req, res) => {
                 if (resp) {
                     var token = jwt.sign(
                         {
-                            _id: user._id,
+                           user
                         },
-                        "mk"
+                        'mk'
                     );
                     return res.json({
                         message: `Login successfully with account :${userAccount}`,
@@ -95,18 +95,14 @@ app.post("/login", async (req, res) => {
     }
 });
 app.get("/login", async (req, res) => {
-    const token = req.body;
-
-    // try {
-        const ketqua = jwt.verify(token, "mk");
-        console.log(ketqua);
-    // } catch (error) {
-    //     return res.json("ban can phai login");
-    // }
+    try {
+        const token = req.headers.token;
+        const user = jwt.verify(token, 'mk');
+        if(user){
+            res.json(user)
+        }
+    }   catch (error) {
+        return res.json("ban can phai login");
+    }
 });
-
-
-//TEST IMAGE
-
-
 module.exports = app;
