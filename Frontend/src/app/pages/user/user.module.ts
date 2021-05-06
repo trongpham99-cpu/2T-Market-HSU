@@ -5,10 +5,11 @@ import { UserRoutingModule } from './user-routing.module';
 import { UserComponent } from './user.component';
 import { UserPostComponent } from '../../components/user/user-post/user-post.component';
 import { InfoUserComponent } from '../../components/user/info-user/info-user.component';
+import { UserPostChoDuyetComponent } from '../../components/user/user-post-cho-duyet/user-post-cho-duyet.component';
 
 
 @NgModule({
-  declarations: [UserComponent,UserPostComponent,InfoUserComponent],
+  declarations: [UserComponent,UserPostComponent,InfoUserComponent,UserPostChoDuyetComponent],
   imports: [
     CommonModule,
     UserRoutingModule

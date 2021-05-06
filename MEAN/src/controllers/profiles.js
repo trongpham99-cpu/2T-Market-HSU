@@ -50,10 +50,11 @@ exports.getCategory = async(req, res) =>{
 
 //GET USER POST 
 exports.getUserPost = async (req,res) => {
-  const {nguoi_dang_sp} = req.query;
+  const {nguoi_dang_sp,status} = req.query;
   try{
-    const cart = await Profile.find({nguoi_dang_sp:nguoi_dang_sp});
+    const cart = await Profile.find({nguoi_dang_sp:nguoi_dang_sp,status:status});
     res.status(200).json({cart})
+    
   }catch(err){
     res.status(400).send({message :`${nguoi_dang_sp} chưa đăng gì hết !!!`})
   }

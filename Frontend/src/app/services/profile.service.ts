@@ -45,20 +45,21 @@ export class ProfileService {
         this.profiles = profiles;
         this.profiles$.next(this.profiles);
         console.log(profiles);
-        for(let i=1; i <= profiles.length;i++){
+        for(let i=0; i < profiles.length;i++){
         this.count++;
-        // console.log(profiles[i].productPrice);
-        // console.log(profiles[i].productPrice)
+        this.price = this.price + parseFloat(profiles[i].productPrice);
         }
-        // console.log(this.price)
+        console.log(this.count)
+        console.log(this.price)
       });
       // console.log(parseFloat("1.000.000") + parseFloat("1.200.000"));
 
   }
-
+  //Da Duyet
+  public priceDaDuyet = 0;
   getUserPost() {
     this.http
-      .get<{ cart: Profile[] }>("http://127.0.0.1:8080/api/cart?nguoi_dang_sp=trong.phamtranduc")
+      .get<{ cart: Profile[] }>("http://127.0.0.1:8080/api/cart?nguoi_dang_sp=trong.phamtranduc&status=0")
       .pipe(
         map((profileData) => {
           return profileData.cart;
@@ -68,10 +69,30 @@ export class ProfileService {
         this.profiles = profiles;
         this.profiles$.next(this.profiles);
         console.log(profiles);
-        for(let i=1; i <= profiles.length;i++){
+        for(let i=0; i < profiles.length;i++){
         this.count++;
+        this.price = this.price + parseFloat(profiles[i].productPrice);
         }
+        // console.log(this.price)
       });
+  }
+  //Dang Cho Duyet
+  getUserPostChoDuyet() {
+    // this.http
+    //   .get<{ cart: Profile[] }>("http://127.0.0.1:8080/api/cart?nguoi_dang_sp=trong.phamtranduc&status=1")
+    //   .pipe(
+    //     map((profileData) => {
+    //       return profileData.cart;
+    //     })
+    //   )
+    //   .subscribe((profiles) => {
+    //     this.profiles = profiles;
+    //     this.profiles$.next(this.profiles);
+    //     console.log(profiles);
+    //     for(let i=1; i <= profiles.length;i++){
+    //     this.count++;
+    //     }
+    //   });
   }
 
   getDetail(id) {

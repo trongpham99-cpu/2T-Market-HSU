@@ -22,7 +22,6 @@ export class InfoUserComponent implements OnInit {
       this.user = user;
       // console.log(user);
     })
-
   }
 
 }

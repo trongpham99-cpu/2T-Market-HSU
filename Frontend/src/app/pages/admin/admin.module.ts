@@ -13,8 +13,14 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { CategoriesComponent } from '../../components/admin/categories/categories.component';
 import { MatMenuModule} from '@angular/material/menu'
+import { NavBarAdminComponent } from '../../components/admin/nav-bar-admin/nav-bar-admin.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
+import { SanPhamChoDuyetComponent } from '../../components/admin/san-pham-cho-duyet/san-pham-cho-duyet.component';
+
 @NgModule({
-  declarations: [AdminComponent,ShowUsersComponent,ShowProductComponent,ProductComponent,InputCategoryComponent,CategoriesComponent],
+  declarations: [AdminComponent,ShowUsersComponent,ShowProductComponent,ProductComponent,InputCategoryComponent,CategoriesComponent,NavBarAdminComponent,SanPhamChoDuyetComponent],
   imports: [
     FormsModule,
     ReactiveFormsModule,
@@ -22,7 +28,10 @@ import { MatMenuModule} from '@angular/material/menu'
     AdminRoutingModule,
     MatMenuModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSidenavModule,
+    MatDividerModule,
+    MatListModule
   ]
 })
 export class AdminModule { }

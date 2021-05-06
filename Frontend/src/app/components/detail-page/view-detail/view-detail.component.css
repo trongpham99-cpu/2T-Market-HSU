@@ -253,10 +253,11 @@ img{
         grid-gap: 1.5rem;
     }
     .card-wrapper{
-        height: 100vh;
+        /* height: 100vh; */
         display: flex;
         justify-content: center;
         align-items: center;
+        margin: 20px auto;
     }
     .product-imgs{
         display: flex;

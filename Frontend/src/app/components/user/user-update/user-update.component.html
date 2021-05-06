@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="title">Tài Khoản</div>
+    <div class="contain02">
+        <div class="left01">
+            <div class="rightinf">
+                <div class="content">
+                    <form action="#">
+                        <div class="user-details">
+                            <div class="input-box">
+                                
+                            </div>
+                            <div class="input-box">
+                                <span class="details">Số điện thoại</span>
+                                <input type="text" placeholder="Enter your name" value="{{user.userPhone}}" required>
+                            </div>
+                            <div class="input-box">
+                                <span class="details">Email</span>
+                                <input type="text" placeholder="Enter your name" value="trong.phamtranduc@gmail.com" required>
+                            </div>
+                            <div class="input-box">
+                                <span class="details">Địa chỉ</span>
+                                <input type="text" placeholder="Enter your name" value="{{user.userAddress}}" required>
+                            </div>
+                        </div>
+
+                    </form>    
+                </div>
+            </div>
+
+        </div>
+        <div class="right01">
+            <div class="avatar01">
+                <img class="avt01" src="../../../../assets//img/category/xhoang.jpg" alt="">
+            </div>
+            <div class="content">
+                <form action="#">
+                    <div class="user-details">
+                        <div class="input-box">
+                            <span class="details">Họ tên</span>
+                            <input type="text" placeholder="Enter your name" value="{{user.userName}}" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Ngày tham gia:</span>
+                            <p class="details">{{user.ngay_dang_ky}}</p>
+                        </div>
+                    </div>
+
+                    <div class="button">
+                        <input type="submit" value="Lưu">
+                    </div>
+                </form>    
+            </div>
+
+        </div>
+    </div>     
+</div>  
