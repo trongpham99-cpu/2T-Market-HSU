@@ -46,8 +46,9 @@ export class LoginsService implements OnInit {
       console.log("result",result);
       if(result){
         this.router.navigate(['/home']);
-        let token = "trong.phamtranduc";
-        this.cookieService.set('user',token );
+        this.cookieService.set('user',JSON.stringify(user));
+        this.cookieService.set('token', result['token']);
+        this.user = JSON.parse(this.cookieService.get('user'));
       }
     });
   }

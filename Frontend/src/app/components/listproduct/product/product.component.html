@@ -7,9 +7,12 @@
                 </a>
             </div>
             <div class="caption___3JllO">
-                <a (click)="profilesService.getDetail(profile._id)" [routerLink]="['/viewdetail/' + profile._id]" target="_blank" rel="noopener noreferrer" class="adTitleGrid___mC6FC">
+                <!-- <a (click)="profilesService.getDetail(profile._id)" [routerLink]="['/viewdetail/'+profile.loai_sp+'/' + profile._id]" target="_blank" rel="noopener noreferrer" class="adTitleGrid___mC6FC">
                 {{profile.productName}}
-                </a>
+                </a> -->
+                <a (click)="profilesService.getDetail(profile._id)" [routerLink]="['/viewdetail/' + profile._id]" target="_blank" rel="noopener noreferrer" class="adTitleGrid___mC6FC">
+                    {{profile.productName}}
+                    </a>
                 <div>
                     <span class="price___1yCK1">{{profile.productPrice}} VNĐ</span>
                 </div>
