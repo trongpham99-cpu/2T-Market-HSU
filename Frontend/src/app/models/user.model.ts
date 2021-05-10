@@ -3,6 +3,8 @@ export interface User {
   userPassword: String,
   userName: String,
   userPhone: String,
+  userMail: String,
   userAddress: String,
-  ngay_dang_ky: String
+  ngay_dang_ky: String,
+  role:String
 }

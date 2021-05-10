@@ -17,6 +17,8 @@ import { ShowProductsXeComponent } from './components/show-products-xe/show-prod
 import { CookieService } from 'ngx-cookie-service';
 import { CreateProfileComponent } from './components/test/create-profile/create-profile.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatMenuModule} from '@angular/material/menu';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
@@ -32,7 +34,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     BrowserAnimationsModule,
-
+    MatMenuModule,
+    Ng2SearchPipeModule
   ],
   providers: [CookieService ],
   bootstrap: [AppComponent]

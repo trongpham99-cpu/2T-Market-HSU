@@ -15,7 +15,7 @@ export class ProfileService {
 
   public count = 0;
   public price = 0;
-
+  public searchText;
   constructor(private http: HttpClient) {}
 
   getProductsNew() {
@@ -44,15 +44,8 @@ export class ProfileService {
       .subscribe((profiles) => {
         this.profiles = profiles;
         this.profiles$.next(this.profiles);
-        console.log(profiles);
-        for(let i=0; i < profiles.length;i++){
-        this.count++;
-        this.price = this.price + parseFloat(profiles[i].productPrice);
-        }
-        console.log(this.count)
-        console.log(this.price)
       });
-      // console.log(parseFloat("1.000.000") + parseFloat("1.200.000"));
+
 
   }
   //Da Duyet

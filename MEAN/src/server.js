@@ -41,6 +41,7 @@ app.post("/register", async (req, res) => {
         userPassword,
         userName,
         userPhone,
+        userMail,
         userAddress,
     } = req.body;
     let check = await Database.instance.checkAccount(userAccount);
@@ -49,7 +50,7 @@ app.post("/register", async (req, res) => {
             bcrypt.hash(userPassword, salt, (err, hash) => {
                 temp = hash;
                 Database.instance.createUser(
-                    new User(userAccount, temp, userName, userPhone, userAddress)
+                    new User(userAccount, temp, userName, userPhone, userMail, userAddress)
                 );
                 res.status(200).send({
                     message: `Created USer: ${userAccount}`,

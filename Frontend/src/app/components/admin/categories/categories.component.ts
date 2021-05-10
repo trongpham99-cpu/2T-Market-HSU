@@ -11,6 +11,7 @@ import { Category } from "src/app/models/Category";
 export class CategoriesComponent implements OnInit {
   categories: Category[]=[];
   private profileSubscription: Subscription;
+  public count =0;
   constructor(public CategoriesService:CategoriesService) { }
 
   ngOnInit(): void {
@@ -19,6 +20,9 @@ export class CategoriesComponent implements OnInit {
       .getProfilesStream()
       .subscribe((categories: Category[]) => {
         this.categories = categories;
+        for(let i =0;i<categories.length;i++){
+          this.count++
+        }
       });
   }
 

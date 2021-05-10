@@ -1,4 +1,5 @@
-<h1>Thông Tin Khách Hàng</h1>
+<div id="table" style="margin-left: 45px;" class="main-container">
+  <h1>Thông Tin Khách Hàng</h1>
 <table style="width:100%">
   <tr>
     <th>Tên Tài Khoản</th>
@@ -6,17 +7,26 @@
     <th>Email</th>
     <th>Số Điện Thoại</th>
     <th>Địa Chỉ</th>
+    <th>Ngày Đăng Ký</th>
+    <th>Quyền Hạng</th>
     <th>Xóa</th>
     <th>Chi Tiết</th>
+    <th>Cấp Quyền</th>
   </tr>
   <tr *ngFor = "let i of user" >
     <td>{{i.userAccount}}</td>
     <td>{{i.userName}}</td>
-    <td>trong.phamtranduc@gmail.com</td>
-    <td>{{i.userPhone}}</td>
+    <td>{{i.userMail}}</td>
+    <td>+84 {{i.userPhone}}</td>
     <td>{{i.userAddress}}</td>
+    <td>{{i.ngay_dang_ky}}</td>
+    <td>{{i.role}}</td>
     <td class="button"><button>Xóa</button></td>
     <td class="button"><button>Chi Tiết</button></td>
+    <td class="button"><button>Cấp Quyền</button></td>
   </tr>
 </table>
 <h3>Tổng số người dùng là: {{countUser}}</h3>
+<button  (click)="exportAsPDF()" >Download PDF</button>
+<button >Download Excel</button>
+</div>

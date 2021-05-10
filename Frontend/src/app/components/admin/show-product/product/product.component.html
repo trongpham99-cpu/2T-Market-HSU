@@ -6,6 +6,7 @@
       <th>Giá sản Phẩm</th>
       <th>Địa Chỉ</th>
       <th>Người Bán</th>
+      <th>Ngày Đăng</th>
       <th>Sửa</th>
       <th>Xóa</th>
       <th>Chi tiết</th>
@@ -17,6 +18,7 @@
       <td style="color: rgb(190, 10, 10); font-weight: bold;" >{{profile.productPrice}}</td>
       <td>{{profile.productAddress}}</td>
       <td (click)="UsersService.getUser()" [routerLink]="['/user/608c3e4bcca0d2594e873f2b']" >trong.phamtranduc</td>
+      <td>hihi</td>
       <td class="button" ><button [routerLink]="['/update/' + profile._id]" >Sửa</button></td>
       <td class="button" ><button (click)="profilesService.deleteProduct(profile._id)" >Xóa</button></td>
       <td class="button" ><button  [routerLink]="['/viewdetail/' + profile._id]" (click)="profilesService.getDetail(profile._id)" >Chi tiết</button></td>
@@ -24,6 +26,6 @@
   </table>
 </div>
 <div>
-  <h2>Tổng số sản phẩm đang bán là: {{profilesService.count}}</h2>
-  <h2>Tổng số tiền sản phẩm đang bán là: {{profilesService.price}}</h2>
+  <h3>Tổng số sản phẩm đang bán là: {{count}}</h3>
+  <h3>Tổng số tiền sản phẩm đang bán là: {{price}}</h3>
 </div>

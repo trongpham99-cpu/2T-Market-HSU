@@ -13,6 +13,7 @@ import { Subscription } from 'rxjs';
 export class InfoUserComponent implements OnInit {
   public user : any;
   profiles : Profile[]=[];
+  public ngayThamGia: any;
   private profileSubscription: Subscription;
   constructor(public UsersService:UsersService,public profilesService:ProfileService) { }
 
@@ -20,7 +21,7 @@ export class InfoUserComponent implements OnInit {
     this.UsersService.getUser()
     .subscribe((user:User[])=>{
       this.user = user;
-      // console.log(user);
+      // this.ngayThamGia = user.ngay_dang_ky;
     })
   }
 

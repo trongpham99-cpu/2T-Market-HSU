@@ -1,5 +1,5 @@
 <!-- <div *ngIf="profiles.length > 0"> -->
-    <div *ngFor="let profile of profiles" class="AdItem__Item-sc-1ewf82b-0 eIgKqv item___DjEGG" >
+    <div *ngFor="let profile of profiles | filter:this.profilesService.searchText" class="AdItem__Item-sc-1ewf82b-0 eIgKqv item___DjEGG" >
         <div class="wrapperLink___22Hpy">
             <div class="thumbnailWrapper___927DE">
                 <a target="_blank" rel="noopener noreferrer" class="thumbnailImg___3UKHb" >
@@ -10,7 +10,7 @@
                 <!-- <a (click)="profilesService.getDetail(profile._id)" [routerLink]="['/viewdetail/'+profile.loai_sp+'/' + profile._id]" target="_blank" rel="noopener noreferrer" class="adTitleGrid___mC6FC">
                 {{profile.productName}}
                 </a> -->
-                <a (click)="profilesService.getDetail(profile._id)" [routerLink]="['/viewdetail/' + profile._id]" target="_blank" rel="noopener noreferrer" class="adTitleGrid___mC6FC">
+                <a (click)="profilesService.getDetail(profile._id)" [routerLink]="['/detail/' + profile._id]" target="_blank" rel="noopener noreferrer" class="adTitleGrid___mC6FC">
                     {{profile.productName}}
                     </a>
                 <div>

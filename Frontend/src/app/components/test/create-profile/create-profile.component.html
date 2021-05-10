@@ -1,14 +1,13 @@
 <h1>Nhập Sản Phẩm Bạn Muốn Bán</h1>
-<hr />
 <form [formGroup]="form" (submit)="onSubmit()">
   <div>
-    <input formControlName="productName" type="text" placeholder="Enter name..." />
+    <input formControlName="productName" type="text" placeholder="Tên Sản Phẩm" />
   </div>
   <div>
-    <input formControlName="productPrice" type="text" placeholder="Enter price..." />
+    <input formControlName="productPrice" type="text" placeholder="Giá Sản Phẩm" />
   </div>
   <div>
-    <input formControlName="description" type="text" placeholder="Enter description..." />
+    <input formControlName="description" type="text" placeholder="Mô Tả Sản Phẩm" />
   </div>
   <div>
     <select formControlName="productAddress">

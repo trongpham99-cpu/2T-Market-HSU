@@ -5,6 +5,7 @@ const userSchema = new mongoose.Schema({
     userPassword:String,
     userName:String,
     userPhone:Number,
+    userMail:String,
     userAddress:String,
     rule:String,
     ngay_dang_ky: { type: Date, default :Date.now },
