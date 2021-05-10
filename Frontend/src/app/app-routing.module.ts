@@ -8,6 +8,8 @@ import { UserPostComponent } from '../app/components/user/user-post/user-post.co
 import { UserUpdateComponent } from '../app/components/user/user-update/user-update.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {SideBarComponent} from '../app/components/admin/side-bar/side-bar.component';
+import {ShowUsersComponent} from '../app/components/admin/show-users/show-users.component';
 const routes: Routes = [
 { path: 'home', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule) },
 { path: 'admin', loadChildren: () => import('./pages/admin/admin.module').then(m => m.AdminModule) },
@@ -22,6 +24,9 @@ const routes: Routes = [
 { path: 'signup',component:InputUserComponent },
 { path: 'userpost',component:UserPostComponent },
 { path: 'userupdate/:id',component:UserUpdateComponent },
+{ path:'admin1',component:SideBarComponent,children:[
+  {path:'page-1',component:ShowUsersComponent }
+]}
 
 ];
 

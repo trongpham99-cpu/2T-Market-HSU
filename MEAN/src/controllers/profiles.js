@@ -27,7 +27,6 @@ exports.sortPrice = async (req,res) => {
 //GET DETAIL
 exports.getDetail = async (req, res) => {
   const {id} = req.query;
-  console.log(id)  
   const detail = await Profile.findById(id)
   .then(detail => {
     res.send(detail);
@@ -86,7 +85,7 @@ exports.updataProduct = async (req,res) => {
 
 //POST PRODUCT
 exports.postProfile = async (req, res) => {
-  const { productName,productPrice,description,productAddress,loai_sp,ngay_dang } = req.body;
+  const { productName,productPrice,description,productAddress,loai_sp,ngay_dang,status="0",nguoi_dang_sp="trong.phamtranduc" } = req.body;
   const imagePath = 'http://127.0.0.1:8080/images/' + req.file.filename; // Note: set path dynamically
   const profile = new Profile({
     productName,
@@ -96,6 +95,8 @@ exports.postProfile = async (req, res) => {
     loai_sp,
     ngay_dang,
     imagePath,
+    status,
+    nguoi_dang_sp
   });
   const createdProfile = await profile.save();
   res.status(201).json({

@@ -37,7 +37,7 @@ export class LoginsService implements OnInit {
     }
 
   }
-
+  public userInfomation;
   async loginAcc(user: User){
     console.log(user);
     console.log(user.userAccount);
@@ -48,6 +48,7 @@ export class LoginsService implements OnInit {
         this.router.navigate(['/home']);
         this.cookieService.set('user',JSON.stringify(user));
         this.cookieService.set('token', result['token']);
+        // this.user = JSON.parse(this.cookieService.get('user'));
         this.user = JSON.parse(this.cookieService.get('user'));
       }
     });

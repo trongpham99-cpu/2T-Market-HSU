@@ -7,23 +7,35 @@ import {ShowUsersComponent} from '../../components/admin/show-users/show-users.c
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-
+  displayUser = false;
+  displayProduct = false;
+  displayCategory = false;
+  displayInputcCategory = false;
+  displayWait = false;
   constructor(public Userservice:UsersService) { }
 
   ngOnInit(): void {
   }
 
-  showProduct = true;
-  showUser = true;
-  showAds = true;
-  showlistProduct() {
-    this.showProduct = !this.showProduct
+  onPressUser(){
+    this.displayUser = !this.displayUser;
   }
-  showlistUser() {
-    this.showUser = !this.showUser
+
+  onPressProduct() {
+    this.displayProduct = !this.displayProduct;
   }
-  showlistAds() {
-    this.showAds = !this.showAds
+
+  onPressCategory(){
+    this.displayCategory = !this.displayCategory;
   }
+
+  onPressDisplayInputcCategory(){
+    this.displayInputcCategory = !this.displayInputcCategory;
+  }
+
+  onPressWait(){
+    this.displayWait = !this.displayWait;
+  }
+
 
 }

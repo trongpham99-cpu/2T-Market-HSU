@@ -21,8 +21,4 @@ exports.getCategory = async (req, res) => {
     const categories = await Category.find();
     res.status(200).json({ categories });
     let countCate = 0;  
-    for(let i = 0; i<categories.length;i++){
-        countCate++;
-    }
-    console.log(`Tổng số danh mục sản phẩm là : ` + countCate);
 };

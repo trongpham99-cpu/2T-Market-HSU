@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./show-users.component.css']
 })
 export class ShowUsersComponent implements OnInit {
-
+  public ngay:any;
   public user: User[]=[];
   public countUser = 0;
   constructor( public UsersService:UsersService ) {
@@ -16,6 +16,7 @@ export class ShowUsersComponent implements OnInit {
       this.user = res;
       for(let i = 1; i<=res.length;i++){
         this.countUser++;
+        console.log(res[i].ngay_dang_ky);
       }
     });
    }

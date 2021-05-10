@@ -1,11 +1,11 @@
-h1 {
-    text-align: center;
+.top-nav {
 }
-li:hover {
-    color: blue;
-    cursor: pointer;
+button {
+  width: 200px;
+  height: 40px;
 }
-.div2 {
-    width: 80%;
-    height: auto;
-}   
+.div-all{
+  display: flex;
+}
+.product {
+}

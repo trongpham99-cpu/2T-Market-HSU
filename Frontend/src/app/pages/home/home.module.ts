@@ -7,13 +7,15 @@ import {ProductComponent} from '../../components/listproduct/product/product.com
 import {ListproductComponent} from '../../components/listproduct/listproduct.component';
 import {MatTableModule} from '@angular/material/table';
 import { CategoryComponent } from '../../components/category/category.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [HomeComponent,CategoryComponent,QuangcaoComponent,ListproductComponent,ProductComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
-    MatTableModule
+    MatTableModule,
+    Ng2SearchPipeModule
   ]
 })
 export class HomeModule { }

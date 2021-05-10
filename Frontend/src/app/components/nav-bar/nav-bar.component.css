@@ -89,7 +89,7 @@ a.active,a:hover{
     margin: 50px 0;
     line-height: 30px;
   }
-  nav ul li a{
+  nav ul li a button{
     font-size: 20px;
   }
   a:hover,a.active{
@@ -117,4 +117,16 @@ p {
   font-size: 17px;
   padding: 7px 13px;
   border-radius: 3px;
+}
+button {
+color: black;
+font-size: 17px;
+padding: 7px 13px;
+border-radius: 3px;
+text-transform: uppercase;
+margin: 0;
+text-decoration: none;
+list-style: none;
+box-sizing: border-box;
+
 }

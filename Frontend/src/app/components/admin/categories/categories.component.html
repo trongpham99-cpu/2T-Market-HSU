@@ -4,16 +4,22 @@
       <tr>
         <th>Hình Ảnh</th>
         <th>Tên Sản Phẩm</th>
+        <th>Trạng Thái</th>
+        <th>Ẩn</th>
+        <th>Hiện</th>
         <th>Xóa</th>
       </tr>
       <tr *ngFor="let category of categories" >
         <td><img [src]="category.imagePath" [alt]="category.name"></td>
         <td>{{category.name}}</td>
+        <td>Hiện</td>
+        <td><button>Ẩn</button></td>
+        <td><button>Hiện</button></td>
         <td><button>Xóa</button></td>
       </tr>
     </table>
   </div>
   <div>
-    <h3><strong>Tổng Số Danh Mục Hiện Có Là: {{CategoriesService.countCategory}}</strong></h3>
+    <h3><strong>Tổng Số Danh Mục Hiện Có Là: {{count}}</strong></h3>
   </div>
 </div>

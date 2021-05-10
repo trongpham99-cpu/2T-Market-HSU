@@ -12,6 +12,7 @@ import { Subscription } from 'rxjs';
 })
 export class ProductComponent implements OnInit {
   profiles: Profile[] = [];
+  public count=0; price=0;
   private profileSubscription: Subscription;
   constructor(public profilesService: ProfileService,public UsersService:UsersService){
   }
@@ -22,6 +23,10 @@ export class ProductComponent implements OnInit {
       .getProfilesStream()
       .subscribe((profiles: Profile[]) => {
         this.profiles = profiles;
+        for(let i =0; i<profiles.length;i++){
+          this.count++;
+          this.price = this.price + parseFloat(profiles[i].productPrice);
+        }
       });
   }
 
