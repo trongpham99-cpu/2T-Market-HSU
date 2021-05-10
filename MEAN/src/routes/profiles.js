@@ -9,6 +9,8 @@ const router = express.Router();
 
 router.get('/product', profilesController.getProfiles);
 
+router.get('/getid', profilesController.getId);
+
 router.get('/detail', profilesController.getDetail);
 
 router.get('/category', profilesController.getCategory);

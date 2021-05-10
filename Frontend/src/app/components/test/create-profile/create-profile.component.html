@@ -40,7 +40,7 @@
     <input (change)="onFileSelect($event)" type="file" />
   </div>
   <div *ngIf="imageData">
-    <img [src]="imageData" [alt]="form.value.productName" />
+    <img [src]="imageData" [alt]="form.value.fileName" />
   </div>
   <div>
     <button type="submit">Đăng Tin</button>

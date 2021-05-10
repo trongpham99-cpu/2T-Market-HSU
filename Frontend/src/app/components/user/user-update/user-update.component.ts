@@ -15,7 +15,9 @@ export class UserUpdateComponent implements OnInit {
     this.UsersService.getUser()
     .subscribe((user:User[])=>{
       this.user = user;
-      console.log(user)
+      // console.log(user.ngay_dang_ky)
+        // let str = String(user.ngay_dang_ky);
+        // user.ngay_dang_ky = new Date(str).toString().split('T')[0];
     })
   }
 

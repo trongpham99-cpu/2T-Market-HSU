@@ -20,5 +20,4 @@ exports.postCategory = async (req, res) => {
 exports.getCategory = async (req, res) => {
     const categories = await Category.find();
     res.status(200).json({ categories });
-    let countCate = 0;  
 };

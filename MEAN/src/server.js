@@ -31,7 +31,6 @@ app.get("/users", async (req, res)=>{
 app.get("/user", async (req, res) =>{
     const {id} = req.query;
     const user = await Database.instance.getUser(id);
-    console.log(user)
     res.send(user);
 });
 app.post("/register", async (req, res) => {
