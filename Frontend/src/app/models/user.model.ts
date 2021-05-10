@@ -5,5 +5,6 @@ export interface User {
   userPhone: String,
   userMail: String,
   userAddress: String,
-  ngay_dang_ky: String
+  ngay_dang_ky: String,
+  role:String
 }

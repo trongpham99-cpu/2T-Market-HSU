@@ -13,13 +13,11 @@
       <img [src]="product.imagePath" [alt]="product.productName">
     </div>
     <div>
-      <h4>{{product.productName}}</h4>
-      <p>{{product.productPrice}}</p>
+      <h4>Tên Sản Phẩm: {{product.productName}}</h4>
+      <p>Giá Sản Phẩm : {{product.productPrice}} VNĐ </p>
+      <p>Ngày Đăng :</p>
       <button>Xóa</button>
     </div>
   </div>
-  <hr>
-
-  <h5><strong>Sản Phẩm Đang Đăng : {{profilesService.count}}</strong></h5>
   <h5><strong>Tổng Số Tiền : {{profilesService.price}}</strong></h5>
 </div>
