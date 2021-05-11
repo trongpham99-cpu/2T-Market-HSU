@@ -1,4 +1,19 @@
 const Profile = require('../models/profile');
+const userSchema = require('../schemas/user.schema');
+const User = require('../models/user.model');
+const mongoose = require('mongoose');
+
+//TEST ID
+exports.getUserIdByIdProduct = async (req, res) => {
+  // user = mongoose.model("users",userSchema);  
+  const {id} = req.query;
+  const detail = await Profile.findById(id);
+  console.log( detail);
+  let a = detail.nguoi_dang_sp;
+  let user = await mongoose.model("users",userSchema).find({userAccount:a})
+  console.log(user);
+}
+
 //GET ALL PRODUCT
 exports.getProfiles = async (req, res) => {
   const profiles = await Profile.find();
@@ -34,7 +49,6 @@ exports.getDetail = async (req, res) => {
   .catch(err => {
     res.send(err);
   });
- 
 }
 //GET CATEGORY
 exports.getCategory = async(req, res) =>{
