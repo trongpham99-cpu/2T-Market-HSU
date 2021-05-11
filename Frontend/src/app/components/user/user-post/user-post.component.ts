@@ -13,13 +13,17 @@ export class UserPostComponent implements OnInit {
   profiles: Profile[] = [];
   private profileSubscription: Subscription;
   constructor(public profilesService: ProfileService) { }
-
+  public price = 0;count=0;
   ngOnInit(): void {
     this.profilesService.getUserPost();
     this.profileSubscription = this.profilesService
       .getProfilesStream()
       .subscribe((profiles: Profile[]) => {
         this.profiles = profiles;
+        for(let i=0;i<profiles.length;i++){
+          this.price += parseFloat(profiles[i].productPrice);
+          this.count++;
+        }
       });
   }
 

@@ -29,7 +29,6 @@ export class ProfileService {
       .subscribe((profiles) => {
         this.profiles = profiles;
         this.profiles$.next(this.profiles);
-        console.log(profiles);
       });
   }
 
@@ -52,7 +51,7 @@ export class ProfileService {
   public priceDaDuyet = 0;
   getUserPost() {
     this.http
-      .get<{ cart: Profile[] }>("http://127.0.0.1:8080/api/cart?nguoi_dang_sp=trong.phamtranduc&status=0")
+      .get<{ cart: Profile[] }>("http://127.0.0.1:8080/api/cart?nguoi_dang_sp=trong.phamtranduc&status=1")
       .pipe(
         map((profileData) => {
           return profileData.cart;
@@ -102,7 +101,7 @@ export class ProfileService {
     return this.profiles$.asObservable();
   }
 
-  addProfile(productName: string,productPrice:string,description:string,productAddress:string,loai_sp:string,image: File): void {
+  addProfile(productName: string,productPrice:string,description:string,productAddress:string,loai_sp:string,ngay_dang:string,image: File): void {
     const profileData = new FormData();
     profileData.append("productName", productName);
     profileData.append("productPrice", productPrice);
@@ -120,6 +119,7 @@ export class ProfileService {
           description:description,
           productAddress:productAddress,
           loai_sp:loai_sp,
+          ngay_dang:ngay_dang,
           imagePath: profileData.profile.imagePath,
         };
         this.profiles.push(profile);

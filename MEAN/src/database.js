@@ -50,7 +50,7 @@ class Database{
                 reject(err);
             });
             this.conncetion.once("open",()=>{
-                console.log("Connected to Database !!!");
+                console.log("CONNCETED TO DATABASE !");
                 resolve(this.conncetion);
             });
         });

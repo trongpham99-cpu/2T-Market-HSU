@@ -50,13 +50,13 @@ exports.getDetail = async (req, res) => {
     res.send(err);
   });
 }
-//GET CATEGORY
+//GET PRODUCT IN CATEGORY
 exports.getCategory = async(req, res) =>{
   const { loai_sp } = req.query;
   const category = await Profile.find({loai_sp:loai_sp});
-  if(category){
+  try{
     res.status(200).json({category})
-  }else{
+  }catch(err){
     res.status(400).json(`can't find ${category}`);
   }
 }

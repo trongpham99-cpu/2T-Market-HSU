@@ -1,5 +1,7 @@
 .div-all{
   display: flex;
+  margin-top: 20px;
+
 }
 img {
   width: 100px;
@@ -16,7 +18,7 @@ h4 {
   margin-left: 50px;
   font-weight: bold;
 }
-button {
+.button1 {
   margin-left: 50px;
 }
 h5 {

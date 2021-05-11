@@ -3,11 +3,11 @@
     <div class="left01">
         <div class="containleft">
             <div class="anh01">
-                <img class="avt" src="../../../../assets//img/category/xhoang.jpg" alt="" srcset="">
+                <img class="avt" src="../../../../assets/avatar.svg" alt="{{user.userName}}" >
             </div>
             <div class="ten01">
                 <span class="hoten01 inf01">
-                  {{user.userName}} 
+                  {{user.userName}}
                 </span>
                 <div [routerLink]="['/userupdate/' + user._id]" class="chinhsua inf01">
                     <button class="btne">Chỉnh sửa trang cá nhân</button>
@@ -19,23 +19,23 @@
         <div class="containright">
             <div class="ngthamgia item01">
                 <img class="iconright" src="https://www.chotot.com/user/static/img/calendar.png" height="16" alt="">
-                Ngày tham gia: &nbsp; 
+                Ngày tham gia: &nbsp;
                 <span>{{user.ngay_dang_ky}}</span>
             </div>
             <div class="diachi item01">
                 <img class="iconright" src="https://www.chotot.com/user/static/img/location.png" height="16" alt="">
-                Địa chỉ: &nbsp; 
+                Địa chỉ: &nbsp;
                 <span>{{user.userAddress}}</span>
             </div>
             <div class="mail item01">
                 <img class="iconright" src="https://www.chotot.com/user/static/img/chat.png" height="16" alt="">
-                Email: &nbsp; 
-                <span>Tai.hlt1904@hoasen.edu.vn</span>
+                Email: &nbsp;
+                <span>{{user.userMail}}</span>
             </div>
             <div class="sdt item01">
                 <img class="iconright" src="https://static.chotot.com/storage/marketplace/common/pf_rating_icon.svg" height="16" alt="">
-                Số điện thoại: &nbsp; 
-                <span>{{user.userPhone}}</span>
+                Số điện thoại: &nbsp;
+                <span>+84 {{user.userPhone}}</span>
             </div>
         </div>
     </div>
