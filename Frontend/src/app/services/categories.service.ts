@@ -35,26 +35,6 @@ export class CategoriesService {
       });
   }
 
-  // getCategory(name) {
-  //   console.log(name)
-  //     this.http
-  //       .get<{ category: Category[] }>(this.url + "/category/?loai_sp=" + name )
-  //       .pipe(
-  //         map((profileData) => {
-  //           return profileData.category;
-  //         })
-  //       )
-  //       .subscribe((categories) => {
-  //         this.categories = categories;
-  //         this.categories$.next(this.categories);
-  //         console.log(categories)
-  //       });
-  //       // this.router.navigate.(['category',this..name])
-  //   }
-
-
-
-
   getProfilesStream() {
     return this.categories$.asObservable();
   }

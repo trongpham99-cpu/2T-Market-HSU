@@ -1,3 +1,4 @@
+import { Category } from './../models/Category';
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { catchError, map } from "rxjs/operators";
@@ -17,6 +18,22 @@ export class ProfileService {
   public price = 0;
   public searchText;
   constructor(private http: HttpClient) {}
+
+  getCategory(name: Category) {
+    this.http
+      .get<{ category: Profile[] }>(this.url + "/category/?loai_sp=" + name )
+      .pipe(
+        map((profileData) => {
+          return profileData.category;
+        })
+      )
+      .subscribe((profiles) => {
+        this.profiles = profiles;
+        this.profiles$.next(this.profiles);
+        console.log(profiles)
+      });
+      // this.router.navigate.(['category',this..name])
+}
 
   getProductsNew() {
     this.http

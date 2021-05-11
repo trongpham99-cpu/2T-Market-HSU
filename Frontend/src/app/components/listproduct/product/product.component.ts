@@ -1,12 +1,9 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { Subscription } from "rxjs";
-
 import { ProfileService } from "src/app/services/profile.service";
 import { Profile } from "src/app/models/Profile";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-
 import { map } from "rxjs/operators";
-
 import { Subject } from "rxjs";
 
 @Component({
