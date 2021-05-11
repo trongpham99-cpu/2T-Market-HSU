@@ -23,7 +23,7 @@ class Database{
         this.proDuct = mongoose.model("products",proDuctSchema);
         /**
          * @type {mongoose.Model<any>}
-         */ 
+         */
         this.user = mongoose.model("users",userSchema);
     }   
     //lay ra 1 thuc the duy nhat cua db

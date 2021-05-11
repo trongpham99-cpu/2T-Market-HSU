@@ -1,8 +1,4 @@
 const Profile = require('../models/profile');
-const User = require('../models/user.model');
-const userSchema = require('../schemas/user.schema');
-const mongoose = require('mongoose');
-
 //GET ALL PRODUCT
 exports.getProfiles = async (req, res) => {
   const profiles = await Profile.find();
@@ -38,23 +34,8 @@ exports.getDetail = async (req, res) => {
   .catch(err => {
     res.send(err);
   });
+ 
 }
-
-//TEST GET DETAIL ID PRODUCT TO USER
-exports.getId = async (req,res) => {
-  let user = this.user = mongoose.model("users",userSchema);
-  const {id} = req.query;
-  const detail = await Profile.findById(id)
-  try{
-    let a = detail.nguoi_dang_sp;
-    const userPost = await user.find({userAccount:a});
-    res.status(200).send(userPost);
-  }catch(err){
-    res.status(401).json(`Không tìm thấy id: ${id}`)
-  }
-}
-
-
 //GET CATEGORY
 exports.getCategory = async(req, res) =>{
   const { loai_sp } = req.query;
@@ -105,7 +86,7 @@ exports.updataProduct = async (req,res) => {
 //POST PRODUCT
 exports.postProfile = async (req, res) => {
   const { productName,productPrice,description,productAddress,loai_sp,ngay_dang,status="0",nguoi_dang_sp="trong.phamtranduc" } = req.body;
-  const imagePath = 'http://project-a-hsu.herokuapp.com/images/' + req.file.filename; // Note: set path dynamically
+  const imagePath = 'http://127.0.0.1:8080/images/' + req.file.filename; // Note: set path dynamically
   const profile = new Profile({
     productName,
     productPrice,
