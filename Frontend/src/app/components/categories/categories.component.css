@@ -6,9 +6,9 @@
 .muc{
   display: flex;
   list-style-type: none;
-  margin-top: 15px;
-  margin-left: 10px;
-  margin-right: 10px
+  /* margin-top: 15px; */
+  /* margin-left: 10px;
+  margin-right: 10px */
 }
 
 .categogy{
@@ -31,7 +31,8 @@
   border-radius: 10px;
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  padding: 10px;
 }
 
 p {
