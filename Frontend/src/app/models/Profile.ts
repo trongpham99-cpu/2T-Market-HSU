@@ -5,6 +5,7 @@ export interface Profile {
   description: string;
   productAddress: string;
   loai_sp: string;
+  nguoi_dang_sp: string;
   ngay_dang:string;
   imagePath: string;
 }

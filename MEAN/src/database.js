@@ -75,8 +75,8 @@ class Database{
      * @param {string} id 
      * @returns 
      */
-    async getUser(id) {
-        return await this.user.findById(id);
+    async getUser(userAccount) {
+        return await this.user.find({userAccount:userAccount});
     }
 }
     

@@ -21,7 +21,7 @@ export class UsersService {
   }
 
   getUser(): Observable<User[]> {
-    return this.http.get<User[]>("http://127.0.0.1:8080/user/?id=608c3e4bcca0d2594e873f2b");
+    return this.http.get<User[]>("http://127.0.0.1:8080/user?userAccount=trong.phamtranduc");
   }
 
   onSubmit(postData) {
@@ -32,21 +32,6 @@ export class UsersService {
       }
       console.log("result",result);
     });
-  }
-
-  showUser = true;
-  showProduct = true;
-  suaSp = true;
-
-  showIfUser() {
-    this.showUser = !this.showUser;
-  }
-
-  showIfProduct() {
-    this.showProduct = !this.showProduct;
-  }
-  showUpdate() {
-    this.suaSp = !this.suaSp;
   }
 }
 
