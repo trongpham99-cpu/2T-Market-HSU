@@ -3,6 +3,39 @@ const userSchema = require('../schemas/user.schema');
 const User = require('../models/user.model');
 const mongoose = require('mongoose');
 
+
+exports.update = async (req,res) =>{
+  const {id} = req.query;
+  const options = {new : true};
+  console.log("hi");
+  try{
+    const result = await Profile.findByIdAndUpdate(id, {status:"1"},options);
+    res.send({message: `updated [${id}]`});
+  }catch(err){
+    res.status(400).send({message : `cannot update [${id}]`});
+  }
+}
+
+//GET STATUS = 0
+exports.getStatusAdmin = async (req, res) =>{
+  const {status} = req.query;
+  const choDuyet = await Profile.find({status:status});
+}
+
+//SẢN PHẨM CHỜ DUYỆT
+exports.getProductChoDuyet = async (req,res) =>{
+  const {status}=req.query;
+  const getProductChoDuyet = await Profile
+  .find({status:status})
+  .sort({
+    ngay_dang:-1,
+  })
+  .limit(100000); 
+  res.status(200).json({getProductChoDuyet});
+}
+
+
+
 //TEST ID
 exports.getUserIdByIdProduct = async (req, res) => {
   // user = mongoose.model("users",userSchema);  
@@ -22,7 +55,7 @@ exports.getProfiles = async (req, res) => {
 //GET ALL PRODUCT FOR NEW POST
 exports.getProductsNew = async (req,res) =>{
   const productsNew = await Profile
-  .find({})
+  .find({status:"1"})
   .sort({
     ngay_dang:-1,
   })
@@ -85,7 +118,7 @@ exports.deteleProduct = async (req, res) => {
 }
 
 //UPDATE PRODUCT
-exports.updataProduct = async (req,res) => {
+exports.updateProduct = async (req,res) => {
   const {id} = req.query;
   const updates = req.body;
   const options = {new : true};
@@ -99,7 +132,7 @@ exports.updataProduct = async (req,res) => {
 
 //POST PRODUCT
 exports.postProfile = async (req, res) => {
-  const { productName,productPrice,description,productAddress,loai_sp,ngay_dang,status="0",nguoi_dang_sp="trong.phamtranduc" } = req.body;
+  const { productName,productPrice,description,productAddress,loai_sp,ngay_dang,status="0",nguoi_dang_sp} = req.body;
   const imagePath = 'http://127.0.0.1:8080/images/' + req.file.filename; // Note: set path dynamically
   const profile = new Profile({
     productName,

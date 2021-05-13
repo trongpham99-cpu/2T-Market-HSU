@@ -16,13 +16,13 @@ export class UsersService {
   user: string;
   constructor(private http:HttpClient, private router: Router,) { }
 
-  getDataUser(){
+  getDataUsers(){
     return this.http.get(this.baseUrl);
   }
 
-  getUser(): Observable<User[]> {
-    return this.http.get<User[]>("http://127.0.0.1:8080/user?userAccount=trong.phamtranduc");
-  }
+  getDataUser(userAccount){
+    return this.http.get("http://127.0.0.1:8080/user?userAccount=" + userAccount);
+}
 
   onSubmit(postData) {
     this.http.post('http://127.0.0.1:8080/register',postData)

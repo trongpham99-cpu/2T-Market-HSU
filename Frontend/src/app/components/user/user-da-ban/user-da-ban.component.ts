@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/internal/operators/map';
 import { Subject } from 'rxjs/internal/Subject';
 import { Subscription } from 'rxjs/internal/Subscription';
@@ -15,15 +16,17 @@ export class UserDaBanComponent implements OnInit {
   profiles: Profile[] = [];
   private profileSubscription: Subscription;
   private profiles$ = new Subject<Profile[]>();
-  constructor(public profilesService: ProfileService,private http: HttpClient) { }
+  userAccount:any;
+  constructor(public profilesService: ProfileService,private http: HttpClient,public route:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getUserDaBan();
+    this.userAccount = this.route.snapshot.params['userAccount'];
+    this.getUserDaBan(this.userAccount);
   }
   public count = 0;price = 0;
-  getUserDaBan(){
+  getUserDaBan(userAccount){
     this.http
-          .get<{ cart: Profile[] }>("http://127.0.0.1:8080/api/cart?nguoi_dang_sp=trong.phamtranduc&status=2")
+          .get<{ cart: Profile[] }>("http://127.0.0.1:8080/api/cart?nguoi_dang_sp="+userAccount+"&status=2")
           .pipe(
             map((profileData) => {
               return profileData.cart;

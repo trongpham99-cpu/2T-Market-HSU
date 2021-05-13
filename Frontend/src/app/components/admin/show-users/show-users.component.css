@@ -9,6 +9,9 @@ td {
 }
 h1 {
   text-align: center;
+  font-weight: 20px;
+  margin-top: 20px;
+
 }
 .button {
   text-align: center;
