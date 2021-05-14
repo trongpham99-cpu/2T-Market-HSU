@@ -79,5 +79,4 @@ class Database{
         return await this.user.find({userAccount:userAccount});
     }
 }
-    
 module.exports = Database;
