@@ -206,6 +206,7 @@ img{
 }
 
 .user-inf{
+  margin-top: 5px;
     display: flex;
     box-sizing: border-box;
     width: 318px;
