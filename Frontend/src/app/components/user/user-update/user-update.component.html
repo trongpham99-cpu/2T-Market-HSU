@@ -6,9 +6,14 @@
                 <div class="content">
                     <form action="#">
                         <div class="user-details">
-                            <div class="input-box">
-                                
-                            </div>
+                          <div class="input-box">
+                            <span class="details">Họ tên</span>
+                            <input type="text" placeholder="Enter your name" value="{{user.userName}}" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Mật khẩu</span>
+                            <input type="password" placeholder="Enter your name" value="Ho Le Thai" required>
+                        </div>
                             <div class="input-box">
                                 <span class="details">Số điện thoại</span>
                                 <input type="text" placeholder="Enter your name" value="{{user.userPhone}}" required>
@@ -23,7 +28,7 @@
                             </div>
                         </div>
 
-                    </form>    
+                    </form>
                 </div>
             </div>
 
@@ -35,11 +40,8 @@
             <div class="content">
                 <form action="#">
                     <div class="user-details">
-                        <div class="input-box">
-                            <span class="details">Họ tên</span>
-                            <input type="text" placeholder="Enter your name" value="{{user.userName}}" required>
-                        </div>
-                        <div class="input-box">
+
+                        <div class="input-box ntg">
                             <span class="details">Ngày tham gia:</span>
                             <p class="details">{{user.ngay_dang_ky}}</p>
                         </div>
@@ -48,9 +50,9 @@
                     <div class="button">
                         <input type="submit" value="Lưu">
                     </div>
-                </form>    
+                </form>
             </div>
 
         </div>
-    </div>     
-</div>  
+    </div>
+</div>
