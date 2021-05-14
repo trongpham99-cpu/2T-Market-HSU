@@ -9,6 +9,13 @@ const router = express.Router();
 //TEST
 router.get('/userid', profilesController.getUserIdByIdProduct);
 //
+
+router.put('/duyetsp',profilesController.update);
+
+router.get('/status',profilesController.getStatusAdmin);
+
+router.get('/productwait',profilesController.getProductChoDuyet);
+
 router.get('/product', profilesController.getProfiles);
 
 router.get('/detail', profilesController.getDetail);
@@ -25,6 +32,6 @@ router.post('/product', storage, profilesController.postProfile);
 
 router.delete('/product',profilesController.deteleProduct);
 
-router.put('/product',profilesController.updataProduct);
+router.put('/product',profilesController.updateProduct);
 
 module.exports = router;

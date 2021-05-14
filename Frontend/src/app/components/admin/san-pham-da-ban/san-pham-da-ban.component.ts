@@ -1,36 +1,34 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Subject } from 'rxjs/internal/Subject';
 import { map } from 'rxjs/operators';
 import { Profile } from 'src/app/models/Profile';
 import { ProfileService } from 'src/app/services/profile.service';
 
+
 @Component({
-  selector: 'app-user-post-cho-duyet',
-  templateUrl: './user-post-cho-duyet.component.html',
-  styleUrls: ['./user-post-cho-duyet.component.css']
+  selector: 'app-san-pham-da-ban',
+  templateUrl: './san-pham-da-ban.component.html',
+  styleUrls: ['./san-pham-da-ban.component.css']
 })
-export class UserPostChoDuyetComponent implements OnInit {
+export class SanPhamDaBanComponent implements OnInit {
 
   profiles: Profile[] = [];
   private profileSubscription: Subscription;
-  userAccount:any;
   private profiles$ = new Subject<Profile[]>();
-  constructor(public profilesService: ProfileService,private http: HttpClient,public route:ActivatedRoute) { }
+  constructor(public profilesService: ProfileService,private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.userAccount = this.route.snapshot.params['userAccount'];
-    this.getUserPostChoDuyet(this.userAccount);
+    this.getAdminPostDaBan();
   }
   public count = 0;price = 0;
-  getUserPostChoDuyet(userAccount){
+  getAdminPostDaBan(){
     this.http
-          .get<{ cart: Profile[] }>("http://127.0.0.1:8080/api/cart?nguoi_dang_sp="+ userAccount+"&status=0")
+          .get<{ getProductChoDuyet: Profile[] }>("http://127.0.0.1:8080/api/productwait?status=2")
           .pipe(
             map((profileData) => {
-              return profileData.cart;
+              return profileData.getProductChoDuyet;
             })
           )
           .subscribe((profiles) => {

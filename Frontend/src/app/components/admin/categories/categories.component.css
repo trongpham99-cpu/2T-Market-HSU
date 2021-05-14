@@ -8,6 +8,7 @@ img {
 .divall {
   display: flex;
   margin-top: 0.1px;
+  margin-bottom: 20px;
 }
 table, td, th {
   border: 1px solid black;
@@ -28,4 +29,9 @@ td {
 .tong {
   width: 100%;
   text-align: center;
+}
+h1 {
+  text-align: center;
+  font-weight: 20px;
+  margin-top: 20px;
 }

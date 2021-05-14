@@ -14,7 +14,7 @@ export class ShowUsersComponent implements OnInit {
   public user: User[]=[];
   public countUser = 0;
   constructor( public UsersService:UsersService ) {
-    this.UsersService.getDataUser().subscribe((res: User[])=>{
+    this.UsersService.getDataUsers().subscribe((res: User[])=>{
       this.user = res;
       for(let i = 0; i<res.length;i++){
         this.countUser++;

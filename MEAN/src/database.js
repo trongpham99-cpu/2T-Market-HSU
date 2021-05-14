@@ -72,7 +72,7 @@ class Database{
     }
     /**
      * 
-     * @param {string} id 
+     * @param {string} userAccount 
      * @returns 
      */
     async getUser(userAccount) {
