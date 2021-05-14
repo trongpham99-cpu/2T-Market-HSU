@@ -1,35 +1,29 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { map } from 'rxjs/internal/operators/map';
 import { Subject } from 'rxjs/internal/Subject';
-import { map } from 'rxjs/operators';
+import { Subscription } from 'rxjs/internal/Subscription';
 import { Profile } from 'src/app/models/Profile';
 import { ProfileService } from 'src/app/services/profile.service';
 
 @Component({
-  selector: 'app-user-post-cho-duyet',
-  templateUrl: './user-post-cho-duyet.component.html',
-  styleUrls: ['./user-post-cho-duyet.component.css']
+  selector: 'app-user-da-ban',
+  templateUrl: './user-da-ban.component.html',
+  styleUrls: ['./user-da-ban.component.css']
 })
-export class UserPostChoDuyetComponent implements OnInit {
-
+export class UserDaBanComponent implements OnInit {
   profiles: Profile[] = [];
   private profileSubscription: Subscription;
   private profiles$ = new Subject<Profile[]>();
   constructor(public profilesService: ProfileService,private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.getUserPostChoDuyet();
-    // this.profileSubscription = this.profilesService
-    //   .getProfilesStream()
-    //   .subscribe((profiles: Profile[]) => {
-    //     this.profiles = profiles;
-    //   });
+    this.getUserDaBan();
   }
   public count = 0;price = 0;
-  getUserPostChoDuyet(){
+  getUserDaBan(){
     this.http
-          .get<{ cart: Profile[] }>("http://127.0.0.1:8080/api/cart?nguoi_dang_sp=trong.phamtranduc&status=0")
+          .get<{ cart: Profile[] }>("http://127.0.0.1:8080/api/cart?nguoi_dang_sp=trong.phamtranduc&status=2")
           .pipe(
             map((profileData) => {
               return profileData.cart;
@@ -44,5 +38,4 @@ export class UserPostChoDuyetComponent implements OnInit {
             }
           });
   }
-
 }

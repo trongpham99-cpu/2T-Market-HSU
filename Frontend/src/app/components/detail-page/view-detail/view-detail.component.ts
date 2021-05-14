@@ -21,11 +21,6 @@ export class ViewDetailComponent implements OnInit {
   constructor(private profilesService: ProfileService, public route:ActivatedRoute){
   }
   ngOnInit(): void {
-    // this.profilesService.getDetail(this.id)
-    // .subscribe((profile:Profile[])=>{
-    //   this.profile = profile;
-    //   console.log(profile);
-    // })
     this.id = this.route.snapshot.params['id'];
     this.getOne();
   }

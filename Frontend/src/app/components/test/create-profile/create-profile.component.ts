@@ -58,6 +58,8 @@ export class CreateProfileComponent implements OnInit {
     this.form.value.description,
     this.form.value.productAddress,
     this.form.value.loai_sp,
+    this.form.value.nguoi_dang_sp,
+    this.form.value.ngay_dang,
     this.form.value.image);
     this.form.reset();
     this.imageData = null;

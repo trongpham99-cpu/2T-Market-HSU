@@ -29,9 +29,8 @@ app.get("/users", async (req, res)=>{
     res.send(users);
 });
 app.get("/user", async (req, res) =>{
-    const {id} = req.query;
-    const user = await Database.instance.getUser(id);
-    console.log(user)
+    const {userAccount} = req.query;
+    const user = await Database.instance.getUser(userAccount);
     res.send(user);
 });
 app.post("/register", async (req, res) => {

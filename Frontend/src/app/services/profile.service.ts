@@ -1,10 +1,12 @@
+import { Category } from './../models/Category';
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { catchError, map } from "rxjs/operators";
 import { Profile } from "../models/Profile";
 import { Observable, of, Subject } from "rxjs";
 import { Body } from "@angular/http/src/body";
-
+import { LoginsService } from '../services/logins.service'
+import { UsersService } from './users.service';
 @Injectable({
   providedIn: "root",
 })
@@ -16,7 +18,23 @@ export class ProfileService {
   public count = 0;
   public price = 0;
   public searchText;
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,public UsersService:UsersService) {}
+
+  getCategory(name: Category) {
+    this.http
+      .get<{ category: Profile[] }>(this.url + "/category/?loai_sp=" + name )
+      .pipe(
+        map((profileData) => {
+          return profileData.category;
+        })
+      )
+      .subscribe((profiles) => {
+        this.profiles = profiles;
+        this.profiles$.next(this.profiles);
+        console.log(profiles)
+      });
+      // this.router.navigate.(['category',this..name])
+}
 
   getProductsNew() {
     this.http
@@ -29,7 +47,6 @@ export class ProfileService {
       .subscribe((profiles) => {
         this.profiles = profiles;
         this.profiles$.next(this.profiles);
-        console.log(profiles);
       });
   }
 
@@ -52,7 +69,7 @@ export class ProfileService {
   public priceDaDuyet = 0;
   getUserPost() {
     this.http
-      .get<{ cart: Profile[] }>("http://127.0.0.1:8080/api/cart?nguoi_dang_sp=trong.phamtranduc&status=0")
+      .get<{ cart: Profile[] }>("http://127.0.0.1:8080/api/cart?nguoi_dang_sp="+ "trong.phamtranduc" +"&status=1")
       .pipe(
         map((profileData) => {
           return profileData.cart;
@@ -69,25 +86,6 @@ export class ProfileService {
         // console.log(this.price)
       });
   }
-  //Dang Cho Duyet
-  getUserPostChoDuyet() {
-    // this.http
-    //   .get<{ cart: Profile[] }>("http://127.0.0.1:8080/api/cart?nguoi_dang_sp=trong.phamtranduc&status=1")
-    //   .pipe(
-    //     map((profileData) => {
-    //       return profileData.cart;
-    //     })
-    //   )
-    //   .subscribe((profiles) => {
-    //     this.profiles = profiles;
-    //     this.profiles$.next(this.profiles);
-    //     console.log(profiles);
-    //     for(let i=1; i <= profiles.length;i++){
-    //     this.count++;
-    //     }
-    //   });
-  }
-
   getDetail(id) {
     return this.http.get("http://127.0.0.1:8080/api/detail/?id=" + id)
   }
@@ -102,13 +100,14 @@ export class ProfileService {
     return this.profiles$.asObservable();
   }
 
-  addProfile(productName: string,productPrice:string,description:string,productAddress:string,loai_sp:string,image: File): void {
+  addProfile(productName: string,productPrice:string,description:string,productAddress:string,loai_sp:string,nguoi_dang_sp:string,ngay_dang:string,image: File): void {
     const profileData = new FormData();
     profileData.append("productName", productName);
     profileData.append("productPrice", productPrice);
     profileData.append("description", description);
     profileData.append("productAddress", productAddress);
     profileData.append("loai_sp", loai_sp);
+    profileData.append("nguoi_dang_sp", nguoi_dang_sp);
     profileData.append("image", image, productName);
     this.http
       .post<{ profile: Profile }>(this.url + "/product", profileData)
@@ -120,6 +119,8 @@ export class ProfileService {
           description:description,
           productAddress:productAddress,
           loai_sp:loai_sp,
+          nguoi_dang_sp:nguoi_dang_sp,
+          ngay_dang:ngay_dang,
           imagePath: profileData.profile.imagePath,
         };
         this.profiles.push(profile);

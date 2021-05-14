@@ -1,3 +1,10 @@
-<div *ngFor="let product of profiles" >
-    <p>{{product.productName}}</p>
+<div class="div1" >
+  <div *ngFor="let category of categories" class ="categogy">
+    <li  class="muc">
+        <a>
+          <img class="anh" [src]="category.imagePath" [alt]="category.name"><br>
+            <p [routerLink]="['/category/' + category.name ]"  >{{category.name}}</p> <br>
+        </a>
+    </li>
+  </div>
 </div>

@@ -10,13 +10,13 @@
       <li><a href="#">Services</a></li>
       <li><a href="#">Contact</a></li>
       <li><a href="#">Feedback</a></li> -->
-      <li><a  [routerLink]="['/admin']" *ngIf="this.userInfo">Quản Lý</a></li>
       <li><a  [routerLink]="['/input']" *ngIf="this.userInfo">Đăng Tin</a></li>
       <li><a  [routerLink]="['/signin']" *ngIf="!this.userInfo">Đăng Nhập</a></li>
       <li *ngIf="this.userInfo" > <button mat-button [matMenuTriggerFor]="beforeMenu">{{this.userInfo.userAccount}}</button>
         <mat-menu #beforeMenu="matMenu" xPosition="before">
-          <button mat-menu-item >Thông Tin Cá Nhân</button>
+          <button [routerLink] = "['/user/608c3e4bcca0d2594e873f2b']"mat-menu-item >Thông Tin Cá Nhân</button>
           <button mat-menu-item>Tin Nhắn</button>
+          <button *ngIf="this.userInfo.userAccount == 'admin'" mat-menu-item [routerLink]="['/admin']" >Quản Lý</button>
           <button mat-menu-item>Đăng Xuất</button>
         </mat-menu></li>
     </ul>

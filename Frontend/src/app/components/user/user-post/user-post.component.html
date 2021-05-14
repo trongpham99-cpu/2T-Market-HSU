@@ -3,7 +3,7 @@
     <h4 class="title4">
       Tin Đang Đăng
       <span>-
-        <!-- -->{{profilesService.count}}
+        <!-- -->{{this.count}}
         <!-- --> tin
       </span>
     </h4>
@@ -13,11 +13,12 @@
       <img [src]="product.imagePath" [alt]="product.productName">
     </div>
     <div>
-      <h4>Tên Sản Phẩm: {{product.productName}}</h4>
+      <h4>Tên Sản Phẩm : {{product.productName}}</h4>
+      <p style="color: black;" >Ngày Đăng : {{product.ngay_dang}}</p>
       <p>Giá Sản Phẩm : {{product.productPrice}} VNĐ </p>
-      <p>Ngày Đăng :</p>
-      <button>Xóa</button>
+      <button class = "button1" (click)="this.profilesService.deleteProduct(product._id)" >Xóa</button>
+      <button class = "button2" >Đã Bán</button>
     </div>
   </div>
-  <h5><strong>Tổng Số Tiền : {{profilesService.price}}</strong></h5>
+  <h5><strong>Tổng Số Tiền : {{this.price}} VNĐ</strong></h5>
 </div>

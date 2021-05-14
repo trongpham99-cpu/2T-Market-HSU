@@ -5,7 +5,7 @@ body{
 
 .ct-listing {
   margin-top: 50px;
-  min-height: calc(100vh - 245px);
+  /* min-height: calc(100vh - 245px); */
 }
 
 @media (min-width: 768px){

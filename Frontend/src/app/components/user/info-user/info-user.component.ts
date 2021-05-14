@@ -21,7 +21,6 @@ export class InfoUserComponent implements OnInit {
     this.UsersService.getUser()
     .subscribe((user:User[])=>{
       this.user = user;
-      // this.ngayThamGia = user.ngay_dang_ky;
     })
   }
 
