@@ -7,7 +7,6 @@ const mongoose = require('mongoose');
 exports.update = async (req,res) =>{
   const {id} = req.query;
   const options = {new : true};
-  console.log("hi");
   try{
     const result = await Profile.findByIdAndUpdate(id, {status:"1"},options);
     res.send({message: `updated [${id}]`});
@@ -85,8 +84,8 @@ exports.getDetail = async (req, res) => {
 }
 //GET PRODUCT IN CATEGORY
 exports.getCategory = async(req, res) =>{
-  const { loai_sp } = req.query;
-  const category = await Profile.find({loai_sp:loai_sp});
+  const { loai_sp,status } = req.query;
+  const category = await Profile.find({loai_sp:loai_sp,status:"1"});
   try{
     res.status(200).json({category})
   }catch(err){
