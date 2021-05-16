@@ -1,1 +1,21 @@
-<h2>Sản Phảm Chờ Duyệt</h2>
+<h1>Sản Phảm Chờ Duyệt</h1>
+<table style="width:100%">
+  <tr>
+    <th>Hình Ảnh</th>
+    <th>Tên Sản Phẩm</th>
+    <th>Người Đăng</th>
+    <th>Ngày Đăng</th>
+    <th>Giá Sản Phẩm</th>
+    <th>Duyệt</th>
+    <th>Xóa</th>
+  </tr>
+  <tr *ngFor = "let product of profiles" >
+    <td><img [src]="product.imagePath" [alt]="product.productName"></td>
+    <td>{{product.productName}}</td>
+    <td>{{product.nguoi_dang_sp}}</td>
+    <td>{{product.ngay_dang}}</td>
+    <td>{{product.productPrice}}</td>
+    <td (click)="this.AdminService.duyetSp(product)" class="button"><button>Duyệt</button></td>
+    <td class="button"><button>Xóa</button></td>
+  </tr>
+</table>

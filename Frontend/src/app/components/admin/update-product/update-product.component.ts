@@ -2,6 +2,9 @@ import { ProductsService } from 'src/app/services/products.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Product } from 'src/app/models/product.model';
+import { ProfileService } from 'src/app/services/profile.service';
+import { Subscription } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-update-product',
@@ -11,12 +14,22 @@ import { Product } from 'src/app/models/product.model';
 export class UpdateProductComponent implements OnInit {
   form: FormGroup;
   product: Product;
-  constructor(public ProductsService:ProductsService) { }
+  public profile: any;
+  id:any;
+  data:any;
+  public profileSubscription: Subscription;
+  constructor(private profilesService: ProfileService, public route:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.form = new FormGroup({
-      name: new FormControl(null)
-    });
+    this.id = this.route.snapshot.params['id'];
+    this.getOne();
+  }
+
+  getOne(){
+    this.profilesService.getDetail(this.id).subscribe(data =>{
+      this.data = data;
+      console.log(data);
+    })
   }
 
 }

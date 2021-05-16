@@ -1,3 +1,4 @@
+<h1>Tất Cả Sản Phẩm</h1>
 <div class="divall">
   <table>
     <tr>
@@ -21,7 +22,7 @@
       <td>{{profile.ngay_dang}}</td>
       <td class="button" ><button [routerLink]="['/update/' + profile._id]" >Sửa</button></td>
       <td class="button" ><button (click)="profilesService.deleteProduct(profile._id)" >Xóa</button></td>
-      <td class="button" ><button  [routerLink]="['/viewdetail/' + profile._id]" (click)="profilesService.getDetail(profile._id)" >Chi tiết</button></td>
+      <td class="button" ><button  [routerLink]="['/detail/' + profile._id]" (click)="profilesService.getDetail(profile._id)" >Chi tiết</button></td>
     </tr>
   </table>
 </div>

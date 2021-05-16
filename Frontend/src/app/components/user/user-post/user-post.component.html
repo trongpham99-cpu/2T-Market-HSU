@@ -9,15 +9,18 @@
     </h4>
   </div>
   <div *ngFor="let product of profiles" class="div-all">
-    <div>
+    <div class="anhh">
       <img [src]="product.imagePath" [alt]="product.productName">
     </div>
     <div>
       <h4>Tên Sản Phẩm : {{product.productName}}</h4>
       <p style="color: black;" >Ngày Đăng : {{product.ngay_dang}}</p>
       <p>Giá Sản Phẩm : {{product.productPrice}} VNĐ </p>
-      <button class = "button1" (click)="this.profilesService.deleteProduct(product._id)" >Xóa</button>
-      <button class = "button2" >Đã Bán</button>
+      <div class="btnn">
+        <button class = "button11" (click)="this.profilesService.deleteProduct(product._id)" >Xóa</button>
+      <button class = "button11" >Đã Bán</button>
+      </div>
+
     </div>
   </div>
   <h5><strong>Tổng Số Tiền : {{this.price}} VNĐ</strong></h5>

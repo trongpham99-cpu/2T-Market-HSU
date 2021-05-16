@@ -1,6 +1,6 @@
 <!-- <div *ngIf="profiles.length > 0"> -->
     <div *ngFor="let profile of profiles | filter:this.profilesService.searchText" class="AdItem__Item-sc-1ewf82b-0 eIgKqv item___DjEGG" >
-        <div class="wrapperLink___22Hpy">
+        <div [routerLink]="['/detail/' + profile._id]" class="wrapperLink___22Hpy">
             <div class="thumbnailWrapper___927DE">
                 <a target="_blank" rel="noopener noreferrer" class="thumbnailImg___3UKHb" >
                     <img [src]="profile.imagePath" [alt]="profile.productName">
@@ -10,7 +10,7 @@
                 <!-- <a (click)="profilesService.getDetail(profile._id)" [routerLink]="['/viewdetail/'+profile.loai_sp+'/' + profile._id]" target="_blank" rel="noopener noreferrer" class="adTitleGrid___mC6FC">
                 {{profile.productName}}
                 </a> -->
-                <a [routerLink]="['/detail/' + profile._id]" target="_blank" rel="noopener noreferrer" class="adTitleGrid___mC6FC">
+                <a  target="_blank" rel="noopener noreferrer" class="adTitleGrid___mC6FC">
                     {{profile.productName}}
                     </a>
                 <div>
@@ -23,7 +23,7 @@
                 </a>
                 <div class="deviderWrapper___3umBa"></div>
                 <div class="adItemPostedTime___2i72W">
-                    <span class="text___19FS4">trong.phamtranduc</span>
+                    <span class="text___19FS4">{{profile.nguoi_dang_sp}}</span>
                 </div>
                 <div class="deviderWrapper___3umBa"></div>
                 <span class="adItemPostedTime___2i72W location___2mJlP">

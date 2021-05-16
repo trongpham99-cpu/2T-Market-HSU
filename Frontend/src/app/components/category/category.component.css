@@ -4,7 +4,7 @@ body{
 }
 
 .ct-listing {
-  margin-top: 50px;
+  margin-top: 1%;
   /* min-height: calc(100vh - 245px); */
 }
 
@@ -24,7 +24,7 @@ body{
   padding: 12px;
   overflow: hidden;
   margin: 1px 0;
-  background-color: #fff;
+  background-color: #e2e2e2;
   position: relative;
 }
 

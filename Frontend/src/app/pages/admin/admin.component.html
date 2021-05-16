@@ -1,30 +1,13 @@
 <div class="div-all" >
   <div class="top-nav">
-    <button (click)="onPressUser()" >Thông Tin Khách Hàng</button><br>
-    <button (click)="onPressProduct()" >Thông Tin Sản Phẩm</button><br>
-    <button (click)="onPressCategory()" >Thông Tin Danh Mục</button><br>
-    <button>Thông Tin Quảng Cáo</button><br>
-    <button>Thêm Sản Phẩm</button><br>
-    <button (click)="onPressDisplayInputcCategory()" >Thêm Danh Mục</button><br>
+    <button routerLink="alluser" routerLinkActive="active" >Thông Tin Khách Hàng</button><br>
+    <button routerLink="allproduct" >Thông Tin Sản Phẩm</button><br>
+    <button routerLink="sanphamchoduyet" routerLinkActive="active" >Sản Phẩm Chờ Duyệt</button><br>
+    <button routerLink="sanphamdaban" routerLinkActive="active" >Sản Phẩm Đã Bán</button><br>
     <button>Thêm Quảng Cáo</button><br>
-    <button (click)="onPressWait()" >Sản Phẩm Chờ Duyệt</button><br>
-    <button>Sản Phẩm Đã Bán</button><br>
+    <button routerLink="allcategories" >Thông Tin Danh Mục</button><br>
+    <button >Thông Tin Quảng Cáo</button><br>
+    <button  routerLink="inputcategory" routerLinkActive="active" >Thêm Danh Mục</button><br>
     <button>Mail Hỏi Đáp</button><br>
   </div>
-  <div *ngIf="displayUser" >
-    <app-show-users></app-show-users>
-  </div>
-  <div class="product" *ngIf="displayProduct" >
-    <app-show-product></app-show-product>
-  </div>
-  <div *ngIf="displayCategory" >
-    <app-categories></app-categories>
-  </div>
-  <div *ngIf="displayInputcCategory" >
-    <app-input-category></app-input-category>
-  </div>
-  <div *ngIf="displayWait" >
-    <app-san-pham-cho-duyet></app-san-pham-cho-duyet>
-  </div>
-  <!-- <app-bar-chart></app-bar-chart> -->
 </div>

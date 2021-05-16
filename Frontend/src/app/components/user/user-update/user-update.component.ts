@@ -12,11 +12,11 @@ export class UserUpdateComponent implements OnInit {
   public user : any;
 
   ngOnInit(): void {
-    this.UsersService.getUser()
-    .subscribe((user:User[])=>{
-      this.user = user;
-      console.log(user)
-    })
+    // this.UsersService.getUser()
+    // .subscribe((user:User[])=>{
+    //   this.user = user;
+    //   console.log(user)
+    // })
   }
 
 }

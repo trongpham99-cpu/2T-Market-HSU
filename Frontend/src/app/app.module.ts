@@ -12,18 +12,16 @@ import { FormsModule }   from '@angular/forms';
 import { ReactiveFormsModule} from '@angular/forms'
 import { InputUserComponent } from './components/sign-up/input-user.component';
 import  { SignInComponentComponent } from './components/sign-in/sign-in-component.component';
-import { ProductXeComponent } from './components/show-products-xe/product-xe/product-xe.component';
-import { ShowProductsXeComponent } from './components/show-products-xe/show-products-xe.component';
 import { CookieService } from 'ngx-cookie-service';
 import { CreateProfileComponent } from './components/test/create-profile/create-profile.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatMenuModule} from '@angular/material/menu';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-
-
+import { SanPhamCungLoaiComponent } from './components/detail-page/san-pham-cung-loai/san-pham-cung-loai.component';
+import { ChatComponent } from '../app/components/chat/chat.component';
 @NgModule({
   declarations: [
-    AppComponent,NavBarComponent, FooterComponent,InputUserComponent,SignInComponentComponent,ProductXeComponent,ShowProductsXeComponent,CreateProfileComponent
+    AppComponent,NavBarComponent,ChatComponent, FooterComponent,InputUserComponent,SignInComponentComponent,CreateProfileComponent, SanPhamCungLoaiComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +33,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     AngularFireAuthModule,
     BrowserAnimationsModule,
     MatMenuModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
   ],
   providers: [CookieService ],
   bootstrap: [AppComponent]

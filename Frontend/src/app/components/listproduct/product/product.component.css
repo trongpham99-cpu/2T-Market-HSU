@@ -62,8 +62,8 @@
 .item___DjEGG {
   overflow: hidden;
   background: #fff;
-  /* margin: 10px; */
-  /* border-radius: 10px; */
+  margin: 10px;
+ border-radius: 10px;
 }
 
 .item___DjEGG .wrapperLink___22Hpy {
@@ -248,3 +248,6 @@ img {
   margin: 0 3px;
 }
 
+.wrapperLink___22Hpy:hover {
+  cursor: pointer;
+}

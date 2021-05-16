@@ -1,0 +1,25 @@
+<h1>Sản Phảm Đã Bán</h1>
+<div class="div02">
+  <div class="contain02">
+    <h4 class="title4">
+      Có
+      <span>
+      {{this.count}}
+      tin
+      </span>
+      đã bán
+    </h4>
+  </div>
+  <div *ngFor="let product of profiles" class="div-all">
+    <div>
+      <img [src]="product.imagePath" [alt]="product.productName">
+    </div>
+    <div>
+      <h4>Tên Sản Phẩm : {{product.productName}}</h4>
+      <p style="color: black;" >Người Đăng Sản Phẩm : {{product.nguoi_dang_sp}}</p>
+      <p style="color: black;" >Ngày Đăng : {{product.ngay_dang}}</p>
+      <p>Giá Sản Phẩm : {{product.productPrice}} VNĐ </p>
+      <button class = "button1" (click)="this.profilesService.deleteProduct(product._id)" >Xóa</button>
+    </div>
+  </div>
+</div>

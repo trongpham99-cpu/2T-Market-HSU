@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Subject } from 'rxjs/internal/Subject';
 import { map } from 'rxjs/operators';
@@ -15,21 +16,18 @@ export class UserPostChoDuyetComponent implements OnInit {
 
   profiles: Profile[] = [];
   private profileSubscription: Subscription;
+  userAccount:any;
   private profiles$ = new Subject<Profile[]>();
-  constructor(public profilesService: ProfileService,private http: HttpClient) { }
+  constructor(public profilesService: ProfileService,private http: HttpClient,public route:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getUserPostChoDuyet();
-    // this.profileSubscription = this.profilesService
-    //   .getProfilesStream()
-    //   .subscribe((profiles: Profile[]) => {
-    //     this.profiles = profiles;
-    //   });
+    this.userAccount = this.route.snapshot.params['userAccount'];
+    this.getUserPostChoDuyet(this.userAccount);
   }
   public count = 0;price = 0;
-  getUserPostChoDuyet(){
+  getUserPostChoDuyet(userAccount){
     this.http
-          .get<{ cart: Profile[] }>("http://127.0.0.1:8080/api/cart?nguoi_dang_sp=trong.phamtranduc&status=0")
+          .get<{ cart: Profile[] }>("http://127.0.0.1:8080/api/cart?nguoi_dang_sp="+ userAccount+"&status=0")
           .pipe(
             map((profileData) => {
               return profileData.cart;

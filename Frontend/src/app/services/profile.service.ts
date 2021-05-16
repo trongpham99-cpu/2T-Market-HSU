@@ -20,6 +20,11 @@ export class ProfileService {
   public searchText;
   constructor(private http: HttpClient,public UsersService:UsersService) {}
 
+
+  updateProduct(id){
+    
+  }
+
   getCategory(name: Category) {
     this.http
       .get<{ category: Profile[] }>(this.url + "/category/?loai_sp=" + name )
