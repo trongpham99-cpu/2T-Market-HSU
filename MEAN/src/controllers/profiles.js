@@ -3,13 +3,28 @@ const userSchema = require('../schemas/user.schema');
 const User = require('../models/user.model');
 const mongoose = require('mongoose');
 
-
+//DA BAN SAN PHAM
+exports.updateSanPhamDaBan = async (req,res) =>{
+  const {id} = req.query;
+  const options = {new : true};
+  try{
+    const result = await Profile.findByIdAndUpdate(id, {status:"2"},options);
+    res.send({
+      updated: result
+    });
+  }catch(err){
+    res.status(400).send({message : `cannot update [${id}]`});
+  }
+}
+//DUYET SAN PHAM
 exports.update = async (req,res) =>{
   const {id} = req.query;
   const options = {new : true};
-  const result = await Profile.findByIdAndUpdate(id, {status:"1"},options);
   try{
-    res.send(`updated [${result}]`);
+    const result = await Profile.findByIdAndUpdate(id, {status:"1"},options);
+    res.send({
+      updated: result
+    });
   }catch(err){
     res.status(400).send({message : `cannot update [${id}]`});
   }

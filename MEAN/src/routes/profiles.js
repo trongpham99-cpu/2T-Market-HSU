@@ -12,6 +12,8 @@ router.get('/userid', profilesController.getUserIdByIdProduct);
 
 router.put('/duyetsp',profilesController.update);
 
+router.put('/dabansp',profilesController.updateSanPhamDaBan);
+
 router.get('/status',profilesController.getStatusAdmin);
 
 router.get('/productwait',profilesController.getProductChoDuyet);

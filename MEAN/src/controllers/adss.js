@@ -20,9 +20,4 @@ exports.postAds = async (req, res) => {
 exports.getAds = async (req, res) => {
     const ads = await Ads.find();
     res.status(200).json({ ads });
-    let count = 0;  
-    for(let i = 0; i<ads.length;i++){
-      count++;
-    }
-    console.log(`Tổng số quảng cáo là : ` + count);
 };

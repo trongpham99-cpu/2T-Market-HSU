@@ -6,6 +6,7 @@ import { Subject } from 'rxjs/internal/Subject';
 import { map } from 'rxjs/operators';
 import { Profile } from 'src/app/models/Profile';
 import { ProfileService } from 'src/app/services/profile.service';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-user-post',
@@ -17,7 +18,7 @@ export class UserPostComponent implements OnInit {
   private profileSubscription: Subscription;
   userAccount:any;
   private profiles$ = new Subject<Profile[]>();
-  constructor(public profilesService: ProfileService,private http: HttpClient,public route:ActivatedRoute,) { }
+  constructor(public profilesService: ProfileService,private http: HttpClient,public route:ActivatedRoute,public UsersService :UsersService) { }
 
   ngOnInit(): void {
     this.userAccount = this.route.snapshot.params['userAccount'];

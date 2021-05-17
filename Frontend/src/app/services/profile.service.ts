@@ -105,7 +105,7 @@ export class ProfileService {
     return this.profiles$.asObservable();
   }
 
-  addProfile(productName: string,productPrice:string,description:string,productAddress:string,loai_sp:string,nguoi_dang_sp:string,ngay_dang:string,image: File): void {
+  addProfile(productName: string, productPrice:string, description:string, productAddress:string, loai_sp:string, nguoi_dang_sp:string, ngay_dang:string, image: File): void {
     const profileData = new FormData();
     profileData.append("productName", productName);
     profileData.append("productPrice", productPrice);

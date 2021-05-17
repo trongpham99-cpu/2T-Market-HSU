@@ -5,6 +5,8 @@ import { Profile } from "../../../models/Profile";
 import { ProfileService } from "src/app/services/profile.service";
 import { CategoriesService } from "src/app/services/categories.service";
 import { Category } from "src/app/models/Category";
+
+import { CookieService } from 'ngx-cookie-service';
 import { Subscription } from "rxjs";
 
 @Component({
@@ -19,7 +21,7 @@ export class CreateProfileComponent implements OnInit {
   categories: Category[] = [];
   private profileSubscription: Subscription;
 
-  constructor(private profileService: ProfileService,public CategoriesService: CategoriesService) {}
+  constructor(private profileService: ProfileService,public CategoriesService: CategoriesService, private cookieService: CookieService) {}
 
   ngOnInit(): void {
     this.CategoriesService.getAllCategory();
@@ -52,13 +54,16 @@ export class CreateProfileComponent implements OnInit {
   }
 
   onSubmit() {
+    let user = JSON.parse(this.cookieService.get('user'));
+    console.log(user.userAccount)
+
     this.profileService.addProfile(
     this.form.value.productName,
     this.form.value.productPrice,
     this.form.value.description,
     this.form.value.productAddress,
     this.form.value.loai_sp,
-    this.form.value.nguoi_dang_sp,
+    user.userAccount,
     this.form.value.ngay_dang,
     this.form.value.image);
     this.form.reset();

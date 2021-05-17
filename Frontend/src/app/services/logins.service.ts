@@ -37,6 +37,13 @@ export class LoginsService implements OnInit {
     }
 
   }
+
+  async logOut(){
+    this.cookieService.delete('user');
+    this.cookieService.delete('token');
+    this.router.navigate(['/home']);
+  }
+
   public userInfomation;
   async loginAcc(user: User){
     console.log(user);
@@ -45,11 +52,11 @@ export class LoginsService implements OnInit {
     .subscribe((result)=>{
       console.log("result",result);
       if(result){
-        this.router.navigate(['/home']);
         this.cookieService.set('user',JSON.stringify(user));
         this.cookieService.set('token', result['token']);
         // this.user = JSON.parse(this.cookieService.get('user'));
-        this.user = JSON.parse(this.cookieService.get('user'));
+        // this.user = JSON.parse(this.cookieService.get('user'));
+        window.location.reload();
       }
     });
   }

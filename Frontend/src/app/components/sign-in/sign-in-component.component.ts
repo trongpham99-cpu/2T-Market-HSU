@@ -17,8 +17,10 @@ export class SignInComponentComponent {
 
   constructor(public LoginsService:LoginsService,private http:HttpClient,private cookieService: CookieService,private router:Router) { }
 
-  onSubmit(data) {
-    this.LoginsService.loginAcc(data);
-    // console.log(data);
+  async onSubmit(data) {
+    await this.LoginsService.loginAcc(data);
+    this.router.navigate(['/home']);
+
   }
 }
+//trong

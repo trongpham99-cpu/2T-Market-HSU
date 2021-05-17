@@ -10,20 +10,24 @@ import { CookieService } from 'ngx-cookie-service';
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css']
 })
-export class NavBarComponent {
+export class NavBarComponent implements OnInit {
   public userInfo : any ;
   searchText;
   constructor( public LoginsService:LoginsService, private cookieService: CookieService,public ProfileService:ProfileService) {
     // console.log('cookie' + JSON.parse(this.cookieService.get('user')).userAccount);
-    this.getUserInfo();
+    // this.getUserInfo();
     // this.signOut();
   }
-
-  // async signOut() {
-  //   await this.cookieService.delete('user');
-  // }
-
-  async getUserInfo(){
-    this.userInfo = await JSON.parse(this.cookieService.get('user'));
+  ngOnInit(): void {
+    this.userInfo = JSON.parse(this.cookieService.get('user'));
   }
+
+  async signOut() {
+    await this.LoginsService.logOut();
+    this.userInfo = null;
+  }
+
+  // async getUserInfo(){
+  //   this.userInfo = await JSON.parse(this.cookieService.get('user'));
+  // }
 }

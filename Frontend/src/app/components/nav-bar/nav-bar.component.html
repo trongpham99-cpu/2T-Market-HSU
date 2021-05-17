@@ -17,7 +17,7 @@
           <button [routerLink]="['/user/' + this.userInfo.userAccount]" mat-menu-item >Thông Tin Cá Nhân</button>
           <button mat-menu-item>Tin Nhắn</button>
           <button *ngIf="this.userInfo.userAccount == 'admin'" mat-menu-item [routerLink]="['/admin']" >Quản Lý</button>
-          <button mat-menu-item>Đăng Xuất</button>
+          <button mat-menu-item (click)="signOut()">Đăng Xuất</button>
         </mat-menu></li>
     </ul>
   </nav>
