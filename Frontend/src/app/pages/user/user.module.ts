@@ -8,13 +8,14 @@ import { InfoUserComponent } from '../../components/user/info-user/info-user.com
 import { UserPostChoDuyetComponent } from '../../components/user/user-post-cho-duyet/user-post-cho-duyet.component';
 import { UserDaBanComponent } from '../../components/user/user-da-ban/user-da-ban.component';
 import { UserDoanhThuComponent } from '../../components/user/user-doanh-thu/user-doanh-thu.component';
-
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [UserComponent,UserPostComponent,InfoUserComponent,UserPostChoDuyetComponent,UserDaBanComponent,UserDoanhThuComponent],
   imports: [
     CommonModule,
-    UserRoutingModule
+    UserRoutingModule,
+    MatButtonModule
   ]
 })
 export class UserModule { }

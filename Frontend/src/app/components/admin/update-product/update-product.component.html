@@ -1,12 +1,33 @@
-<form action="/action_page.php">
-    <label for="fname">id sản phẩm: <p>{{data._id}}</p></label>
-    <label for="fname">Tên Sản Phẩm:</label>
-    <input type="text"  name="productName" placeholder="{{data.productName}}" ><br><br>
-    <label for="lname">Giá Sản Phẩm:</label>
-    <input type="text"  name="productPrice" placeholder="{{data.productPrice}}" ><br><br>
-    <label for="lname">Mô Tả:</label>
-    <input type="text"  name="productPrice" placeholder="{{data.description}}" ><br><br>
-    <label for="lname">Địa Chỉ:</label>
-    <input type="text"  name="productPrice" placeholder="{{data.productAddress}}" ><br><br>
-    <input type="submit" value="Submit">
-  </form>
+<h1>SỬA SẢN PHẨM</h1>
+
+<form>
+  <div class="container">
+    <div class="divleft">
+      <div>
+        <input formControlName="productName" type="text" placeholder="{{data.productName}}" />
+      </div>
+      <div>
+        <input formControlName="productPrice" type="text" placeholder="{{data.productPrice}}" />
+      </div>
+      <div>
+        <input formControlName="address" type="text" placeholder="{{data.productAddress}}" />
+      </div>
+      <div>
+        <input formControlName="description" type="text" placeholder="{{data.description}}" />
+      </div>
+      <div>
+        <input formControlName="loai_sp" type="text" placeholder="{{data.loai_sp}}" />
+      </div>
+      <div>
+        <button>Hủy</button>
+        <button style="margin-left: 20px;" type="submit">Lưu</button>
+      </div>
+    </div>
+    <div class="divright">
+      <div class="upfile">
+          <img [src]="data.imagePath" alt = "{{data.productName}}">
+          <h2>{{data.productName}}</h2>
+      </div>
+    </div>
+  </div>
+</form>

@@ -37,7 +37,7 @@ export class UserDaBanComponent implements OnInit {
             this.profiles$.next(this.profiles);
             for(let i=0; i<profiles.length;i++){
               this.count++
-              this.price += parseFloat(profiles[i].productPrice);
+              this.price += parseInt(profiles[i].productPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
             }
           });
   }

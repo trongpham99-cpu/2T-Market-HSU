@@ -25,6 +25,11 @@ table {
 .button {
   text-align: center;
 }
+button:hover {
+  cursor: pointer;
+}
+
+
 td {
   text-align: center;
 }

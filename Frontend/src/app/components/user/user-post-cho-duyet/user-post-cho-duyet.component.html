@@ -17,8 +17,8 @@
       <p style="color: black;" >Ngày Đăng : {{product.ngay_dang}}</p>
       <p>Giá Sản Phẩm : {{product.productPrice}} VNĐ</p>
       <div class="btnn">
-        <button class="button11" >Xóa</button>
-      <button class="button11" >Sửa</button>
+        <button mat-flat-button color="primary" class="button11" >Xóa</button>
+      <button mat-flat-button color="warn" [routerLink]="['/update/' + product._id]" class="button11" >Sửa</button>
       </div>
 
     </div>

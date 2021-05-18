@@ -22,7 +22,7 @@ export class SanPhamChoDuyetComponent implements OnInit {
   ngOnInit(): void {
     this.getAdminPostChoDuyet();
   }
-  public count = 0;price = 0;
+  public count = 0;price = 0;result=0;
   getAdminPostChoDuyet(){
     this.http
           .get<{ getProductChoDuyet: Profile[] }>("http://127.0.0.1:8080/api/productwait?status=0")
@@ -37,6 +37,7 @@ export class SanPhamChoDuyetComponent implements OnInit {
             for(let i=0; i<profiles.length;i++){
               this.count++
               this.price += parseFloat(profiles[i].productPrice);
+              console.log(this.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
             }
           });
   }

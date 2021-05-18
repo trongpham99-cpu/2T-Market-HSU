@@ -41,7 +41,7 @@ export class LoginsService implements OnInit {
   async logOut(){
     this.cookieService.delete('user');
     this.cookieService.delete('token');
-    this.router.navigate(['/home']);
+    this.router.navigate(['']);
   }
 
   public userInfomation;

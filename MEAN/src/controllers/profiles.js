@@ -86,7 +86,7 @@ exports.getProductsNew = async (req,res) =>{
     .sort({
       ngay_dang:-1,
     })
-    .limit(10000); 
+    .limit(20); 
     res.status(200).json({productsNew});
   }
 }

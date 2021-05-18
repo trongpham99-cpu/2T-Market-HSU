@@ -14,8 +14,8 @@
     <td>{{product.productName}}</td>
     <td>{{product.nguoi_dang_sp}}</td>
     <td>{{product.ngay_dang}}</td>
-    <td>{{product.productPrice}}</td>
-    <td (click)="this.AdminService.duyetSp(product)" class="button"><button>Duyệt</button></td>
-    <td class="button"><button>Xóa</button></td>
+    <td style="text-align: center; color: red; font-weight: 200px;" >{{product.productPrice}}</td>
+    <td (click)="this.AdminService.duyetSp(product)" class="button"><button mat-flat-button color="warn">Duyệt</button></td>
+    <td class="button"><button mat-flat-button color="primary">Xóa</button></td>
   </tr>
 </table>

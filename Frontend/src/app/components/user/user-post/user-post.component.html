@@ -17,8 +17,8 @@
       <p style="color: black;" >Ngày Đăng : {{product.ngay_dang}}</p>
       <p>Giá Sản Phẩm : {{product.productPrice}} VNĐ </p>
       <div class="btnn">
-        <button class = "button11" (click)="this.profilesService.deleteProduct(product)" >Xóa</button>
-        <button (click)="this.UsersService.daBanSp(product)" class = "button11" >Đã Bán</button>
+        <button mat-flat-button color="primary" class = "button11" (click)="this.profilesService.deleteProduct(product)" >Xóa</button>
+        <button mat-flat-button color="warn" (click)="this.UsersService.daBanSp(product)" class = "button11" >Đã Bán</button>
       </div>
 
     </div>

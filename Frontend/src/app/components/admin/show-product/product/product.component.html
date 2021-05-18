@@ -20,7 +20,9 @@
       <td>{{profile.productAddress}}</td>
       <td> <p [routerLink]="['/user/608c3e4  bcca0d2594e873f2b']" >{{profile.nguoi_dang_sp}}</p> </td>
       <td>{{profile.ngay_dang}}</td>
-      <td class="button" ><button [routerLink]="['/update/' + profile._id]" >Sửa</button></td>
+      <td><button mat-icon-button disabled aria-label="Example icon button with a open in new tab icon">
+        <mat-icon [routerLink]="['/update/' + profile._id]"  >open_in_new</mat-icon>
+      </button></td>
       <td class="button" ><button (click)="profilesService.deleteProduct(profile._id)" >Xóa</button></td>
       <td class="button" ><button  [routerLink]="['/detail/' + profile._id]" (click)="profilesService.getDetail(profile._id)" >Chi tiết</button></td>
     </tr>

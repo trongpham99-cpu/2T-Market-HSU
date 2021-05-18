@@ -4,34 +4,48 @@ h1 {
   font-weight: 20px;
 }
 .div-all{
-display: flex;
-margin-top: 20px;
+  display: flex;
+  margin-top: 20px;
 }
 img {
-width: 100px;
-margin-left: 50px;
+  width: 50px;
 }
 p {
-margin-left: 50px;
-color :rgb(208, 1, 27);
-font-weight: bold;
-font-size: 13px;
+  margin-left: 50px;
+  color :rgb(208, 1, 27);
+  font-weight: bold;
+  font-size: 13px;
 }
 
 h4 {
-margin-left: 50px;
-font-weight: bold;
+  margin-left: 50px;
+  font-weight: bold;
 }
 .button1 {
-margin-left: 50px;
+  margin-left: 50px;
 }
 h5 {
-margin-top: 15px;
-margin-left: 50px;
+  margin-top: 15px;
+  margin-left: 50px;
 }
 .div02{
-background: white;
-/* height: 300px; */
-margin: 20px auto;
-width: 75%;
+  background: white;
+  /* height: 300px; */
+  margin: 20px auto;
+  width: 75%;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  margin-bottom: 50px;
+}
+td {
+  padding: 10px;
+  text-align: center;
+}
+.button {
+  text-align: center;
+}
+th {
+  text-align: center;
 }

@@ -9,7 +9,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './pages/admin/admin.component';
 
 const routes: Routes = [
-{ path: 'home', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule) },
+{ path: '', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule) },
 { path: 'admin', loadChildren: () => import('./pages/admin/admin.module').then(m => m.AdminModule) },
 { path: 'user/:userAccount', loadChildren: () => import('./pages/user/user.module').then(m => m.UserModule) },
 { path: 'detail/:id', loadChildren: () => import('./pages/detail/detail.module').then(m => m.DetailModule) },
