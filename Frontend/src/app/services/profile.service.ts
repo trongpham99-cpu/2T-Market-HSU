@@ -20,11 +20,6 @@ export class ProfileService {
   public searchText;
   constructor(private http: HttpClient,public UsersService:UsersService) {}
 
-
-  updateProduct(id){
-    
-  }
-
   getCategory(name: Category) {
     this.http
       .get<{ category: Profile[] }>(this.url + "/category/?loai_sp=" + name )
@@ -104,7 +99,6 @@ export class ProfileService {
   getProfilesStream() {
     return this.profiles$.asObservable();
   }
-
   addProfile(productName: string, productPrice:string, description:string, productAddress:string, loai_sp:string, nguoi_dang_sp:string, ngay_dang:string, image: File): void {
     const profileData = new FormData();
     profileData.append("productName", productName);

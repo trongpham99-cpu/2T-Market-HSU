@@ -19,7 +19,7 @@ export class SignInComponentComponent {
 
   async onSubmit(data) {
     await this.LoginsService.loginAcc(data);
-    this.router.navigate(['/home']);
+    this.router.navigate(['']);
 
   }
 }

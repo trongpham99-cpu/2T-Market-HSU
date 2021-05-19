@@ -22,7 +22,7 @@ export class SanPhamDaBanComponent implements OnInit {
   ngOnInit(): void {
     this.getAdminPostDaBan();
   }
-  public count = 0;price = 0;
+  public count = 0;price = 0;result;
   getAdminPostDaBan(){
     this.http
           .get<{ getProductChoDuyet: Profile[] }>("http://127.0.0.1:8080/api/productwait?status=2")
@@ -36,8 +36,11 @@ export class SanPhamDaBanComponent implements OnInit {
             this.profiles$.next(this.profiles);
             for(let i=0; i<profiles.length;i++){
               this.count++
-              this.price += parseFloat(profiles[i].productPrice);
+              // this.arrProductPrice = this.profiles[i].productPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+              console.log(profiles[i].productPrice)
+              this.price += parseInt(profiles[i].productPrice);
             }
+            this.result = this.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
           });
   }
 

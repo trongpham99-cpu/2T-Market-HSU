@@ -12,6 +12,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import { BarChartComponent } from '../../components/admin/bar-chart/bar-chart.component';
 import {MatTableModule} from '@angular/material/table';
+
 @NgModule({
   declarations: [AdminComponent,routingComponents,BarChartComponent],
   imports: [

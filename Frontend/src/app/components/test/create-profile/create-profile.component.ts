@@ -55,8 +55,6 @@ export class CreateProfileComponent implements OnInit {
 
   onSubmit() {
     let user = JSON.parse(this.cookieService.get('user'));
-    console.log(user.userAccount)
-
     this.profileService.addProfile(
     this.form.value.productName,
     this.form.value.productPrice,
