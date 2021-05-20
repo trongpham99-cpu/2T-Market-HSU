@@ -94,7 +94,7 @@ img{
 .product-detail h2{
     text-transform: capitalize;
     color: #12263a;
-    padding-bottom: 0.6rem;
+    /* padding-bottom: 0.6rem; */
 }
 .product-detail p{
     font-size: 0.9rem;

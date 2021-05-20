@@ -17,8 +17,10 @@ export class ViewDetailComponent implements OnInit {
   public profile: any;
   id:any;
   data:any;
+  dataUser:any;
+  userAccount:any;
   public profileSubscription: Subscription;
-  constructor(private profilesService: ProfileService, public route:ActivatedRoute){
+  constructor(private profilesService: ProfileService, public route:ActivatedRoute,public UsersService:UsersService){
   }
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
@@ -28,7 +30,13 @@ export class ViewDetailComponent implements OnInit {
   getOne(){
     this.profilesService.getDetail(this.id).subscribe(data =>{
       this.data = data;
-      console.log(data);
+    // this.UsersService.getDataUser(this.data.nguoi_dang_sp).subscribe(this.dataUser =>{
+    //   this.dataUser = dataUser;
+    // })
+    console.log(this.data)
+
     })
   }
+
+  
 }

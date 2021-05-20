@@ -19,7 +19,7 @@ const routes: Routes = [
 { path: 'signin',component:SignInComponentComponent },
 { path: 'signup',component:InputUserComponent },
 { path: 'userpost',component:UserPostComponent },
-{ path: 'userupdate/:id',component:UserUpdateComponent },
+{ path: 'userupdate/:userAccount',component:UserUpdateComponent },
 ];
 
 @NgModule({

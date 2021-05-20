@@ -4,6 +4,7 @@ import { ShowUsersComponent } from '../../components/admin/show-users/show-users
 import { CategoriesComponent } from '../../components/admin/categories/categories.component';
 import { InputCategoryComponent } from '../../components/admin/input-category/input-category.component';
 import { SanPhamDangBanComponent } from '../../components/admin/san-pham-dang-ban/san-pham-dang-ban.component';
+import { CreateAdsComponent } from '../../components/ads/create-ads/create-ads.component';
 
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -24,4 +25,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AdminRoutingModule { }
-export const routingComponents = [SanPhamDaBanComponent,SanPhamChoDuyetComponent,ShowUsersComponent,InputCategoryComponent,CategoriesComponent,SanPhamDangBanComponent];
+export const routingComponents = [SanPhamDaBanComponent,SanPhamChoDuyetComponent,ShowUsersComponent,InputCategoryComponent,CategoriesComponent,SanPhamDangBanComponent,CreateAdsComponent];

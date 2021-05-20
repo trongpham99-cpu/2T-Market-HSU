@@ -19,6 +19,7 @@
       <div class="btnn">
         <button mat-flat-button color="primary" class = "button11" (click)="this.profilesService.deleteProduct(product)" >Xóa</button>
         <button mat-flat-button color="warn" (click)="this.UsersService.daBanSp(product)" class = "button11" >Đã Bán</button>
+        <button class="button11" [routerLink]="['/detail/' + product._id]" style="background-color: rgb(39, 39, 39);" mat-flat-button color="primary">Chi Tiết</button>
       </div>
 
     </div>
