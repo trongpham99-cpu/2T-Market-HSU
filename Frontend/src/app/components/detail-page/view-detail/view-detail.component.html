@@ -41,11 +41,11 @@
 
             <br>
             <div class="user-btn phone">
-              <span class="btn">
+              <span [hidden] = "disPlay" class="btn">
                 <img src="https://static.chotot.com.vn/storage/chotot-icons/svg/white-phone.svg" class="icon">
-                <!-- {{dataUser.userPhone}} -->
+                +84 {{dataUser.userPhone}}
               </span>
-              <span class="bamd">BẤM ĐỂ HIỆN SỐ</span>
+              <span (click)="this.click()" [hidden]="!disPlay" class="bamd">BẤM ĐỂ HIỆN SỐ</span>
             </div>
 
             <br>

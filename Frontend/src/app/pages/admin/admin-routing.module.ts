@@ -5,6 +5,7 @@ import { CategoriesComponent } from '../../components/admin/categories/categorie
 import { InputCategoryComponent } from '../../components/admin/input-category/input-category.component';
 import { SanPhamDangBanComponent } from '../../components/admin/san-pham-dang-ban/san-pham-dang-ban.component';
 import { CreateAdsComponent } from '../../components/ads/create-ads/create-ads.component';
+import { ThongKeDoanhThuComponent } from '../../components/admin/thong-ke-doanh-thu/thong-ke-doanh-thu.component';
 
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -19,10 +20,11 @@ const routes: Routes = [
   { path:'sanphamchoduyet',component: SanPhamChoDuyetComponent},
   { path:'allcategories',component:CategoriesComponent },
   { path:'inputcategory',component:InputCategoryComponent },
+  { path:'doanhthu',component:ThongKeDoanhThuComponent },
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class AdminRoutingModule { }
-export const routingComponents = [SanPhamDaBanComponent,SanPhamChoDuyetComponent,ShowUsersComponent,InputCategoryComponent,CategoriesComponent,SanPhamDangBanComponent,CreateAdsComponent];
+export const routingComponents = [SanPhamDaBanComponent,SanPhamChoDuyetComponent,ShowUsersComponent,InputCategoryComponent,CategoriesComponent,SanPhamDangBanComponent,CreateAdsComponent,ThongKeDoanhThuComponent];

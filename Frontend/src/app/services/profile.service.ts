@@ -65,27 +65,6 @@ export class ProfileService {
 
 
   }
-  //Da Duyet
-  public priceDaDuyet = 0;
-  getUserPost() {
-    this.http
-      .get<{ cart: Profile[] }>("http://127.0.0.1:8080/api/cart?nguoi_dang_sp="+ "trong.phamtranduc" +"&status=1")
-      .pipe(
-        map((profileData) => {
-          return profileData.cart;
-        })
-      )
-      .subscribe((profiles) => {
-        this.profiles = profiles;
-        this.profiles$.next(this.profiles);
-        console.log(profiles);
-        for(let i=0; i < profiles.length;i++){
-        this.count++;
-        this.price = this.price + parseFloat(profiles[i].productPrice);
-        }
-        // console.log(this.price)
-      });
-  }
   getDetail(id) {
     return this.http.get("http://127.0.0.1:8080/api/detail/?id=" + id)
   }

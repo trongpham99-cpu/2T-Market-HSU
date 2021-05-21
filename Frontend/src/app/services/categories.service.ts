@@ -18,8 +18,8 @@ export class CategoriesService {
 
   public countCategory = 0;
 
-  getAllCategory() {
-    this.http
+  async getAllCategory() {
+    await this.http
       .get<{ categories: Category[] }>(this.url+"/categories")
       .pipe(
         map((profileData) => {
