@@ -36,12 +36,9 @@ export class ViewDetailComponent implements OnInit {
   async getOne(){
       await this.profilesService.getDetail(this.id).subscribe(data =>{
       this.data = data;
-      console.log(this.data.nguoi_dang_sp)
       this.HttpClient.get("http://127.0.0.1:8080/user?userAccount=" + this.data.nguoi_dang_sp).subscribe(user =>{
         this.dataUser = user[0];
       })
     })
   }
-
-  
 }

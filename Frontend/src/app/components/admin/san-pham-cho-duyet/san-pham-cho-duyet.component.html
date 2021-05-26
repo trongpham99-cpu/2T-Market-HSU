@@ -5,6 +5,8 @@
     <th>Tên Sản Phẩm</th>
     <th>Người Đăng</th>
     <th>Ngày Đăng</th>
+    <th>Loại Sản Phẩm</th>
+    <th>Địa Chỉ</th>
     <th>Giá Sản Phẩm</th>
     <th>Duyệt</th>
     <th>Xóa</th>
@@ -14,6 +16,8 @@
     <td>{{product.productName}}</td>
     <td>{{product.nguoi_dang_sp}}</td>
     <td>{{product.ngay_dang}}</td>
+    <td>{{product.loai_sp}}</td>
+    <td>{{product.productAddress}}</td>
     <td style="text-align: center; color: red; font-weight: 200px;" >{{product.productPrice}}</td>
     <td (click)="this.AdminService.duyetSp(product)" class="button"><button mat-flat-button color="warn">Duyệt</button></td>
     <td class="button"><button mat-flat-button color="primary">Xóa</button></td>

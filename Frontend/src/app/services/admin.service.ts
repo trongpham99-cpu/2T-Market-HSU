@@ -20,6 +20,7 @@ constructor(private router: Router,
     // const body = {id: profile._id}
     let temp = await this.HttpClient.put(this.baseUrl + '/duyetsp', {}, {params: {id: profile._id}}).toPromise();
     console.log(temp)
+    window.location.reload();
     return temp;
   }
 }

@@ -15,6 +15,7 @@ export class ProductComponent implements OnInit {
   // profiles: Profile[] = [];
   id:any;
   profiles: Profile[] = [];
+  public price: any;
   private profiles$ = new Subject<Profile[]>();
   readonly url = "http://127.0.0.1:8080/api";
   private profileSubscription: Subscription;
@@ -26,6 +27,9 @@ export class ProductComponent implements OnInit {
     this.profileSubscription = this.profilesService
       .getProfilesStream()
       .subscribe((profiles: Profile[]) => {
+        for(let i=0;i<profiles.length;i++){
+          console.log(profiles[i].productPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+        }
         this.profiles = profiles;
       });
   }
