@@ -28,6 +28,35 @@ app.get("/users", async (req, res)=>{
     let users = await Database.instance.getUsers();
     res.send(users);
 });
+
+app.delete("/deleteuser",async(req, res)=>{
+    const {id} = req.query;
+    await Database.instance.deleteUser(id);
+    try{
+        res.send(`Deleted ${id}`)
+    }catch(err){
+        res.send(err);
+    }
+})
+
+app.put("/updateuser",async (req, res)=>{
+    const {
+        id,
+        userAccount,
+        userPassword,
+        userName,
+        userPhone,
+        userMail,
+        userAddress,
+    } = req.body;
+    const result = await Database.instance.updateUser(id, new User(userAccount, userPassword, userName, userPhone, userMail, userAddress));
+    try{
+        res.send(`Updated ${id}`);
+    }catch(err){
+        res.send(err);
+    }
+})
+
 app.get("/user", async (req, res) =>{
     const {userAccount} = req.query;
     const user = await Database.instance.getUser(userAccount);

@@ -3,6 +3,17 @@ const userSchema = require('../schemas/user.schema');
 const User = require('../models/user.model');
 const mongoose = require('mongoose');
 
+//SEARCH 
+exports.searchSanPham = async (req, res) =>{
+  const search = req.query.search;
+  const result = await Profile.find({productName: {$regex: search,$options: '$i'}})
+  try{
+    res.send(result);
+  }catch(err){
+    res.send(err);
+  }
+}
+
 //DA BAN SAN PHAM
 exports.updateSanPhamDaBan = async (req,res) =>{
   const {id} = req.query;
@@ -114,7 +125,12 @@ exports.getDetail = async (req, res) => {
 //GET PRODUCT IN CATEGORY
 exports.getCategory = async(req, res) =>{
   const { loai_sp,status } = req.query;
-  const category = await Profile.find({loai_sp:loai_sp,status:"1"});
+  const category = await Profile
+  .find({loai_sp:loai_sp,status:"1"})
+  .sort({
+    productPrice: 1,
+  })
+  .limit(10000);
   try{
     res.status(200).json({category})
   }catch(err){

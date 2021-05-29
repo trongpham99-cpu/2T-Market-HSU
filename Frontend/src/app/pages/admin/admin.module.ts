@@ -12,7 +12,10 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import { BarChartComponent } from '../../components/admin/bar-chart/bar-chart.component';
 import {MatTableModule} from '@angular/material/table';
-
+import { NgApexchartsModule } from "ng-apexcharts";
+// For MDB Angular Free
+// For MDB Angular Pro
+import { ChartsModule, ChartSimpleModule, WavesModule } from 'ng-uikit-pro-standard'
 @NgModule({
   declarations: [AdminComponent,routingComponents,BarChartComponent],
   imports: [
@@ -26,7 +29,8 @@ import {MatTableModule} from '@angular/material/table';
     MatSidenavModule,
     MatDividerModule,
     MatListModule,
-    MatTableModule
+    MatTableModule,
+    NgApexchartsModule,ChartsModule, ChartSimpleModule, WavesModule
   ]
 })
 export class AdminModule { }

@@ -20,6 +20,7 @@ const routes: Routes = [
 { path: 'signup',component:InputUserComponent },
 { path: 'userpost',component:UserPostComponent },
 { path: 'userupdate/:userAccount',component:UserUpdateComponent },
+{ path: 'search', loadChildren: () => import('./pages/search-page/search-page.module').then(m => m.SearchPageModule) },
 ];
 
 @NgModule({

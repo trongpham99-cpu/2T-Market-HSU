@@ -78,6 +78,20 @@ class Database{
     async getUser(userAccount) {
         return await this.user.find({userAccount:userAccount});
     }
+    /**
+     * 
+     * @param {String} id 
+     * @param {User} User 
+     * @returns 
+     */
+    async updateUser(id, User) {
+        await this.user.findByIdAndUpdate(id, User);
+    }
+
+    async deleteUser(id){
+        await this.user.findByIdAndDelete(id);
+    }
+
 }
     
 module.exports = Database;

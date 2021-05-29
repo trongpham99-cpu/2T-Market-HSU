@@ -10,6 +10,8 @@ const router = express.Router();
 router.get('/userid', profilesController.getUserIdByIdProduct);
 //
 
+router.get('/search',profilesController.searchSanPham);
+
 router.put('/duyetsp',profilesController.update);
 
 router.put('/dabansp',profilesController.updateSanPhamDaBan);

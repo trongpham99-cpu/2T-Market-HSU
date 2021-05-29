@@ -3,13 +3,17 @@
     <label for="check" class="checkbtn">
       <i class="fas fa-bars"></i>
     </label>
-    <label class="logo" routerLink="" >STORE</label>
+    
+    <label class="logo"> <span [routerLink]="['']" >STORE</span> </label>
     <ul>
-      <li><a class="active" routerLink="">Trang Chủ</a></li>
-      <!-- <li><a href="#">About</a></li>
-      <li><a href="#">Services</a></li>
-      <li><a href="#">Contact</a></li>
-      <li><a href="#">Feedback</a></li> -->
+      <li><form class="example" action="/action_page.php">
+        <input type="text" placeholder="Search.." name="search">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+      </li>
+      <li><a href="#">Dịch Vụ</a></li>
+      <li><a href="#">Liên Hệ</a></li>
+      <li><a href="#">Phản Hồi</a></li>
       <li><a  [routerLink]="['/input']" *ngIf="this.userInfo">Đăng Tin</a></li>
       <li><a  [routerLink]="['/signin']" *ngIf="!this.userInfo">Đăng Nhập</a></li>
       <li *ngIf="this.userInfo" > <button mat-button [matMenuTriggerFor]="beforeMenu">{{this.userInfo.userAccount}}</button>

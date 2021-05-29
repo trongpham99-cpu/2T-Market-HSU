@@ -20,6 +20,10 @@ export class ProfileService {
   public searchText;
   constructor(private http: HttpClient,public UsersService:UsersService) {}
 
+  getSearch(){
+    return this.http.get(this.url + "/search?search=nar");
+  }
+
   getCategory(name: Category) {
     this.http
       .get<{ category: Profile[] }>(this.url + "/category/?loai_sp=" + name )

@@ -8,14 +8,13 @@
     <button class="button" mat-flat-button color="warn" >Thông Tin Quảng Cáo</button><br>
     <button class="button" mat-flat-button color="warn" routerLink="inputcategory" routerLinkActive="active" >Thêm Danh Mục</button><br>
     <button class="button" mat-flat-button color="warn" routerLink="allcategories" >Thông Tin Danh Mục</button><br>
-    <button class="button" mat-flat-button color="warn" >Thống Kê Doanh Thu</button><br>
     <button class="button" mat-flat-button color="warn" >Mail Hỏi Đáp</button><br>
   </div>
-  <div style="display: flex;" >
-    <h3>Tổng Số Người Dùng: {{this.countUser}}</h3>
-    <h3>Tổng Số Sản Phẩm Đang Bán</h3>
-    <h3>Tổng Số Sản Phẩm Đã Bán</h3>
-    <h3>Tổng Số Sản Phẩm Đang Chờ Duyệt: {{this.countSpChoDyet}}</h3>
-    <h3>Tổng Số Tin Nhắn Chờ</h3>
+  <div>
+    <h3>Người Dùng: {{this.countUser}}</h3>
+    <h3>Sản Phẩm Đang Bán {{this.countDangBan}} <br> Số Tiền: {{this.resultDangBan}}</h3>
+    <h3>Sản Phẩm Đã Bán: {{this.countDaBan}} <br> Số Tiền: {{this.resultDaBan}}</h3>
+    <h3>Sản Phẩm Chờ Duyệt: {{this.countSpChoDyet}} <br> Số Tiền : {{this.result}}</h3>
+    <h3>Tin Nhắn Chờ: 15</h3>
   </div>
 </div>
