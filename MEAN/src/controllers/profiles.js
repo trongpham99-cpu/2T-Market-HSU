@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 //SEARCH 
 exports.searchSanPham = async (req, res) =>{
   const search = req.query.search;
-  const result = await Profile.find({productName: {$regex: search,$options: '$i'}})
+  const result = await Profile.find({productName: {$regex: search,$options: '$i'}, status:"1"})
   try{
     res.send(result);
   }catch(err){
@@ -66,7 +66,6 @@ exports.getUserIdByIdProduct = async (req, res) => {
   // user = mongoose.model("users",userSchema);  
   const {id} = req.query;
   const detail = await Profile.findById(id);
-  console.log( detail);
   let a = detail.nguoi_dang_sp;
   let user = await mongoose.model("users",userSchema).find({userAccount:a})
   console.log(user);

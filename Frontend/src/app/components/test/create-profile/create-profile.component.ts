@@ -19,6 +19,7 @@ export class CreateProfileComponent implements OnInit {
   profile: Profile;
   imageData: string;
   categories: Category[] = [];
+  public docSo
   private profileSubscription: Subscription;
 
   constructor(private profileService: ProfileService,public CategoriesService: CategoriesService, private cookieService: CookieService) {}
@@ -70,4 +71,10 @@ export class CreateProfileComponent implements OnInit {
   ngOnDestroy() {
     this.profileSubscription.unsubscribe();
   }
+
+  nextToText(docSo){
+    
+  }
+
+
 }

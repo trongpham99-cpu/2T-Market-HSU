@@ -11,6 +11,7 @@ const path = require("path");
 const profilesRoutes = require("./routes/profiles");
 const categoriesRoutes = require("./routes/categories");
 const adssRoutes = require("./routes/adss");
+const messagesRoutes = require("./routes/messages");
 require('dotenv').config();
 const corsOptions = {
     origin: "http://localhost:4200",
@@ -22,7 +23,7 @@ app.use(bodyParser.json());
 app.use(cookiesParser());
 
 app.use('/images', express.static(path.join('images')));
-app.use('/api/',categoriesRoutes, profilesRoutes, adssRoutes);
+app.use('/api/',categoriesRoutes, profilesRoutes, messagesRoutes);
 
 app.get("/users", async (req, res)=>{
     let users = await Database.instance.getUsers();
@@ -69,8 +70,9 @@ app.post("/register", async (req, res) => {
         userPassword,
         userName,
         userPhone,
-        userMail,
         userAddress,
+        userMail,
+        role ="user"
     } = req.body;
     let check = await Database.instance.checkAccount(userAccount);
     if (check == "") {
@@ -78,7 +80,7 @@ app.post("/register", async (req, res) => {
             bcrypt.hash(userPassword, salt, (err, hash) => {
                 temp = hash;
                 Database.instance.createUser(
-                    new User(userAccount, temp, userName, userPhone, userMail, userAddress)
+                    new User(userAccount, temp, userName, userPhone, userAddress,userMail,role)
                 );
                 res.status(200).send({
                     message: `Created USer: ${userAccount}`,

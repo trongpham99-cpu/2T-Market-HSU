@@ -13,13 +13,13 @@ export class ShowUsersComponent implements OnInit {
   public ngay;
   public user: User[]=[];
   public countUser = 0;
+  public str;
   constructor( public UsersService:UsersService ) {
     this.UsersService.getDataUsers().subscribe((res: User[])=>{
       this.user = res;
       for(let i = 0; i<res.length;i++){
         this.countUser++;
-        let str = String(res[i].ngay_dang_ky);
-        res[i].ngay_dang_ky = new Date(str).toString().split('T')[0];
+         this.str = String(res[i].ngay_dang_ky);
       }
     });
    }
@@ -33,8 +33,8 @@ export class ShowUsersComponent implements OnInit {
     html2canvas(element).then((canvas)=>{
       const imgData = canvas.toDataURL('image/png');
       const doc = new jspdf()
-      const imgHeight = canvas.height *208/canvas.width;
-      doc.addImage(imgData,0,0,208,500);
+      const imgHeight = canvas.height * 280/canvas.width;
+      doc.addImage(imgData,20,25,170,imgHeight);
       doc.save("report.pdf");
     })
   }

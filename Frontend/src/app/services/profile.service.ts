@@ -20,8 +20,12 @@ export class ProfileService {
   public searchText;
   constructor(private http: HttpClient,public UsersService:UsersService) {}
 
+  click(){
+    console.log(this.searchText);
+  }
+
   getSearch(){
-    return this.http.get(this.url + "/search?search=nar");
+    return this.http.get(this.url + "/search?search=" + this.searchText);
   }
 
   getCategory(name: Category) {

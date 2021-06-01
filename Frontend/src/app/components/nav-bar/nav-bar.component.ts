@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import {User} from '../../models/user.model'
 import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
@@ -12,8 +13,7 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class NavBarComponent implements OnInit {
   public userInfo : any ;
-  searchText;
-  constructor( public LoginsService:LoginsService, private cookieService: CookieService,public ProfileService:ProfileService) {
+  constructor( public LoginsService:LoginsService, private cookieService: CookieService,public ProfileService:ProfileService,private router:Router) {
     // console.log('cookie' + JSON.parse(this.cookieService.get('user')).userAccount);
     // this.getUserInfo();
     // this.signOut();
@@ -26,6 +26,11 @@ export class NavBarComponent implements OnInit {
     await this.LoginsService.logOut();
     this.userInfo = null;
   }
+  async clickHome(){
+    await this.router.navigate(['']);
+    window.location.reload();
+  }
+
 
   // async getUserInfo(){
   //   this.userInfo = await JSON.parse(this.cookieService.get('user'));

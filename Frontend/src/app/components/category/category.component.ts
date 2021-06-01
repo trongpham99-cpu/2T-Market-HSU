@@ -17,7 +17,7 @@ export class CategoryComponent implements OnInit {
   readonly url = "http://127.0.0.1:8080/api";
   private profileSubscription: Subscription;
   constructor(public ProfileService:ProfileService,public route:ActivatedRoute) { }
-
+  public count = 0;
   ngOnInit(): void {
     this.name = this.route.snapshot.params['name'];
     this.ProfileService.getCategory(this.name);
@@ -25,6 +25,10 @@ export class CategoryComponent implements OnInit {
     .getProfilesStream()
     .subscribe((profiles: Profile[]) => {
       this.profiles = profiles;
+      for(let i=0; i<profiles.length;i++)
+      {
+        this.count++;
+      }
     });
   }
 

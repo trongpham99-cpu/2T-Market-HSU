@@ -22,6 +22,6 @@
     <td style="text-align: center; color: red; font-weight: 200px;" >{{product.productPrice}}</td>
     <td (click)="this.AdminService.duyetSp(product)" class="button"><button mat-flat-button color="warn">Duyệt</button></td>
     <td class="button"><button mat-flat-button color="primary">Xóa</button></td>
-    <td [routerLink]="['/detail/' + product._id]" class="button"><button style="background-color: rgb(39, 39, 39);" mat-flat-button color="primary">Phản Hồi</button></td>
+    <td [routerLink]="['/report/' + product._id]" class="button"><button style="background-color: rgb(39, 39, 39);" mat-flat-button color="primary">Phản Hồi</button></td>
   </tr>
 </table>

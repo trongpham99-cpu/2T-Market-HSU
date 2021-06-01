@@ -4,11 +4,11 @@
       <i class="fas fa-bars"></i>
     </label>
     
-    <label class="logo"> <span [routerLink]="['']" >STORE</span> </label>
+    <label class="logo"> <span (click)="clickHome()" >STORE</span> </label>
     <ul>
       <li><form class="example" action="/action_page.php">
-        <input type="text" placeholder="Search.." name="search">
-        <button type="submit"><i class="fa fa-search"></i></button>
+        <input type="text" placeholder="Tìm kiếm sản phẩm.." name="search" [(ngModel)]="this.ProfileService.searchText" >
+        <button (click)="this.ProfileService.click()" [routerLink]="['/search/' + this.ProfileService.searchText]" type="submit"><i class="fa fa-search"></i></button>
       </form>
       </li>
       <li><a href="#">Dịch Vụ</a></li>
@@ -20,7 +20,7 @@
         <mat-menu #beforeMenu="matMenu" xPosition="before">
           <button [routerLink]="['/user/' + this.userInfo.userAccount]" mat-menu-item >Thông Tin Cá Nhân</button>
           <button mat-menu-item>Đã Thích</button>
-          <button mat-menu-item>Tin Nhắn</button>
+          <button  [routerLink]="['/message/' + this.userInfo.userAccount]" mat-menu-item>Tin Nhắn</button>
           <button *ngIf="this.userInfo.userAccount == 'admin'" mat-menu-item [routerLink]="['/admin']" >Quản Lý</button>
           <button mat-menu-item (click)="signOut()">Đăng Xuất</button>
         </mat-menu></li>

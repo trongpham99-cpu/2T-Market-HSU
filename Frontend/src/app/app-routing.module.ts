@@ -20,7 +20,9 @@ const routes: Routes = [
 { path: 'signup',component:InputUserComponent },
 { path: 'userpost',component:UserPostComponent },
 { path: 'userupdate/:userAccount',component:UserUpdateComponent },
-{ path: 'search', loadChildren: () => import('./pages/search-page/search-page.module').then(m => m.SearchPageModule) },
+{ path: 'search/:productName', loadChildren: () => import('./pages/search-page/search-page.module').then(m => m.SearchPageModule) },
+{ path: 'report/:id', loadChildren: () => import('./pages/report-page/report-page.module').then(m => m.ReportPageModule) },
+{ path: 'message/:userAccount', loadChildren: () => import('./pages/message-report/message-report.module').then(m => m.MessageReportModule) },
 ];
 
 @NgModule({

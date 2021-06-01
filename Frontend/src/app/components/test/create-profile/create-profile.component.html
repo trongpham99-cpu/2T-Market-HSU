@@ -4,10 +4,11 @@
   <div class="container">
     <div class="divleft">
       <div>
-        <input formControlName="productName" type="text" placeholder="Tên Sản Phẩm" />
+        <input formControlName="productName" type="text" placeholder="Tên Sản Phẩm"/>
       </div>
       <div>
-        <input formControlName="productPrice" type="text" placeholder="Giá Sản Phẩm" />
+        <input formControlName="productPrice" type="text" placeholder="Giá Sản Phẩm" [(ngModel)]="docSo" />
+        <i *ngIf="this.docSo" ><p>{{this.docSo}}</p></i>
       </div>
       <div>
         <input formControlName="description" type="text" placeholder="Mô Tả Sản Phẩm" />

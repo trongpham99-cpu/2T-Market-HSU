@@ -1,0 +1,12 @@
+<div *ngFor="let data of reports">
+    <div>
+        <img [src]="data.imagePath" [alt]="data.productName">
+        <p>Tên Sản Phẩm: {{data.productName}}</p>
+        <p>Giá Sản Phẩm: {{data.productPrice}}</p>
+        <p>Mô Tả Sản Phẩm: {{data.description}}</p>
+    </div>
+    <div>
+        <p>Người gửi: Admin</p>
+        <p>Nội Dung: {{data.noi_dung}}</p>
+    </div>
+</div>

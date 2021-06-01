@@ -1,3 +1,4 @@
+<h3>Có {{this.count}} sản phẩm tìm kiếm được với từ khóa: " {{this.ProfileService.searchText}} "</h3>
 <div *ngFor="let product of profiles" >
     <div [routerLink]="['/detail/' + product._id]" class="container ct-listing">
       <div class="ListItem">

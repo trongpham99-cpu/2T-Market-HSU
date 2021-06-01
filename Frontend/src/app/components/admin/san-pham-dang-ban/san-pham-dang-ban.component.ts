@@ -6,6 +6,8 @@ import { Subject } from 'rxjs/internal/Subject';
 import { map } from 'rxjs/operators';
 import { Profile } from 'src/app/models/Profile';
 import { ProfileService } from 'src/app/services/profile.service';
+import html2canvas from 'html2canvas';
+import jspdf from 'jspdf';
 
 @Component({
   selector: 'app-san-pham-dang-ban',
@@ -40,5 +42,16 @@ export class SanPhamDangBanComponent implements OnInit {
               console.log(this.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
             }
           });
+  }
+  downloadPdf(){
+    const element = document.getElementById('table');
+
+    html2canvas(element).then((canvas)=>{
+      const imgData = canvas.toDataURL('image/png');
+      const doc = new jspdf()
+      const imgHeight = canvas.height * 280/canvas.width;
+      doc.addImage(imgData,20,25,170,imgHeight);
+      doc.save("report.pdf");
+    })
   }
 }
