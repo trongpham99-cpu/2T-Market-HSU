@@ -24,10 +24,20 @@ export class SanPhamDangBanComponent implements OnInit {
   ngOnInit(): void {
     this.getAdminPostChoDuyet();
   }
-  public count = 0;price = 0;result=0;
+
+  nextPage(){
+    this.page++
+    console.log(this.page)
+  }
+
+  previousPage(){
+    this.page--
+  }
+
+  public count = 0;price = 0;result=0;page = 1;
   getAdminPostChoDuyet(){
     this.http
-          .get<{ getProductChoDuyet: Profile[] }>("http://127.0.0.1:8080/api/productwait?status=1")
+          .get<{ getProductChoDuyet: Profile[] }>("http://127.0.0.1:8080/api/productwait?status=1&page="  + this.page)
           .pipe(
             map((profileData) => {
               return profileData.getProductChoDuyet;

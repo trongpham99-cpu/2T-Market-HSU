@@ -21,6 +21,10 @@
     <td [routerLink]="['/detail/' + product._id]" class="button"><button style="background-color: rgb(39, 39, 39);" mat-flat-button color="primary">Chi Tiết</button></td>
   </tr>
 </table>
+<div>
+  <button (click)="previousPage()" >Trang Trước</button>
+  <button (click)="nextPage()" >Trang Sau</button>
+</div>
 <h3>Tổng Sản Phẩm Đang Bán: </h3>
 <h3>Tổng Giá Sản Phẩm Đang Bán: </h3>
 <button (click)="downloadPdf()" >Download PDF</button>

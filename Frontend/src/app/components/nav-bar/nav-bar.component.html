@@ -18,9 +18,9 @@
       <li><a  [routerLink]="['/signin']" *ngIf="!this.userInfo">Đăng Nhập</a></li>
       <li *ngIf="this.userInfo" > <button mat-button [matMenuTriggerFor]="beforeMenu">{{this.userInfo.userAccount}}</button>
         <mat-menu #beforeMenu="matMenu" xPosition="before">
-          <button [routerLink]="['/user/' + this.userInfo.userAccount]" mat-menu-item >Thông Tin Cá Nhân</button>
-          <button mat-menu-item>Đã Thích</button>
-          <button  [routerLink]="['/message/' + this.userInfo.userAccount]" mat-menu-item>Tin Nhắn</button>
+          <button *ngIf="this.userInfo.userAccount != 'admin'" [routerLink]="['/user/' + this.userInfo.userAccount]" mat-menu-item >Thông Tin Cá Nhân</button>
+          <button *ngIf="this.userInfo.userAccount != 'admin'" mat-menu-item>Đã Thích</button>
+          <button *ngIf="this.userInfo.userAccount != 'admin'" [routerLink]="['/message/' + this.userInfo.userAccount]" mat-menu-item>Tin Nhắn</button>
           <button *ngIf="this.userInfo.userAccount == 'admin'" mat-menu-item [routerLink]="['/admin']" >Quản Lý</button>
           <button mat-menu-item (click)="signOut()">Đăng Xuất</button>
         </mat-menu></li>
