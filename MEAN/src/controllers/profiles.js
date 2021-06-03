@@ -48,7 +48,7 @@ exports.getStatusAdmin = async (req, res) => {
 }
 
 //SẢN PHẨM CHỜ DUYỆT
-const PAGE_SIZE_STATUS = 5;
+const PAGE_SIZE_STATUS = 100000;
 exports.getProductChoDuyet = async (req, res) => {
   const { status, page } = req.query;
   if (page) {

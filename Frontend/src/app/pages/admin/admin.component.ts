@@ -88,12 +88,12 @@ export class AdminComponent implements OnInit {
           )
           .subscribe((profilesDangBan) => {
             this.profiles2 = profilesDangBan;
-            console.log(profilesDangBan)
             this.profiles2$.next(this.profiles2);
             for(let i = 0; i<profilesDangBan.length;i++){
               this.countDangBan = profilesDangBan.length;
               this.priceSpDangBan += parseFloat(profilesDangBan[i].productPrice)
             }
+            console.log(this.countDangBan)
             return this.resultDangBan = this.priceSpDangBan.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
           });
   }

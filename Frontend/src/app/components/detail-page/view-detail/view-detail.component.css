@@ -230,6 +230,12 @@ img{
     font-size: 14px;
     font-weight: 700;
 }
+.btviewpage:hover {
+    cursor: pointer;
+}
+.bamd:hover{
+    cursor: pointer;
+}
 
 .thongtin{
     width: 100%;

@@ -1,28 +1,43 @@
-  <nav>
-    <input type="checkbox" id="check">
-    <label for="check" class="checkbtn">
-      <i class="fas fa-bars"></i>
-    </label>
+  <div class="content">
+    <div class="searlog">
+        <div class="logoo">
+            <span (click)="clickHome()" >SHOPPE</span>
+        </div>
+        <div class="searchh">
+            <div class="SearCont">
+                <input style="height: 25px; width: 100%;" type="text" placeholder="Tìm kiếm sản phẩm.." name="search" [(ngModel)]="this.ProfileService.searchText">
+                <button (click)="this.ProfileService.click()" [routerLink]="['/search/' + this.ProfileService.searchText]" type="submit" >Search</button>
+            </div>
+            
+        </div>
+    </div>
+    <div class="cate">
+        <div class="labell">
+            <span>DỊCH VỤ</span>
+        </div>
+        <div class="labell">
+            <span>LIÊN HỆ</span>
+        </div>
+        <div class="labell">
+            <span>PHẢN HỒI</span>
+        </div>
+        <div class="labell">
+          <span [routerLink]="['/input']" *ngIf="this.userInfo" >ĐĂNG TIN</span>
+      </div>
+      <div class="labell">
+        <span [routerLink]="['/signin']" *ngIf="!this.userInfo">ĐĂNG NHẬP</span>
+    </div>
+        <div *ngIf="this.userInfo" class="labell userr">
+          <button class="btnn" mat-button [matMenuTriggerFor]="beforeMenu">{{this.userInfo.userAccount}}</button>
+          <mat-menu #beforeMenu="matMenu" xPosition="before">
+            <button *ngIf="this.userInfo.userAccount != 'admin'" [routerLink]="['/user/' + this.userInfo.userAccount]" mat-menu-item >Thông Tin Cá Nhân</button>
+            <button *ngIf="this.userInfo.userAccount != 'admin'" mat-menu-item>Đã Thích</button>
+            <button *ngIf="this.userInfo.userAccount != 'admin'" [routerLink]="['/message/' + this.userInfo.userAccount]" mat-menu-item>Tin Nhắn</button>
+            <button *ngIf="this.userInfo.userAccount == 'admin'" mat-menu-item [routerLink]="['/admin']" >Quản Lý</button>
+            <button mat-menu-item (click)="signOut()">Đăng Xuất</button>
+          </mat-menu>
+        </div>
+    </div>
     
-    <label class="logo"> <span (click)="clickHome()" >STORE</span> </label>
-    <ul>
-      <li><form class="example" action="/action_page.php">
-        <input type="text" placeholder="Tìm kiếm sản phẩm.." name="search" [(ngModel)]="this.ProfileService.searchText" >
-        <button (click)="this.ProfileService.click()" [routerLink]="['/search/' + this.ProfileService.searchText]" type="submit"><i class="fa fa-search"></i></button>
-      </form>
-      </li>
-      <li><a href="#">Dịch Vụ</a></li>
-      <li><a href="#">Liên Hệ</a></li>
-      <li><a href="#">Phản Hồi</a></li>
-      <li><a  [routerLink]="['/input']" *ngIf="this.userInfo">Đăng Tin</a></li>
-      <li><a  [routerLink]="['/signin']" *ngIf="!this.userInfo">Đăng Nhập</a></li>
-      <li *ngIf="this.userInfo" > <button mat-button [matMenuTriggerFor]="beforeMenu">{{this.userInfo.userAccount}}</button>
-        <mat-menu #beforeMenu="matMenu" xPosition="before">
-          <button *ngIf="this.userInfo.userAccount != 'admin'" [routerLink]="['/user/' + this.userInfo.userAccount]" mat-menu-item >Thông Tin Cá Nhân</button>
-          <button *ngIf="this.userInfo.userAccount != 'admin'" mat-menu-item>Đã Thích</button>
-          <button *ngIf="this.userInfo.userAccount != 'admin'" [routerLink]="['/message/' + this.userInfo.userAccount]" mat-menu-item>Tin Nhắn</button>
-          <button *ngIf="this.userInfo.userAccount == 'admin'" mat-menu-item [routerLink]="['/admin']" >Quản Lý</button>
-          <button mat-menu-item (click)="signOut()">Đăng Xuất</button>
-        </mat-menu></li>
-    </ul>
-  </nav>
+    
+</div>
