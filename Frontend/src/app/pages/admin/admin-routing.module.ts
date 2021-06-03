@@ -4,9 +4,10 @@ import { ShowUsersComponent } from '../../components/admin/show-users/show-users
 import { CategoriesComponent } from '../../components/admin/categories/categories.component';
 import { InputCategoryComponent } from '../../components/admin/input-category/input-category.component';
 import { SanPhamDangBanComponent } from '../../components/admin/san-pham-dang-ban/san-pham-dang-ban.component';
-import { CreateAdsComponent } from '../../components/ads/create-ads/create-ads.component';
 import { ThongKeDoanhThuComponent } from '../../components/admin/thong-ke-doanh-thu/thong-ke-doanh-thu.component';
 import { BarChartComponent } from '../../components/admin/bar-chart/bar-chart.component';
+import { CreateAdsComponent } from '../../components/admin/create-ads/create-ads.component';
+import { ShowAdsComponent } from '../../components/admin/show-ads/show-ads.component';
 
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -23,6 +24,8 @@ const routes: Routes = [
   { path:'inputcategory',component:InputCategoryComponent },
   { path:'doanhthu',component:ThongKeDoanhThuComponent },
   { path:'barchart',component:BarChartComponent },
+  { path:'createads',component:CreateAdsComponent },
+  { path:'showads',component:ShowAdsComponent },
 
 ];
 @NgModule({
@@ -30,4 +33,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AdminRoutingModule { }
-export const routingComponents = [SanPhamDaBanComponent,BarChartComponent,SanPhamChoDuyetComponent,ShowUsersComponent,InputCategoryComponent,CategoriesComponent,SanPhamDangBanComponent,CreateAdsComponent,ThongKeDoanhThuComponent];
+export const routingComponents = [SanPhamDaBanComponent,CreateAdsComponent,ShowAdsComponent,BarChartComponent,SanPhamChoDuyetComponent,ShowUsersComponent,InputCategoryComponent,CategoriesComponent,SanPhamDangBanComponent,ThongKeDoanhThuComponent];

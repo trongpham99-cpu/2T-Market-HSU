@@ -23,7 +23,7 @@ app.use(bodyParser.json());
 app.use(cookiesParser());
 
 app.use('/images', express.static(path.join('images')));
-app.use('/api/',categoriesRoutes, profilesRoutes, messagesRoutes);
+app.use('/api/',categoriesRoutes, profilesRoutes,adssRoutes, messagesRoutes);
 
 app.get("/users", async (req, res)=>{
     let users = await Database.instance.getUsers();
