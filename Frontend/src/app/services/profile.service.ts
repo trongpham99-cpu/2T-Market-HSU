@@ -70,8 +70,6 @@ export class ProfileService {
         this.profiles = profiles;
         this.profiles$.next(this.profiles);
       });
-
-
   }
   getDetail(id) {
     return this.http.get("http://127.0.0.1:8080/api/detail/?id=" + id)

@@ -31,7 +31,6 @@
           <button class="btnn" mat-button [matMenuTriggerFor]="beforeMenu">{{this.userInfo.userAccount}}</button>
           <mat-menu #beforeMenu="matMenu" xPosition="before">
             <button *ngIf="this.userInfo.userAccount != 'admin'" [routerLink]="['/user/' + this.userInfo.userAccount]" mat-menu-item >Thông Tin Cá Nhân</button>
-            <button *ngIf="this.userInfo.userAccount != 'admin'" mat-menu-item>Đã Thích</button>
             <button *ngIf="this.userInfo.userAccount != 'admin'" [routerLink]="['/message/' + this.userInfo.userAccount]" mat-menu-item>Tin Nhắn</button>
             <button *ngIf="this.userInfo.userAccount == 'admin'" mat-menu-item [routerLink]="['/admin']" >Quản Lý</button>
             <button mat-menu-item (click)="signOut()">Đăng Xuất</button>

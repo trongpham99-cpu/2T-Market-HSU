@@ -72,14 +72,16 @@ exports.getProductChoDuyet = async (req, res) => {
   }
 }
 
-//TEST ID
-exports.getUserIdByIdProduct = async (req, res) => {
+//FIND BY ID PRODUCT
+exports.getByIdProduct = async (req, res) => {
   // user = mongoose.model("users",userSchema);  
   const { id } = req.query;
   const detail = await Profile.findById(id);
-  let a = detail.nguoi_dang_sp;
-  let user = await mongoose.model("users", userSchema).find({ userAccount: a })
-  console.log(user);
+  try{
+    res.send(detail);
+  }catch(err){
+    res.send(err);
+  }
 }
 
 //GET ALL PRODUCT

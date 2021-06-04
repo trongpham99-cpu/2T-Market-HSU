@@ -6,9 +6,7 @@ const profilesController = require('../controllers/profiles');
 const storage = require('../helpers/storage');
 
 const router = express.Router();
-//TEST
-router.get('/userid', profilesController.getUserIdByIdProduct);
-//
+router.get('/productid', profilesController.getByIdProduct);
 
 router.get('/search',profilesController.searchSanPham);
 

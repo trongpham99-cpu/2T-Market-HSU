@@ -23,6 +23,7 @@ const routes: Routes = [
 { path: 'search/:productName', loadChildren: () => import('./pages/search-page/search-page.module').then(m => m.SearchPageModule) },
 { path: 'report/:id', loadChildren: () => import('./pages/report-page/report-page.module').then(m => m.ReportPageModule) },
 { path: 'message/:userAccount', loadChildren: () => import('./pages/message-report/message-report.module').then(m => m.MessageReportModule) },
+{ path: 'doanhthu/:userAccount', loadChildren: () => import('./pages/doanhthu-user-page/doanhthu-user-page.module').then(m => m.DoanhthuUserPageModule) },
 ];
 
 @NgModule({

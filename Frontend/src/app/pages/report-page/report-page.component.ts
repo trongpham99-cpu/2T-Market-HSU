@@ -3,6 +3,8 @@ import { Product } from 'src/app/models/product.model';
 import { ProfileService } from 'src/app/services/profile.service';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { ReportService } from '../../services/report.service'
+
 @Component({
   selector: 'app-report-page',
   templateUrl: './report-page.component.html',
@@ -15,7 +17,7 @@ export class ReportPageComponent implements OnInit {
   id:any;
   data:any;
   public profileSubscription: Subscription;
-  constructor(private profilesService: ProfileService, public route:ActivatedRoute) { }
+  constructor(private profilesService: ProfileService, public route:ActivatedRoute,public ReportService:ReportService) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];

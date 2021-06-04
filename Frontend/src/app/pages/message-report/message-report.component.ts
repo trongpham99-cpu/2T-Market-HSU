@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ReportService } from '../../services/report.service'
 import { Report } from '../../models/Report';
+import { Profile } from '../../models/Profile';
 import { Subscription } from "rxjs";
 
 @Component({
@@ -11,17 +12,17 @@ import { Subscription } from "rxjs";
 export class MessageReportComponent implements OnInit {
   id:any;
   reports: Report[] = [];
+  product: Profile[] = [];
   private profileSubscription: Subscription;
   constructor(public ReportService:ReportService) { }
 
   ngOnInit(): void {
-    this.ReportService.getReport();
-    this.profileSubscription = this.ReportService
-      .getProfilesStream()
-      .subscribe((report: Report[]) => {
-        this.reports = report;
-        console.log(report);
-      });
+    this.ReportService.getReport().subscribe((reports: Report[])=>{
+      this.reports = reports;
+      console.log(reports)
+    });
+    this.ReportService.getProductId().subscribe((product: Profile[])=>{
+      this.product = product;
+    })
   }
-
 }
