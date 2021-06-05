@@ -71,13 +71,13 @@
     <button (click)="exportAsPDF()" >Tải File PDF</button>
     <button (click)="exportExcel()" >Tải File Excel</button>
 </table>
-<div style="width: 50%; height: auto; margin-left: auto; margin-right: auto;" class="chart-wrapper">
+<div class="chart-wrapper">
     <canvas baseChart 
-    [datasets]="barChartData"
-    [labels]="barChartLabels"
-    [options]="barChartOptions"
-    [plugins]="barChartPlugins"
-    [legend]="barChartLegend"
-    [chartType]="barChartType">
+    [data]="pieChartData" 
+    [labels]="pieChartLabels" 
+    [chartType]="pieChartType"
+    [options]="pieChartOptions"
+    [plugins]="pieChartPlugins"
+    [legend]="pieChartLegend">
   </canvas>
 </div>

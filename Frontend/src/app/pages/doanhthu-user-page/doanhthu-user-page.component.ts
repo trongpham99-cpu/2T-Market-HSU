@@ -11,8 +11,10 @@ import html2canvas from 'html2canvas';
 import jspdf from 'jspdf';
 import * as XLSX from 'xlsx';
 import { MultiDataSet } from 'ng2-charts';
-import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
-import { Label } from 'ng2-charts';
+import { ChartDataSets } from 'chart.js';
+import { ChartType, ChartOptions } from 'chart.js';
+import { SingleDataSet, Label, monkeyPatchChartJsLegend, monkeyPatchChartJsTooltip } from 'ng2-charts';
+
 @Component({
   selector: 'app-doanhthu-user-page',
   templateUrl: './doanhthu-user-page.component.html',
@@ -27,19 +29,19 @@ export class DoanhthuUserPageComponent implements OnInit {
   profiles: Profile[] = [];
   private profiles$ = new Subject<Profile[]>();
   
-  barChartOptions: ChartOptions = {
+  public pieChartOptions: ChartOptions = {
     responsive: true,
   };
-  barChartLabels: Label[] = ['Đã Bán', 'Đang Bán', 'Chờ Duyệt'];
-  barChartType: ChartType = 'bar';
-  barChartLegend = true;
-  barChartPlugins = [];
-
-  barChartData: ChartDataSets[] = [
-    { data: [45, 37, 60, 70, 46, 33], label: 'Best Fruits' }
-  ];
+  public a = 5;
+  public pieChartLabels: Label[] = [['SciFi'], ['Drama'], 'Comedy'];
+  public pieChartType: ChartType = 'pie';
+  public pieChartLegend = true;
+  public pieChartPlugins = [];
   
-  constructor(public UsersService:UsersService,public profilesService:ProfileService,public route:ActivatedRoute,private http: HttpClient) { }
+  constructor(public UsersService:UsersService,public profilesService:ProfileService,public route:ActivatedRoute,private http: HttpClient) { 
+    monkeyPatchChartJsTooltip();
+    monkeyPatchChartJsLegend();
+  }
 
   ngOnInit(): void {
     this.userAccount = this.route.snapshot.params['userAccount'];
@@ -54,9 +56,9 @@ export class DoanhthuUserPageComponent implements OnInit {
     })
   }
 
-  public count = 0;price = 0;result;
-  getUserDaBan(userAccount){
-    this.http
+  public count = 0;price = 0;result;temp;
+  async getUserDaBan(userAccount){
+    await this.http
           .get<{ cart: Profile[] }>("http://127.0.0.1:8080/api/cart?nguoi_dang_sp="+userAccount+"&status=2")
           .pipe(
             map((profileData) => {
@@ -68,12 +70,14 @@ export class DoanhthuUserPageComponent implements OnInit {
             console.log(profiles)
             this.profiles$.next(this.profiles);
             for(let i=0; i<profiles.length;i++){
-              this.count++
+              this.count++;
               this.price += parseInt(profiles[i].productPrice);
             }
             this.result = this.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
           });
   }
+  public pieChartData: SingleDataSet = [this.count, 50, 20];
+
 
   public exportAsPDF()
   {
