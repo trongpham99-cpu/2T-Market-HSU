@@ -7,19 +7,38 @@ import { Subject, Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-
+import html2canvas from 'html2canvas';
+import jspdf from 'jspdf';
+import * as XLSX from 'xlsx';
+import { MultiDataSet } from 'ng2-charts';
+import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
+import { Label } from 'ng2-charts';
 @Component({
   selector: 'app-doanhthu-user-page',
   templateUrl: './doanhthu-user-page.component.html',
   styleUrls: ['./doanhthu-user-page.component.css']
 })
 export class DoanhthuUserPageComponent implements OnInit {
+  fileName = 'ExcelSheet.xlsx';
   public profile: any;
   userAccount:any;
   public data:User;
   public profileSubscription: Subscription;
   profiles: Profile[] = [];
   private profiles$ = new Subject<Profile[]>();
+  
+  barChartOptions: ChartOptions = {
+    responsive: true,
+  };
+  barChartLabels: Label[] = ['Đã Bán', 'Đang Bán', 'Chờ Duyệt'];
+  barChartType: ChartType = 'bar';
+  barChartLegend = true;
+  barChartPlugins = [];
+
+  barChartData: ChartDataSets[] = [
+    { data: [45, 37, 60, 70, 46, 33], label: 'Best Fruits' }
+  ];
+  
   constructor(public UsersService:UsersService,public profilesService:ProfileService,public route:ActivatedRoute,private http: HttpClient) { }
 
   ngOnInit(): void {
@@ -54,6 +73,27 @@ export class DoanhthuUserPageComponent implements OnInit {
             }
             this.result = this.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
           });
+  }
+
+  public exportAsPDF()
+  {
+    const element = document.getElementById('customers');
+
+    html2canvas(element).then((canvas)=>{
+      const imgData = canvas.toDataURL('image/png');
+      const doc = new jspdf()
+      const imgHeight = canvas.height * 300/canvas.width;
+      doc.addImage(imgData,20,25,170,imgHeight);
+      doc.save("report.pdf");
+    })
+  }
+
+  exportExcel():void{
+    let element = document.getElementById('customers');
+    const ws:XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
+    const wb:XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb,ws,'Sheet1');
+    XLSX.writeFile(wb,this.fileName);
   }
 
 }

@@ -67,5 +67,17 @@
       <td>{{i.productName}}</td>
       <td>{{i.productPrice}} VNĐ</td>
     </tr>
-  <p style="margin-top: 10px; margin-left: 10px;" >Tổng số doanh thu đã kiếm được {{this.result}} VNĐ</p>
-  </table>
+  <tr style="margin-top: 10px; margin-left: 10px;" >Tổng số doanh thu đã kiếm được {{this.result}} VNĐ</tr>
+    <button (click)="exportAsPDF()" >Tải File PDF</button>
+    <button (click)="exportExcel()" >Tải File Excel</button>
+</table>
+<div style="width: 50%; height: auto; margin-left: auto; margin-right: auto;" class="chart-wrapper">
+    <canvas baseChart 
+    [datasets]="barChartData"
+    [labels]="barChartLabels"
+    [options]="barChartOptions"
+    [plugins]="barChartPlugins"
+    [legend]="barChartLegend"
+    [chartType]="barChartType">
+  </canvas>
+</div>
