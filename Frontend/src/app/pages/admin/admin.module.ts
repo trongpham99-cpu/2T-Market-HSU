@@ -30,7 +30,7 @@ import { ChartsModule, ChartSimpleModule, WavesModule } from 'ng-uikit-pro-stand
     MatDividerModule,
     MatListModule,
     MatTableModule,
-    NgApexchartsModule,ChartsModule, ChartSimpleModule, WavesModule
+    NgApexchartsModule,ChartsModule, ChartSimpleModule, WavesModule,
   ]
 })
 export class AdminModule { }

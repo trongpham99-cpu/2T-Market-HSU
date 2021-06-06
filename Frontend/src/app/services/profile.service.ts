@@ -81,6 +81,12 @@ export class ProfileService {
     })
   }
 
+  updateProduct(id, product){
+    const endpointUrl = 'http://127.0.0.1:8080/api/product/?id='
+    return this.http.put(endpointUrl + id,product);
+  }
+
+
   getProfilesStream() {
     return this.profiles$.asObservable();
   }
