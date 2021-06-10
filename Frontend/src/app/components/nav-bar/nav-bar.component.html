@@ -1,14 +1,14 @@
-  <div class="content">
+<div class="content">
     <div class="searlog">
         <div class="logoo">
-            <span (click)="clickHome()" >SHOPPE</span>
+            <span (click)="clickHome()" >E - SHOP</span>
         </div>
         <div class="searchh">
             <div class="SearCont">
                 <input style="height: 25px; width: 100%;" type="text" placeholder="Tìm kiếm sản phẩm.." name="search" [(ngModel)]="this.ProfileService.searchText">
                 <button (click)="this.ProfileService.click()" [routerLink]="['/search/' + this.ProfileService.searchText]" type="submit" >Search</button>
             </div>
-            
+
         </div>
     </div>
     <div class="cate">
@@ -22,7 +22,7 @@
             <span>PHẢN HỒI</span>
         </div>
         <div class="labell">
-          <span [routerLink]="['/input']" *ngIf="this.userInfo" >ĐĂNG TIN</span>
+          <span [routerLink]="['/input']" *ngIf="this.userInfo && this.userInfo.userAccount !='admin'"  >ĐĂNG TIN</span>
       </div>
       <div class="labell">
         <span [routerLink]="['/signin']" *ngIf="!this.userInfo">ĐĂNG NHẬP</span>
@@ -37,6 +37,6 @@
           </mat-menu>
         </div>
     </div>
-    
-    
+
+
 </div>

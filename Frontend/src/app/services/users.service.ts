@@ -36,13 +36,17 @@ export class UsersService {
     return this.http.get("http://127.0.0.1:8080/user?userAccount=" + userAccount);
   }
 
+  updateUser(id, user){
+    const endpointUrl = 'http://127.0.0.1:8080/updateuser/?id='
+    return this.http.put(endpointUrl + id, user);
+  }
+
   onSubmit(postData) {
     this.http.post('http://127.0.0.1:8080/register',postData)
     .subscribe((result)=> {
-      if(result){
-        this.router.navigate(['/signin']);
-      }
-      console.log("result",result);
+      this.router.navigate(['/signin']);
+    },(error:any) =>{
+      alert("Tài khoản này đã có người sử dụng vui lòng chọn tài khoản khác !")
     });
   }
 }

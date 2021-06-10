@@ -18,6 +18,16 @@ export class UserUpdateComponent implements OnInit {
     this.getDataUser();
   }
 
+  update(contactId){
+    const newFormData = { userName:this.data.userName, userMail: this.data.userMail,userPhone:this.data.userPhone,
+      userAddress:this.data.userAddress};
+    this.UsersService.updateUser(contactId, newFormData).subscribe(data =>{
+      alert("Sửa thành công !")
+    },(error:any) =>{
+      alert("Sửa thất bại !")
+    });
+  }
+
   getDataUser(){
     this.UsersService.getDataUser(this.userAccount).subscribe(data =>{
       this.data = data[0];

@@ -24,6 +24,7 @@ const routes: Routes = [
 { path: 'report/:id', loadChildren: () => import('./pages/report-page/report-page.module').then(m => m.ReportPageModule) },
 { path: 'message/:userAccount', loadChildren: () => import('./pages/message-report/message-report.module').then(m => m.MessageReportModule) },
 { path: 'doanhthu/:userAccount', loadChildren: () => import('./pages/doanhthu-user-page/doanhthu-user-page.module').then(m => m.DoanhthuUserPageModule) },
+{ path: 'userinfo/:userAccount', loadChildren: () => import('./pages/info-user-page/info-user-page.module').then(m => m.InfoUserPageModule) },
 ];
 
 @NgModule({

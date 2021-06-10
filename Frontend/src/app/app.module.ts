@@ -12,6 +12,8 @@ import { FormsModule }   from '@angular/forms';
 import { ReactiveFormsModule} from '@angular/forms'
 import { InputUserComponent } from './components/sign-up/input-user.component';
 import  { SignInComponentComponent } from './components/sign-in/sign-in-component.component';
+import  { UpdateProductComponent } from './components/admin/update-product/update-product.component';
+import  { UserUpdateComponent } from './components/user/user-update/user-update.component';
 import { CookieService } from 'ngx-cookie-service';
 import { CreateProfileComponent } from './components/test/create-profile/create-profile.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,7 +23,7 @@ import { SanPhamCungLoaiComponent } from './components/detail-page/san-pham-cung
 import { ChatComponent } from '../app/components/chat/chat.component';
 @NgModule({
   declarations: [
-    AppComponent,NavBarComponent,ChatComponent, FooterComponent,InputUserComponent,SignInComponentComponent,CreateProfileComponent, SanPhamCungLoaiComponent
+    AppComponent,NavBarComponent,ChatComponent,UserUpdateComponent, FooterComponent,InputUserComponent,UpdateProductComponent,SignInComponentComponent,CreateProfileComponent, SanPhamCungLoaiComponent
   ],
   imports: [
     BrowserModule,

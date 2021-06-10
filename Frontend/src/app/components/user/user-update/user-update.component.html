@@ -7,23 +7,23 @@
                 <h2>Tên Tài Khoản : {{data.userAccount}}</h2>
             </div>
             <div>
-                <input formControlName="productName" type="text" placeholder="{{data.userName}}" />
+                <input type="text"  [(ngModel)]="data.userName" name="name">
             </div>
             <div>
-                <input formControlName="description" type="text" placeholder="{{data.userMail}}" />
+                <input type="text"  [(ngModel)]="data.userMail" name="mail">
             </div>
             <div>
-                <input formControlName="productPrice" type="text" placeholder="+84 {{data.userPhone}}" />
+                <input type="text"  [(ngModel)]="'+84 ' + data.userPhone" name="phone">
             </div>
             <div>
-                <input formControlName="address" type="text" placeholder="{{data.userAddress}}" />
+                <input type="text"  [(ngModel)]="data.userAddress" name="address">
             </div>
             <div>
                 <h3>Ngày Đăng Ký : {{data.ngay_dang_ky}}</h3>
             </div>
             <div>
                 <button>Hủy</button>
-                <button style="margin-left: 20px;" type="submit">Lưu</button>
+                <button style="margin-left: 20px;" type="submit" (click)="update(data._id)">Lưu</button>
             </div>
         </div>
     </div>

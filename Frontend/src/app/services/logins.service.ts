@@ -46,18 +46,18 @@ export class LoginsService implements OnInit {
 
   public userInfomation;
   async loginAcc(user: User){
-    console.log(user);
-    console.log(user.userAccount);
     await this.HttpClient.post(this.baseUrl + "/login",user)
     .subscribe((result)=>{
-      console.log("result",result);
-      if(result){
+        this.router.navigate(['']);
         this.cookieService.set('user',JSON.stringify(user));
         this.cookieService.set('token', result['token']);
+        setTimeout((function() {
+          window.location.reload();
+        }), 100);
         // this.user = JSON.parse(this.cookieService.get('user'));
         // this.user = JSON.parse(this.cookieService.get('user'));
-        window.location.reload();
-      }
+      },(error:any)=>{
+        alert('Sai tài khoản hoặc mật khẩu !!')
     });
   }
 }

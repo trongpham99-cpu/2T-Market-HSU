@@ -1,8 +1,7 @@
 <form  #userPost ="ngForm" (ngSubmit)="this.UsersService.onSubmit(userPost.value)"  action="/action_page.php">
   <div class="container">
     <h1>Đăng Ký</h1>
-    <h3>Vui lòng điền đầy đủ các thông tin để tạo tài khoản.</h3>
-    <hr>
+    <!-- <h3>Vui lòng điền đầy đủ các thông tin để tạo tài khoản.</h3> -->
 
     <label for="accout_id"><b>Tên Tài Khoản</b></label>
     <input type="text" placeholder="Nhập tên tài khoản" name="userAccount"  ngModel >

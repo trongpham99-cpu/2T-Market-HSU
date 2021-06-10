@@ -1,22 +1,22 @@
 <h1>SỬA SẢN PHẨM</h1>
 
-<form>
+<form >
   <div class="container">
     <div class="divleft">
       <div>
-        <input formControlName="productName" type="text" placeholder="{{data.productName}}" />
+        <input type="text"  [(ngModel)]="data.productName" name="name">
       </div>
       <div>
-        <input formControlName="productPrice" type="text" placeholder="{{data.productPrice}}" />
+        <input   type="text" [(ngModel)]="data.productPrice" name="price"/>
       </div>
       <div>
-        <input formControlName="address" type="text" placeholder="{{data.productAddress}}" />
+        <input   type="text" [(ngModel)]="data.productAddress" name="address" />
       </div>
       <div>
-        <input formControlName="description" type="text" placeholder="{{data.description}}" />
+        <input   type="text" [(ngModel)]="data.description" name="description" />
       </div>
       <div>
-        <input formControlName="loai_sp" type="text" placeholder="{{data.loai_sp}}" />
+        <input  type="text" [(ngModel)]="data.loai_sp" name="loai_sp" />
       </div>
       <div>
         <button>Hủy</button>

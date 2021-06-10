@@ -115,6 +115,7 @@ export class ProfileService {
         };
         this.profiles.push(profile);
         this.profiles$.next(this.profiles);
+        alert("Đăng sản phẩm thành công, quản trị viên sẽ duyệt trong thời gian sớm nhất !")
       });
   }
 }

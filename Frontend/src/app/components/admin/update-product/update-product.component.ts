@@ -15,7 +15,7 @@ import { FormGroup, FormControl } from "@angular/forms";
 export class UpdateProductComponent implements OnInit {
   form: FormGroup;
   product: Product;
-  public profile: any;
+  public profile: any;name;
   id:any;
   data:any;
   public profileSubscription: Subscription;
@@ -24,13 +24,6 @@ export class UpdateProductComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     this.getOne();
-    this.form = new FormGroup({
-      productName: new FormControl(null),
-      productPrice: new FormControl(null),
-      description: new FormControl(null),
-      productAddress: new FormControl(null),
-      loai_sp: new FormControl(null),
-    });
   }
 
   getOne(){
@@ -40,9 +33,12 @@ export class UpdateProductComponent implements OnInit {
   }
 
   update(contactId){
-    const newFormData = { productName:'2', productPrice:'1000000' };
+    const newFormData = { productName:this.data.productName, productPrice: this.data.productPrice,productAddress:this.data.productAddress,
+      description:this.data.description, loai_sp:this.data.loai_sp  };
     this.profilesService.updateProduct(contactId, newFormData).subscribe(data =>{
-      this.data = data;
+      alert("Sửa thành công !")
+    },(error:any) =>{
+      alert("Sửa thất bại !")
     });
   }
 

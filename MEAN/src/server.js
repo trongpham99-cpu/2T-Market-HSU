@@ -42,7 +42,6 @@ app.delete("/deleteuser",async(req, res)=>{
 
 app.put("/updateuser",async (req, res)=>{
     const {
-        id,
         userAccount,
         userPassword,
         userName,
@@ -50,6 +49,7 @@ app.put("/updateuser",async (req, res)=>{
         userMail,
         userAddress,
     } = req.body;
+    const {id} = req.query
     const result = await Database.instance.updateUser(id, new User(userAccount, userPassword, userName, userPhone, userMail, userAddress));
     try{
         res.send(`Updated ${id}`);
