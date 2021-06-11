@@ -23,7 +23,6 @@ export class QuangcaoComponent implements OnInit {
         for(let i =0; i<ads.length; i++){
           this.data = ads[0]
         }
-        console.log(this.data)
       });
   }
   
