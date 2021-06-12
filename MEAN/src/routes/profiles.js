@@ -6,6 +6,9 @@ const profilesController = require('../controllers/profiles');
 const storage = require('../helpers/storage');
 
 const router = express.Router();
+
+router.get('/searchtime',profilesController.searchSanPhamByDay);
+
 router.get('/productid', profilesController.getByIdProduct);
 
 router.get('/search',profilesController.searchSanPham);

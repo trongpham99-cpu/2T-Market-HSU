@@ -1,0 +1,20 @@
+<h1>DANH MỤC</h1>
+<div class="tong">
+  <div class="divall">
+    <table>
+      <tr>
+        <th>Hình Ảnh</th>
+        <th>Tên Sản Phẩm</th>
+        <th>Trạng Thái</th>
+      </tr>
+      <tr *ngFor="let category of categories" >
+        <td><img [src]="category.imagePath" [alt]="category.name"></td>
+        <td>{{category.name}}</td>
+        <td>{{category.status}}</td>
+        <button *ngIf="category.status == 'Tắt'" (click)="turnOn(category)" mat-flat-button color="warn" >Bật</button>
+        <button *ngIf="category.status == 'Bật'" (click)="turnOff(category)" mat-flat-button color="warn" >Tắt</button>
+        <button style="margin-left: 30px;" mat-flat-button color="primary" (click)="delete(category)" >Xóa</button>
+      </tr>
+    </table>
+  </div>
+</div>

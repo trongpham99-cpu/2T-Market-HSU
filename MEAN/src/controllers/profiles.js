@@ -3,6 +3,15 @@ const userSchema = require('../schemas/user.schema');
 const User = require('../models/user.model');
 const mongoose = require('mongoose');
 
+//SEARCH BY DAY, MONTH
+exports.searchSanPhamByDay = async (req, res) => {
+  // const {day,month} = req.query;
+  month = 6
+  const result = await Profile.find()
+  let a = result[0].ngay_dang;
+  console.log(a);
+}
+
 //SEARCH 
 exports.searchSanPham = async (req, res) => {
   const search = req.query.search;
