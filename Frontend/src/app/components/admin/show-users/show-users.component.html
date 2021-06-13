@@ -1,0 +1,36 @@
+<div class="maincontainer">
+
+  <div class="divtopp">
+    <div class="divbott">
+      <h3>Tổng số người dùng: {{countUser}}</h3>
+      <button  (click)="exportAsPDF()" >Download PDF</button>
+      <button >Download Excel</button>
+    </div>
+    <h2>Thông Tin Người Dùng</h2>
+  </div>
+
+
+    <div class="table-wrapper">
+        <table class="fl-table">
+            <thead>
+            <tr>
+                <th>Tên Tài Khoản</th>
+                <th>Tên Khách Hàng</th>
+                <th>Email</th>
+                <th>Số Điện Thoại</th>
+                <th>Địa Chỉ</th>
+                <th>Ngày Đăng Ký</th>
+            </tr>
+            <tr *ngFor = "let i of user" >
+                <td>{{i.userAccount}}</td>
+                <td>{{i.userName}}</td>
+                <td>{{i.userMail}}</td>
+                <td>+84 {{i.userPhone}}</td>
+                <td>{{i.userAddress}}</td>
+                <td>{{i.ngay_dang_ky}}</td>
+            </tr>
+            <tbody>
+        </table>
+    </div>
+</div>
+

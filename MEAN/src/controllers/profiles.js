@@ -3,6 +3,18 @@ const userSchema = require('../schemas/user.schema');
 const User = require('../models/user.model');
 const mongoose = require('mongoose');
 
+//GET SAN PHAM TRONG NGAY
+exports.getSanPhamTrongNgay = async (req, res)=>{
+  const {year,month} = req.query;
+  const result = await Profile.find({ngay_dang: {$gte: new Date(year, month-1), $lt: new Date(year, month)}});
+  console.log(result.length)
+  try{
+    res.send(result);
+  }catch(err){
+    res.send(err);
+  }
+}
+
 //SEARCH BY DAY, MONTH
 exports.searchSanPhamByDay = async (req, res) => {
   // const {day,month} = req.query;

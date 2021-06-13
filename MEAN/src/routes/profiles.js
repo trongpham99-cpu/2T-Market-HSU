@@ -7,6 +7,9 @@ const storage = require('../helpers/storage');
 
 const router = express.Router();
 
+//san pham trong ngay
+router.get('/sanphamtrongngay',profilesController.getSanPhamTrongNgay);
+
 router.get('/searchtime',profilesController.searchSanPhamByDay);
 
 router.get('/productid', profilesController.getByIdProduct);
