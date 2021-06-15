@@ -78,14 +78,11 @@ class Database{
     async getUser(userAccount) {
         return await this.user.find({userAccount:userAccount});
     }
-    /**
-     * 
-     * @param {String} id 
-     * @param {User} User 
-     * @returns 
-     */
-    async updateUser(id, User) {
-        await this.user.findByIdAndUpdate(id, User);
+    
+    async updateUser(id, user) {
+        console.log(id);
+        console.log(user);
+        // await this.user.findByIdAndUpdate(id, User);
     }
 
     async deleteUser(id){

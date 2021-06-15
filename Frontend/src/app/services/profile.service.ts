@@ -43,17 +43,18 @@ export class ProfileService {
       });
       // this.router.navigate.(['category',this..name])
 }
-
-  getProductsNew() {
+  
+  getProductsNew(page) {
     this.http
-      .get<{ productsNew: Profile[] }>(this.url+"/newproduct")
+      .get<{ ProducstNew: Profile[] }>('http://127.0.0.1:8080/api/newproduct?page='+ page)
       .pipe(
         map((profileData) => {
-          return profileData.productsNew;
+          return profileData.ProducstNew;
         })
       )
       .subscribe((profiles) => {
         this.profiles = profiles;
+        console.log(profiles)
         this.profiles$.next(this.profiles);
       });
   }

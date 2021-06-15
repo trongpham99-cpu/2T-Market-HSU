@@ -35,12 +35,9 @@ export class ReportPageComponent implements OnInit {
     const report = {product_id:this.data._id,tieu_de:'ga',nguoi_nhan:this.data.nguoi_dang_sp,noi_dung:'ga'};
     console.log(report);
     const endpointUrl = 'http://127.0.0.1:8080/api/admin/messages'
-    let temp = await this.http.post(endpointUrl,{params :report}).toPromise();
-    // .subscribe((result)=> {
-    //   alert('Đã gửi cho ' + report.nguoi_nhan);
-    // },(error:any) =>{
-    //   alert("Gửi thất bại!");
-    // });
-    return temp;
+      this.http.post(endpointUrl,report).toPromise().then((data:any)=>{
+        console.log(data);
+        alert('Đã gửi cho ' + report.nguoi_nhan);
+    });
   }
 }

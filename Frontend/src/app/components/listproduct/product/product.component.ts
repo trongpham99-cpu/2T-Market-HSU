@@ -16,13 +16,17 @@ export class ProductComponent implements OnInit {
   id:any;
   profiles: Profile[] = [];
   public price: any;
+  page=1;
   private profiles$ = new Subject<Profile[]>();
   readonly url = "http://127.0.0.1:8080/api";
   private profileSubscription: Subscription;
   constructor(public profilesService: ProfileService){
   }
   ngOnInit(): void {
-    this.profilesService.getProductsNew();
+      this.get();
+  }
+  get(){
+    this.profilesService.getProductsNew(this.page++);
     // this.profilesService.getDetail(this.profiles);
     this.profileSubscription = this.profilesService
       .getProfilesStream()
@@ -32,7 +36,7 @@ export class ProductComponent implements OnInit {
         this.profiles = profiles;
       });
   }
-
+  
   ngOnDestroy() {
     this.profileSubscription.unsubscribe();
   }

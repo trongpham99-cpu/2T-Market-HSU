@@ -12,6 +12,10 @@ const profilesRoutes = require("./routes/profiles");
 const categoriesRoutes = require("./routes/categories");
 const adssRoutes = require("./routes/adss");
 const messagesRoutes = require("./routes/messages");
+const userSchema = require('./schemas/user.schema');
+const mongoose = require('mongoose');
+
+
 require('dotenv').config();
 const corsOptions = {
     origin: "http://localhost:4200",
@@ -40,23 +44,42 @@ app.delete("/deleteuser",async(req, res)=>{
     }
 })
 
+
 app.put("/updateuser",async (req, res)=>{
-    const {
-        userAccount,
-        userPassword,
-        userName,
-        userPhone,
-        userMail,
-        userAddress,
-    } = req.body;
+    const user  = req.body;
     const {id} = req.query
-    const result = await Database.instance.updateUser(id, new User(userAccount, userPassword, userName, userPhone, userMail, userAddress));
+    const result = await mongoose.model("users",userSchema).findByIdAndUpdate(id,user);
     try{
-        res.send(`Updated ${id}`);
+        res.send(`updated ${id}`);
     }catch(err){
         res.send(err);
     }
 })
+
+app.put("/user/changepassword",async (req,res)=>{
+    const {userAccount,userPassword} = req.query;
+    const {newPassword} = req.body;
+    const user = await mongoose.model("users",userSchema).find({userAccount:userAccount});
+    bcrypt.compare(
+        userPassword,
+        user[0].userPassword,
+        function (err, resp) {
+            if (resp) {
+                const result = mongoose.model("users",userSchema).findOneAndUpdate({userPassword:user[0].userPassword},{userPassword:newPassword});
+                try{
+                    res.send(result)
+                }catch(err){
+                    res.send(err);
+                }
+            } else {
+                res.status(400).send({
+                    message: `wrong password`,
+                });
+            }
+        }
+    );
+    // const result = await mongoose.model("users",userSchema).find({userPassword:userPassword});
+});
 
 app.get("/user", async (req, res) =>{
     const {userAccount} = req.query;

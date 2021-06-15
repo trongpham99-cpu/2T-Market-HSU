@@ -35,6 +35,4 @@ export class ThongKePageComponent implements OnInit {
     XLSX.utils.book_append_sheet(wb,ws,'Sheet1');
     XLSX.writeFile(wb,this.fileName);
   }
-  
-
 }

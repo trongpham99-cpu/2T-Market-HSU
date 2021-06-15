@@ -110,7 +110,7 @@ exports.getProfiles = async (req, res) => {
   const profiles = await Profile.find();
   res.status(200).json({ profiles });
 };
-const PAGE_SIZE = 2;
+const PAGE_SIZE = 20;
 //GET ALL PRODUCT FOR NEW POST
 exports.getProductsNew = async (req, res) => {
   var { page } = req.query;
@@ -125,13 +125,13 @@ exports.getProductsNew = async (req, res) => {
       .limit(PAGE_SIZE)
     res.status(200).json({ ProducstNew })
   } else {
-    const productsNew = await Profile
+    const ProducstNew = await Profile
       .find({ status: "1" })
       .sort({
         ngay_dang: -1,
       })
       .limit(20);
-    res.status(200).json({ productsNew });
+    res.status(200).json({ ProducstNew });
   }
 }
 //SORT ALL BY PRICE
