@@ -11,12 +11,15 @@ exports.deleteMessage = async (req, res)=>{
 }
 
 exports.seenMessage = async (req, res) =>{
-    const id = req.query.id;
-    await Message.findByIdAndUpdate(id, {status:"0"});
-    try{
-        res.send(`updated ${id}`);
-    }catch(err){
-        res.send(err);
+    const { id } = req.query;
+    const options = { new: true };
+    try {
+      const result = await Message.findByIdAndUpdate(id,{status:"1"}, options);
+      res.send({
+        updated: `${id}`
+      });
+    } catch (err) {
+      res.status(400).send({ message: `cannot update ${id}` });
     }
 }
 

@@ -34,7 +34,7 @@ app.get("/users", async (req, res)=>{
     res.send(users);
 });
 
-app.delete("/deleteuser",async(req, res)=>{
+app.delete("/user",async(req, res)=>{
     const {id} = req.query;
     await Database.instance.deleteUser(id);
     try{
