@@ -42,5 +42,10 @@ export class UserPostChoDuyetComponent implements OnInit {
             }
           });
   }
+  async delete(profiles: Profile){
+    let temp = await this.http.delete('http://127.0.0.1:8080/api/product', {params: {id: profiles._id}}).toPromise();
+    window.location.reload();
+    return temp;
+  }
 
 }

@@ -12,6 +12,7 @@ import { Profile } from '../models/Profile';
 export class UsersService {
   baseUrl: string ="http://127.0.0.1:8080/users";
   productUrl: "http://127.0.0.1:8080/api"
+  url: string = 'http://127.0.0.1:8080/'
   users : User[];
   profiles: Profile[];
   user: string;
@@ -40,6 +41,8 @@ export class UsersService {
     const endpointUrl = 'http://127.0.0.1:8080/updateuser/?id='
     return this.http.put(endpointUrl + id, user);
   }
+
+  
 
   onSubmit(postData) {
     this.http.post('http://127.0.0.1:8080/register',postData)

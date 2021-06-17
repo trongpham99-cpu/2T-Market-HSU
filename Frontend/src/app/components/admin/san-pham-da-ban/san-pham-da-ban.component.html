@@ -1,33 +1,11 @@
-<!-- <div class="content">
-  <h1>SẢN PHẨM ĐÃ BÁN</h1>
-<table style="width:100%">
-  <tr>
-    <th>Hình Ảnh</th>
-    <th>Tên Sản Phẩm</th>
-    <th>Người Đăng</th>
-    <th>Ngày Đăng</th>
-    <th>Giá Sản Phẩm</th>
-    <th>Xóa</th>
-  </tr>
-  <tr *ngFor = "let product of profiles" >
-    <td><img [src]="product.imagePath" [alt]="product.productName"></td>
-    <td style="text-align: left;" >{{product.productName}}</td>
-    <td>{{product.nguoi_dang_sp}}</td>
-    <td>{{product.ngay_dang}}</td>
-    <td style="text-align: center; color: red; font-weight: 200px;" >{{product.productPrice}}</td>
-    <td class="button"><button mat-flat-button color="primary">Xóa</button></td>
-  </tr>
-</table>
-<h3>Tổng Doanh Thu Các Sản Phẩm Đã Bán : {{this.result}} VNĐ</h3>
-</div>
- -->
+
 
 
 <div class="maincontainer">
 
   <div class="divtopp">
     <div class="divbott">
-      <h3>Tổng Sản Phẩm Đang Bán: </h3>
+      <h3>Tổng Sản Phẩm Đang Bán: {{this.count}}</h3>
       <h3>Tổng Giá Sản Phẩm Đang Bán: {{this.result}} VNĐ</h3>
       <!-- <button (click)="downloadPdf()" >Download PDF</button>
       <button>Download EXCEL</button> -->
@@ -56,7 +34,7 @@
                 <td>{{product.ngay_dang}}</td>
                 <td style="text-align: center; color: red; font-weight: 200px;" ><strong>{{product.productPrice}}</strong></td>
                 <td  class="button">
-                    <button class="crud" style="background-color: rgb(218, 73, 73);" mat-flat-button color="primary">Xóa</button>
+                    <button (click)="delete(product);" class="crud" style="background-color: rgb(218, 73, 73);" mat-flat-button color="primary">Xóa</button>
                 </td>
             </tr>
             <tbody>

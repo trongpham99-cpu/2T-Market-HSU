@@ -1,9 +1,29 @@
-<div *ngFor="let data of reports" >
-    <h3>Tiêu đề: {{data.tieu_de}}</h3>
-    <h4>Nội dung: {{data.noi_dung}}</h4>
-    <div>
-        <p>Tên Sản Phảm: {{this.product.productName}}</p>
-    </div>
-    <button>Đã Xem</button>
-    <button>Sửa</button>
+<div class="phanhoii">
+  <h1 style="margin-top: 20px;text-align: center;font-weight: bold;">Tin nhắn phản hồi</h1>
 </div>
+<br>
+<div *ngFor="let data of reports" >
+    <h3 class="tieude">Tiêu đề: {{data.tieu_de}}</h3>
+    <p style="font-weight: 500; color: black;">Nội dung:</p>
+    <p class="ndd">{{data.noi_dung}}</p>
+    <!-- <div>
+        <p>Tên Sản Phảm: {{this.product.productName}}</p>
+    </div> -->
+    <div class="div-all">
+      <div class="anhh">
+        <img [src]="product.imagePath" [alt]="product.productName">
+      </div>
+      <div>
+        <h4>Tên Sản Phẩm : {{product.productName}}</h4>
+        <p style="color: black;" >Ngày Đăng : {{product.ngay_dang}}</p>
+        <p>Giá Sản Phẩm : {{product.productPrice}} VNĐ</p>
+        <div class="btnn">
+          <button mat-flat-button color="primary" class="button11" (click)="duyetSp(product)" >Đã Xem</button>
+          <button mat-flat-button color="warn" class="button11" >Sửa</button>
+        </div>
+      </div>
+    </div>
+    <br>
+    <hr>
+</div>
+

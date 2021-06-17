@@ -1,5 +1,5 @@
 <h1>PHẢN HỒI</h1>
-<div>
+<div class="container">
     <div  class="container ct-listing">
         <div class="ListItem">
             <div class="ListBox">
@@ -26,12 +26,14 @@
             </div>
         </div>
     </div>
-    <div>
-        <h3>Gửi tin nhắn đến: {{data.nguoi_dang_sp}}</h3>
+
+
+    <div class="textcontent">
+        <h3>Gửi tin nhắn đến: <a style="font-weight: bold; font-style: italic;">{{data.nguoi_dang_sp}}</a></h3>
         <form>
-            Tiêu Đề <br>
+            <p style="font-weight: bold;">Tiêu Đề</p>
             <input class="input1" type="text" id="fname" name="fname" placeholder="Nhập tiêu đề..." [(ngModel)]="tieu_de_text" ><br>
-            Nội Dung <br>
+            <p style="font-weight: bold;">Nội dung</p>
             <input class="input2" type="text" id="fname" name="fname" placeholder="Nhập tiêu đề..." [(ngModel)]="noi_dung_text" ><br>
         </form>
         <button mat-flat-button color="primary">Hủy</button>

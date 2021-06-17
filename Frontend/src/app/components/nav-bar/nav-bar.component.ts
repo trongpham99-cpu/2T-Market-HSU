@@ -1,5 +1,6 @@
 import { LoginsService } from './../../services/logins.service';
 import { ProfileService } from './../../services/profile.service';
+import { ReportService } from './../../services/report.service';
 import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import {User} from '../../models/user.model'
@@ -13,7 +14,7 @@ import { Router } from '@angular/router';
 })
 export class NavBarComponent implements OnInit {
   public userInfo : any ;
-  constructor( public LoginsService:LoginsService, private cookieService: CookieService,public ProfileService:ProfileService,private router:Router) {
+  constructor(public ReportService:ReportService, public LoginsService:LoginsService, private cookieService: CookieService,public ProfileService:ProfileService,private router:Router) {
     // console.log('cookie' + JSON.parse(this.cookieService.get('user')).userAccount);
     // this.getUserInfo();
     // this.signOut();

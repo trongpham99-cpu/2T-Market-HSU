@@ -4,6 +4,7 @@ import { UsersService } from '../../../services/users.service';
 import { Component, OnInit } from '@angular/core';
 import html2canvas from 'html2canvas';
 import jspdf from 'jspdf';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-show-users',
@@ -15,7 +16,7 @@ export class ShowUsersComponent implements OnInit {
   public user: User[]=[];
   public countUser = 0;
   public str;
-  constructor( public UsersService:UsersService ) {
+  constructor( public UsersService:UsersService,private HttpClient:HttpClient ) {
     this.UsersService.getDataUsers().subscribe((res: User[])=>{
       this.user = res;
       for(let i = 0; i<res.length;i++){
@@ -38,6 +39,11 @@ export class ShowUsersComponent implements OnInit {
       doc.addImage(imgData,20,25,170,imgHeight);
       doc.save("report.pdf");
     })
+  }
+
+  async deleteUser(id){
+    console.log(id)
+    let temp = await this.HttpClient.delete('http://127.0.0.1:8080/user?id=' + id).toPromise();
   }
 
 }

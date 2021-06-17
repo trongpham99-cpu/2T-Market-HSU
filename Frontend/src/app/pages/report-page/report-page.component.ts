@@ -30,14 +30,14 @@ export class ReportPageComponent implements OnInit {
       this.data = data;
     })
   }
-  public tieu_de_text; noi_dung_text;
+
+  public tieu_de_text:string; noi_dung_text:string;
   async postMessage(){
-    const report = {product_id:this.data._id,tieu_de:'ga',nguoi_nhan:this.data.nguoi_dang_sp,noi_dung:'ga'};
+    const report = {id_product:this.data._id,tieu_de:this.tieu_de_text,nguoi_nhan:this.data.nguoi_dang_sp,noi_dung:this.noi_dung_text};
     console.log(report);
-    const endpointUrl = 'http://127.0.0.1:8080/api/admin/messages'
-      this.http.post(endpointUrl,report).toPromise().then((data:any)=>{
-        console.log(data);
-        alert('Đã gửi cho ' + report.nguoi_nhan);
-    });
+    let endpointUrl = 'http://127.0.0.1:8080/api/admin/messages'
+    this.http.post(endpointUrl, report).toPromise().then((data:any)=>{
+        alert('Gửi Thành Công !!!')
+    })
   }
 }
