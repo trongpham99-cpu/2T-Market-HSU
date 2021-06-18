@@ -39,7 +39,7 @@
            PHẢN HỒI
         </div>
         <div class="labell">
-          <span [routerLink]="['/input']" *ngIf="this.userInfo && this.userInfo.userAccount !='admin'"  >ĐĂNG TIN</span>
+          <span [routerLink]="['/input']" *ngIf="this.userInfo"  >ĐĂNG TIN</span>
       </div>
       <div style="color: orange;" class="labell">
         <span [routerLink]="['/signin']" *ngIf="!this.userInfo">ĐĂNG NHẬP</span>
