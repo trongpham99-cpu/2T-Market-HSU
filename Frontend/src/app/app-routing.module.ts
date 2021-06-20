@@ -4,6 +4,7 @@ import { CreateProfileComponent } from '../app/components/test/create-profile/cr
 import { UpdateProductComponent } from '../app/components/admin/update-product/update-product.component';
 import { UserPostComponent } from '../app/components/user/user-post/user-post.component';
 import { UserUpdateComponent } from '../app/components/user/user-update/user-update.component';
+import { NangcapComponent } from '../app/components/user/nangcap/nangcap.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './pages/admin/admin.component';
@@ -20,6 +21,7 @@ const routes: Routes = [
 { path: 'signup',component:InputUserComponent },
 { path: 'userpost',component:UserPostComponent },
 { path: 'userupdate/:userAccount',component:UserUpdateComponent },
+{ path: 'usernangcap/:userAccount',component:NangcapComponent },
 { path: 'search/:productName', loadChildren: () => import('./pages/search-page/search-page.module').then(m => m.SearchPageModule) },
 { path: 'report/:id', loadChildren: () => import('./pages/report-page/report-page.module').then(m => m.ReportPageModule) },
 { path: 'message/:userAccount', loadChildren: () => import('./pages/message-report/message-report.module').then(m => m.MessageReportModule) },

@@ -17,6 +17,7 @@ import { AdminComponent } from './admin.component';
 const routes: Routes = [
   { path: '', component: AdminComponent},
   { path: 'thongke', loadChildren: () => import('../../pages/thong-ke-page/thong-ke-page.module').then(m => m.ThongKePageModule) },
+  { path: 'phanhoi', loadChildren: () => import('../../pages/phanhoi/phanhoi.module').then(m => m.PhanhoiModule) },
   { path: 'alluser', component:ShowUsersComponent },
   { path:'sanphamdangban',component: SanPhamDangBanComponent},
   { path:'sanphamdaban',component: SanPhamDaBanComponent},

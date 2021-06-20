@@ -23,9 +23,18 @@ exports.seenMessage = async (req, res) =>{
     }
 }
 
+exports.getMessageAdmin = async (req,res)=>{
+    const message = await Message.find({ status:'1' });
+    try {
+        res.send(message)
+    } catch (err) {
+        res.send(err);
+    }
+}
+
 exports.getMessage = async (req, res) => {
     const { nguoi_nhan } = req.query;
-    const message = await Message.find({ nguoi_nhan: nguoi_nhan });
+    const message = await Message.find({ nguoi_nhan: nguoi_nhan,status:'0' });
     try {
         res.send(message)
     } catch (err) {

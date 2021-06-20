@@ -17,11 +17,32 @@
       <p style="color: black;" >Ngày Đăng : {{product.ngay_dang}}</p>
       <p>Giá Sản Phẩm : {{product.productPrice}} VNĐ </p>
       <div class="btnn">
-        <button mat-flat-button color="primary" class = "button11" (click)="this.profilesService.deleteProduct(product)" >Xóa</button>
+        <button mat-flat-button color="primary" class = "button11" (click)="this.delete(product)" >Xóa</button>
         <button mat-flat-button color="warn" (click)="this.UsersService.daBanSp(product)" class = "button11" >Đã Bán</button>
+        <button class="button11" [routerLink]="['/detail/' + product._id]" style="background-color: rgb(39, 39, 39);" mat-flat-button color="primary">Chi Tiết</button>
+        <button class="button11" (click)="this.UsersService.tatSp(product)" style="background-color: rgb(39, 39, 39);" mat-flat-button color="primary">Tắt</button>
+      </div>
+
+    </div>
+  </div>
+  <div>
+  </div>
+  <h3>Sản phẩm đang tắt</h3>
+  <div *ngFor="let product of profiles1" class="div-all">
+    <div class="anhh">
+      <img [src]="product.imagePath" [alt]="product.productName">
+    </div>
+    <div>
+      <h4>Tên Sản Phẩm : {{product.productName}}</h4>
+      <p style="color: black;" >Ngày Đăng : {{product.ngay_dang}}</p>
+      <p>Giá Sản Phẩm : {{product.productPrice}} VNĐ </p>
+      <div class="btnn">
+        <button mat-flat-button color="primary" class = "button11" (click)="this.profilesService.deleteProduct(product)" >Xóa</button>
+        <button mat-flat-button color="warn" (click)="this.AdminService.duyetSp(product)" class = "button11" >Bật</button>
         <button class="button11" [routerLink]="['/detail/' + product._id]" style="background-color: rgb(39, 39, 39);" mat-flat-button color="primary">Chi Tiết</button>
       </div>
 
     </div>
   </div>
 </div>
+

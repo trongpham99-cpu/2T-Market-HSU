@@ -22,9 +22,18 @@ export class UsersService {
     const httpOptions = {
       headers : new HttpHeaders({'Content-Type':'application/json'})
     }
-    console.log(profile._id);
     // const body = {id: profile._id}
     let temp = await this.HttpClient.put('http://127.0.0.1:8080/api/dabansp', {}, {params: {id: profile._id}}).toPromise();
+    window.location.reload();
+    return temp;
+  }
+
+  async tatSp(profile: Profile){
+    const httpOptions = {
+      headers : new HttpHeaders({'Content-Type':'application/json'})
+    }
+    // const body = {id: profile._id}
+    let temp = await this.HttpClient.put('http://127.0.0.1:8080/api/tatsp', {}, {params: {id: profile._id}}).toPromise();
     window.location.reload();
     return temp;
   }

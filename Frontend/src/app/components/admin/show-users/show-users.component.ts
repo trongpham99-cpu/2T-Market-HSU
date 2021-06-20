@@ -41,6 +41,16 @@ export class ShowUsersComponent implements OnInit {
     })
   }
 
+  async capQuyen(id){
+    const httpOptions = {
+      headers : new HttpHeaders({'Content-Type':'application/json'})
+    }
+    // const body = {id: profile._id}
+    let temp = await this.HttpClient.put('http://127.0.01:8080/user/capquyen?id='+id,httpOptions).toPromise();
+    window.location.reload();
+    return temp;
+  }
+
   async deleteUser(id){
     console.log(id)
     let temp = await this.HttpClient.delete('http://127.0.0.1:8080/user?id=' + id).toPromise();

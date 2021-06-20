@@ -7,7 +7,13 @@ const storage = require('../helpers/storage');
 
 const router = express.Router();
 
+router.put('/tatsp',profilesController.tatSp);
+
+router.get('/sanphamtat',profilesController.getSpTat);
+
+
 //san pham trong ngay
+
 router.get('/sanphamtrongngay',profilesController.getSanPhamTrongNgay);
 
 router.get('/searchtime',profilesController.searchSanPhamByDay);

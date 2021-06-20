@@ -7,10 +7,12 @@
             </div>
             <div class="ten01">
                 <span class="hoten01 inf01">
-                  {{data.userName}}
+                  {{data.userName}} 
+                  <span style="color: red;" >{{data.role}}</span>
                 </span>
                 <button [routerLink]="['/userupdate/' + data.userAccount]" >Sửa</button>
                 <button style="margin-top: 10px;" [routerLink]="['/doanhthu/' + data.userAccount]" >Doanh Thu</button>
+                <button style="margin-top: 10px;">Nâng Cấp</button>
                 <!-- <div [routerLink]="['/userupdate/' + data._id]" class="chinhsua inf01">
                     <button class="btne">Chỉnh sửa trang cá nhân</button>
                 </div> -->
@@ -38,6 +40,11 @@
                 <img class="iconright" src="https://static.chotot.com/storage/marketplace/common/pf_rating_icon.svg" height="16" alt="">
                 Số điện thoại: &nbsp;
                 <span>+84 {{data.userPhone}}</span>
+            </div>
+            <div class="sdt item01">
+                <img class="iconright" src="https://static.chotot.com/storage/marketplace/common/pf_rating_icon.svg" height="16" alt="">
+                Số tiền: &nbsp;
+                <span>500000</span>
             </div>
         </div>
     </div>

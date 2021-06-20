@@ -44,6 +44,15 @@ app.delete("/user",async(req, res)=>{
     }
 })
 
+app.put("/user/capquyen",async (req,res)=>{
+    const id = req.query.id;
+    const result = await mongoose.model("users",userSchema).findByIdAndUpdate(id,{role:"vip"});
+    try{
+        res.send(`updated ${id}`)
+    }catch(err){
+        res.send.status(400).err;
+    }
+})
 
 app.put("/updateuser",async (req, res)=>{
     const user  = req.body;
@@ -86,6 +95,7 @@ app.get("/user", async (req, res) =>{
     const user = await Database.instance.getUser(userAccount);
     res.send(user);
 });
+
 app.post("/register", async (req, res) => {
     let temp = "";
     const {

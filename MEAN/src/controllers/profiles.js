@@ -3,6 +3,33 @@ const userSchema = require('../schemas/user.schema');
 const User = require('../models/user.model');
 const mongoose = require('mongoose');
 
+//BAT TAT SAN PHAM
+exports.tatSp = async (req,res) =>{
+  const { id } = req.query;
+  const options = { new: true };
+  try {
+    const result = await Profile.findByIdAndUpdate(id, { status: "3" }, options);
+    res.send({
+      updated: result
+    });
+  } catch (err) {
+    res.status(400).send({ message: `cannot update ${id}` });
+  }
+}
+
+//GET TAT SP
+exports.getSpTat = async (req, res) => {
+  const { nguoi_dang_sp } = req.query;
+  try {
+    const cart = await Profile.find({ nguoi_dang_sp: nguoi_dang_sp, status: "3" });
+    res.status(200).json({ cart })
+
+  } catch (err) {
+    res.status(400).send({ message: `${nguoi_dang_sp} khong co san pham tat !!!` })
+  }
+}
+
+
 //GET SAN PHAM TRONG NGAY
 exports.getSanPhamTrongNgay = async (req, res)=>{
   const {year,month} = req.query;
@@ -219,7 +246,8 @@ exports.updateProduct = async (req, res) => {
 exports.postProfile = async (req, res) => {
   const { productName, productPrice, description, productAddress, loai_sp, ngay_dang, status = "0", nguoi_dang_sp } = req.body;
   const imagePath = 'http://127.0.0.1:8080/images/' + req.file.filename; // Note: set path dynamically
-  if(nguoi_dang_sp == 'admin'){
+  const user = await mongoose.model("users",userSchema).find({userAccount:nguoi_dang_sp});
+  if(user[0].role == 'admin'){
     const status = 1;
     const profile = new Profile({
       productName,
@@ -238,7 +266,32 @@ exports.postProfile = async (req, res) => {
         ...createdProfile._doc,
       },
     });
-  }else{
+  }
+  if(user[0].role == 'user'){
+    const cart = await Profile.find({ nguoi_dang_sp: nguoi_dang_sp, status: "1" });
+    if(cart.length >= 3){
+      res.send(`Qua 3 bai`)
+    }else{
+      const profile = new Profile({
+        productName,
+        productPrice,
+        description,
+        productAddress,
+        loai_sp,
+        ngay_dang,
+        imagePath,
+        status,
+        nguoi_dang_sp
+      });
+      const createdProfile = await profile.save();
+      res.status(201).json({
+        profile: {
+          ...createdProfile._doc,
+        },
+      });
+    }
+  }
+  else{
     const profile = new Profile({
       productName,
       productPrice,

@@ -6,6 +6,8 @@ import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { ThrowStmt } from '@angular/compiler';
 import { FormGroup, FormControl } from "@angular/forms";
+import { CategoriesService } from "src/app/services/categories.service";
+import { Category } from 'src/app/models/Category';
 
 @Component({
   selector: 'app-update-product',
@@ -18,10 +20,17 @@ export class UpdateProductComponent implements OnInit {
   public profile: any;name;
   id:any;
   data:any;
+  categories: Category[] = [];
   public profileSubscription: Subscription;
-  constructor(private profilesService: ProfileService, public route:ActivatedRoute) { }
+  constructor(public CategoriesService: CategoriesService,private profilesService: ProfileService, public route:ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.CategoriesService.getAllCategory();
+    this.profileSubscription = this.CategoriesService
+      .getProfilesStream()
+      .subscribe((categories: Category[]) => {
+        this.categories = categories;
+      });
     this.id = this.route.snapshot.params['id'];
     this.getOne();
   }
@@ -31,7 +40,7 @@ export class UpdateProductComponent implements OnInit {
       this.data = data;
     })
   }
-
+  
   update(contactId){
     const newFormData = { productName:this.data.productName, productPrice: this.data.productPrice,productAddress:this.data.productAddress,
       description:this.data.description, loai_sp:this.data.loai_sp  };

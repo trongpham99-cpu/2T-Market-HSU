@@ -9,9 +9,10 @@ import { UserPostChoDuyetComponent } from '../../components/user/user-post-cho-d
 import { UserDaBanComponent } from '../../components/user/user-da-ban/user-da-ban.component';
 import { UserDoanhThuComponent } from '../../components/user/user-doanh-thu/user-doanh-thu.component';
 import {MatButtonModule} from '@angular/material/button';
+import { NangcapComponent } from '../../components/user/nangcap/nangcap.component';
 
 @NgModule({
-  declarations: [UserComponent,UserPostComponent,InfoUserComponent,UserPostChoDuyetComponent,UserDaBanComponent,UserDoanhThuComponent],
+  declarations: [UserComponent,UserPostComponent,InfoUserComponent,UserPostChoDuyetComponent,UserDaBanComponent,UserDoanhThuComponent,NangcapComponent],
   imports: [
     CommonModule,
     UserRoutingModule,
