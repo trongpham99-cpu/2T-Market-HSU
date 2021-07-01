@@ -1,0 +1,72 @@
+<div class="div-all">
+  <div class="top-nav">
+    <button class="button" mat-flat-button color="warn" routerLink="alluser" routerLinkActive="active">Thông Tin Khách
+      Hàng</button><br>
+    <button class="button" mat-flat-button color="warn" routerLink="sanphamdangban">Sản Phẩm Đang Bán</button><br>
+    <button class="button" mat-flat-button color="warn" routerLink="sanphamchoduyet" routerLinkActive="active">Sản Phẩm
+      Chờ Duyệt</button><br>
+    <button class="button" mat-flat-button color="warn" routerLink="sanphamdaban" routerLinkActive="active">Sản Phẩm Đã
+      Bán</button><br>
+    <button class="button" mat-flat-button color="warn"  routerLink="thongke" >Thống Kê Sản Phẩm</button><br>
+    <button class="button" mat-flat-button color="warn" routerLink="createads">Quản Lí Quảng Cáo</button><br>
+    <button class="button" mat-flat-button color="warn" routerLink="inputcategory" routerLinkActive="active">Quản Lí Danh Mục</button><br>
+  </div>
+  <div class="container">
+    <div style="background-color: #321fdb;" class="girdItem">
+      <div class="gridContent">
+        <div class="topContent">
+          <div class="parse">
+            <div class="Valuee">{{this.countUser}}</div>
+            <div class="Titlee">Người Dùng</div>
+            <div class="Titlee">Tin nhắn: 9</div>
+          </div>
+        </div>
+        <div class="bottomContent">
+          <img class="imgg" src="../../../assets//IMG copy/01.png" alt="">
+        </div>
+      </div>
+    </div>
+    <div style="background-color:#39f" class="girdItem">
+      <div class="gridContent">
+        <div class="topContent">
+          <div class="parse">
+            <div class="Valuee">{{this.countDangBan}}</div>
+            <div class="Titlee">Sản Phẩm Đang Bán</div>
+            <div class="Titlee">{{this.resultDangBan}}</div>
+          </div>
+        </div>
+        <div class="bottomContent">
+          <img class="imgg" src="../../../assets//IMG copy/02.png" alt="">
+        </div>
+      </div>
+    </div>
+    <div style="background-color: #f9b115;" class="girdItem">
+      <div class="gridContent">
+        <div class="topContent">
+          <div class="parse">
+            <div class="Valuee">{{this.countDaBan}}</div>
+            <div class="Titlee">Sản Phẩm Đã Bán</div>
+            <div class="Titlee">{{this.resultDaBan}}</div>
+          </div>
+        </div>
+        <div class="bottomContent">
+          <img class="imgg" src="../../../assets//IMG copy/03.png" alt="">
+        </div>
+      </div>
+    </div>
+    <div style="background-color: #e55353;" class="girdItem">
+      <div class="gridContent">
+        <div class="topContent">
+          <div class="parse">
+            <div class="Valuee">{{this.countSpChoDyet}}</div>
+            <div class="Titlee">Sản Phẩm Chờ Duyệt</div>
+            <div class="Titlee">{{this.result}}</div>
+          </div>
+        </div>
+        <div class="bottomContent">
+          <img class="imgg" src="../../../assets//IMG copy/04.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,77 @@
+<div style="margin-left: 50px;" >
+    <h2>THỐNG KÊ SẢN PHẨM ĐÃ ĐĂNG</h2>
+
+    <div class="toptab">
+
+        <div class="nhaptg">
+            <p class="titt">Nhập năm</p>
+            <div class="contt thang">
+                <div>
+                    <select [(ngModel)]="this.month" >
+                      <option>-</option>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                      <option>9</option>
+                      <option>10</option>
+                      <option>11</option>
+                      <option>12</option>
+                    </select>
+                  </div>
+            </div>
+            <div class="contt thang">
+                <p class="titt">Nhập năm</p>
+                <input type="text" [(ngModel)]="this.year" >
+                
+            </div>
+            <br>
+            <button (click)="getData(this.month, this.year)" >Tìm kiếm</button>
+        </div>
+
+        <div class="downfli">
+            <p class="titt">Tải file PDF</p>
+            <button (click)="exportExcel()" >Download excel</button>
+        </div>
+
+    </div>
+
+    
+
+    
+
+
+    
+    <div class="table-wrapper">
+        <h1 *ngIf="this.count">Có {{this.count}} sản phẩm đã đăng </h1>
+        <table id="customers" class="fl-table">
+            <thead>
+              <tr>
+                <th>Hình Ảnh</th>
+                <th width = "30%">Tên Sản Phẩm</th>
+                <th>Người Đăng</th>
+                <th>Ngày Đăng</th>
+                <th>Giá Sản Phẩm</th>
+                <th>Trạng Thái</th>
+            </tr>
+            <tr *ngFor = "let product of data" >
+                <td class="anh00">
+                  <img [src]="product.imagePath" [alt]="product.productName">
+                </td>
+                <td style="text-align: left;" >{{product.productName}}</td>
+                <td>{{product.nguoi_dang_sp}}</td>
+                <td>{{product.ngay_dang}}</td>
+                <td style="text-align: center; color: red; font-weight: 200px;" ><strong>{{product.price}}</strong></td>
+                <td  class="button">{{product.status}}</td>
+            </tr>
+            <tbody>
+        </table>
+    </div>
+
+    
+    
+</div>

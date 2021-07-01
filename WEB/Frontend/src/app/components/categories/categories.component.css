@@ -1,0 +1,39 @@
+.anh{
+  width: 84px;
+  height: 84px;
+  margin-bottom: 9px;
+}
+
+.muc{
+  display: flex;
+  list-style-type: none;
+  flex-direction: column;
+}
+
+.categogy{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
+
+}
+.categogy:hover {
+  cursor: pointer;
+}
+.div1 {
+  margin-left: auto;
+  margin-right: auto;
+  width: 71%;
+  background-color: white;
+  border-radius: 10px;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+}
+
+p {
+  text-align: center;
+  font-weight: bold;
+}
+

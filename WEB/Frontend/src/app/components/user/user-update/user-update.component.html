@@ -1,0 +1,30 @@
+<h1>SỬA THÔNG TIN</h1>
+
+<form>
+    <div class="container">
+        <div class="divleft">
+            <div>
+                <h2>Tên Tài Khoản : {{data.userAccount}}</h2>
+            </div>
+            <div>
+                <input type="text"  [(ngModel)]="data.userName" name="name">
+            </div>
+            <div>
+                <input type="text"  [(ngModel)]="data.userMail" name="mail">
+            </div>
+            <div>
+                <input type="text"  [(ngModel)]="'+84 ' + data.userPhone" name="phone">
+            </div>
+            <div>
+                <input type="text"  [(ngModel)]="data.userAddress" name="address">
+            </div>
+            <div>
+                <h3>Ngày Đăng Ký : {{data.ngay_dang_ky}}</h3>
+            </div>
+            <div>
+                <button>Hủy</button>
+                <button style="margin-left: 20px;" type="submit" (click)="update(data._id)">Lưu</button>
+            </div>
+        </div>
+    </div>
+</form>

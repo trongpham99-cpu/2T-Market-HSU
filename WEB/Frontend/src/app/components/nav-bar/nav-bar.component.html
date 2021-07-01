@@ -1,0 +1,62 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@500&display=swap" rel="stylesheet">
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+<div class="content">
+    <div class="searlog">
+        <div class="logoo">
+            <span (click)="clickHome()" >2t Market</span>
+        </div>
+
+        <!-- <div class="searchh">
+
+                <input class="inputt" style="height: 25px; width: 100%;" type="text" placeholder="Tìm kiếm sản phẩm.." name="search" [(ngModel)]="this.ProfileService.searchText">
+                <button (click)="this.ProfileService.click()" [routerLink]="['/search/' + this.ProfileService.searchText]" type="submit" >Search</button>
+
+        </div> -->
+
+
+        <div class="box">
+          <div class="container-1">
+              <span (click)="this.ProfileService.click()" [routerLink]="['/search/' + this.ProfileService.searchText]" type="submit" class="icon"><i class="fa fa-search"></i></span>
+              <input type="text" placeholder="Tìm kiếm sản phẩm.." name="search" [(ngModel)]="this.ProfileService.searchText" id="search" placeholder="Tìm kiếm sản phẩm.." />
+              <button (click)="this.ProfileService.click()" [routerLink]="['/search/' + this.ProfileService.searchText]" type="submit" >Tìm</button>
+            </div>
+        </div>
+
+    </div>
+    <div class="cate">
+        <!-- <div class="labell">
+            DỊCH VỤ
+        </div> -->
+        <div class="labell">
+            LIÊN HỆ
+        </div>
+        <div class="labell">
+           PHẢN HỒI
+        </div>
+        <div class="labell">
+          <span [routerLink]="['/input']" *ngIf="this.userInfo"  >ĐĂNG TIN</span>
+      </div>
+      <div style="color: orange;" class="labell">
+        <span [routerLink]="['/signin']" *ngIf="!this.userInfo">ĐĂNG NHẬP</span>
+      </div>
+
+      <div *ngIf="this.userInfo">
+        <button class="snip1582" mat-button [matMenuTriggerFor]="beforeMenu">{{this.userInfo.userAccount}}</button>
+        <mat-menu #beforeMenu="matMenu" xPosition="before">
+          <button *ngIf="this.userInfo.userAccount != 'admin'" [routerLink]="['/user/' + this.userInfo.userAccount]" mat-menu-item >Thông Tin Cá Nhân</button>
+          <button *ngIf="this.userInfo.userAccount != 'admin'" [routerLink]="['/message/' + this.userInfo.userAccount]" mat-menu-item>Tin Nhắn</button>
+          <button *ngIf="this.userInfo.userAccount == 'admin'" mat-menu-item [routerLink]="['/admin']" >Quản Lý</button>
+          <button *ngIf="this.userInfo.userAccount == 'admin'" mat-menu-item [routerLink]="['/admin']" >Sản Phẩm Đã Đăng</button>
+          <button mat-menu-item (click)="signOut()">Đăng Xuất</button>
+        </mat-menu>
+      </div>
+    </div>
+
+
+</div>

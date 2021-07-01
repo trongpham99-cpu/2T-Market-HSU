@@ -1,0 +1,32 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+<div class="class1">
+  <form #userPost="ngForm" action="/action_page.php" (ngSubmit)="onSubmit(userPost.value)">
+  <div class="container">
+    <h1>Đăng Nhập</h1>
+    <label for="accout_id"><b>Tên Tài Khoản</b></label>
+    <input type="text" placeholder="Nhập tên tài khoản" name="userAccount" ngModel />
+
+    <label for="psw"><b>Mật Khẩu</b></label>
+    <input type="password" placeholder="Nhập mật khẩu" name="userPassword" ngModel />
+
+    <button type="submit">Đăng Nhập</button>
+    <div class="container-bottom">
+        <!-- <label>
+          <input type="checkbox" checked="checked" name="remember" />Lưu Tài Khỏan      </label>
+      <p>Bạn chưa có tài khoản ? <a class="dkk" [routerLink]="['/signup']" >Đăng ký</a></p>
+      <p>
+        Đăng nhập bằng Google ?
+        <a (click)="LoginsService.loginGoogle()" class="login-gg">Đăng Nhập</a>
+      </p>
+      <p>{{this.LoginsService.user.displayName}}</p> -->
+      <div class="dkk">
+        <p class="pdk" [routerLink]="['/signup']" >Đăng ký ngay</p>
+      </div>
+    </div>
+  </div>
+</form>
+</div>
+
+

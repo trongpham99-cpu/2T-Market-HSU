@@ -1,0 +1,62 @@
+.top-nav {
+}
+.button {
+  width: 200px;
+  height: 40px;
+  background-color: rgb(39, 39, 39);
+  border-radius: 0;
+  margin-top: 1px;
+}
+.div-all{
+  display: flex;
+}
+.product {
+}
+#chart {
+  max-width: 380px;
+  margin: 35px auto;
+  padding: 0;
+}
+.container{
+  margin-top: 2%;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.girdItem{
+    width: 22%;
+    height: 200px;
+    padding: 10px;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.imgg{
+    width: 100%;
+    height: auto;
+}
+
+.parse{
+    /* display: flex; */
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.Valuee{
+    color: white;
+    font-family: 'Lemonada', cursive;
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+.Titlee{
+    margin-top: 8px;
+    font-size: .875rem;
+    color:white;
+    margin-bottom: 3px;
+    font-family: 'MuseoModerno', cursive;
+}

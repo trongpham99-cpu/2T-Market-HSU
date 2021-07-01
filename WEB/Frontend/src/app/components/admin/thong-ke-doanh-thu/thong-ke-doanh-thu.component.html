@@ -1,0 +1,33 @@
+<div id="table" class="main-container">
+    <h1>THỐNG KÊ DOANH THU</h1>
+    <table style="width:100%">
+        <tr>
+            <th>Tên Tài Khoản</th>
+            <th>Tên Khách Hàng</th>
+            <th>Số Điên Thoại</th>
+            <th>Sản Phẩm Chờ Duyệt</th>
+            <th>Sản Phẩm Đang Bán</th>
+            <th>Sản Phẩm Đã Bán</th>
+            <th>Chi Tiết</th>
+        </tr>
+        <tr *ngFor="let i of user">
+            <td>{{i.userAccount}}</td>
+            <td>{{i.userName}}</td>
+            <td>+84 {{i.userPhone}}</td>
+            <td style="text-align: center;" >
+                <p>Có 8 Sản Phẩm Chờ Duyệt</p><br>
+                <p>Tổng 10,000,000 VNĐ</p>
+            </td>
+            <td>
+                <p>Có 1 Sản Phẩm Đang Bán</p><br>
+                <p>Tổng 10,000,000 VNĐ</p>
+            </td>
+            <td>
+                <p>Có 1 Sản Phẩm Đã Bán</p><br>
+                <p>Tổng 10,000,000 VNĐ</p>
+            </td>
+            <td class="button"><button style="background-color: rgb(39,39,39);" mat-flat-button color="warn">Chi
+                    Tiết</button></td>
+        </tr>
+    </table>
+</div>

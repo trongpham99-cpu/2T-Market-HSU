@@ -1,0 +1,48 @@
+
+
+<div class="maincontainer">
+
+  <!-- <div class="divtopp">
+    <div class="divbott">
+      <h3>Tổng Sản Phẩm Đang Bán: </h3>
+      <h3>Tổng Giá Sản Phẩm Đang Bán: </h3>
+      <button (click)="downloadPdf()" >Download PDF</button>
+      <button>Download EXCEL</button>
+    </div>
+  </div> -->
+
+    <h2>Sản Phảm Chờ Duyệt</h2>
+    <div class="table-wrapper">
+        <table class="fl-table">
+            <thead>
+              <tr>
+                <th>Hình Ảnh</th>
+                <th>Tên Sản Phẩm</th>
+                <th>Người Đăng</th>
+                <th>Ngày Đăng</th>
+                <th>Loại Sản Phẩm</th>
+                <th>Địa Chỉ</th>
+                <th>Giá Sản Phẩm</th>
+                <th width = "15%">Action</th>
+            </tr>
+            <tr *ngFor = "let product of profiles" >
+                <td class="anh00">
+                  <img [src]="product.imagePath" [alt]="product.productName">
+                </td>
+                <td style="text-align: left;" >{{product.productName}}</td>
+                <td>{{product.nguoi_dang_sp}}</td>
+                <td>{{product.ngay_dang}}</td>
+                <td>{{product.loai_sp}}</td>
+                <td>{{product.productAddress}}</td>
+                <td style="text-align: center; color: red; font-weight: 200px;" ><strong>{{product.productPrice}}</strong></td>
+                <td  class="buttonn">
+                    <button class="crud" (click)="this.AdminService.duyetSp(product)" style="background-color:rgb(69, 98, 224)" mat-flat-button color="primary">Duyệt</button>
+                    <button class="crud" (click)="delete(product)" style="background-color: rgb(218, 73, 73);" mat-flat-button color="warn">Xóa</button> <br>
+                    <button class="crud" [routerLink]="['/report/' + product._id]" style="background-color: rgb(39, 39, 39);" mat-flat-button color="primary">Phản Hồi</button>
+                </td>
+            </tr>
+            <tbody>
+        </table>
+    </div>
+</div>
+

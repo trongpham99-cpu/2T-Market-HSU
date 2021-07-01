@@ -1,0 +1,8 @@
+.class1 {
+  background-image: url(../../../assets/wallpaper.jpg) ;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  /* background-color: rgb(200, 167, 238); */
+  padding-top: 20px;
+}

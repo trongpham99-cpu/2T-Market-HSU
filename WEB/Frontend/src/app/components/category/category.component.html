@@ -1,0 +1,45 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">
+
+<h3>Có {{this.count}} sản phẩm {{this.name}}</h3>
+<div *ngFor="let product of profiles" >
+    <div [routerLink]="['/detail/' + product._id]" class="container ct-listing">
+      <div class="ListItem">
+          <div class="ListBox">
+              <div class="image">
+                  <img class="pug" [src]="product.imagePath" alt = "{{product.productName}}">
+              </div>
+              <div class="content">
+                  <div class="heading">
+                      <div  class="title">Tên Sản Phẩm: {{product.productName}}</div>
+                      <div class="price">Giá Sản Phẩm: {{product.price}} VNĐ</div>
+                  </div>
+                  <div class="footer">
+                      <div class="text___1ZBGX" style="max-width: calc(100% - 35px);">
+                          <a class="wrapperLink___2G9o3" target="_blank" rel="noopener noreferrer" title="Bán chuyên" style="margin-top: 4px; pointer-events: none; color: rgb(155, 155, 155);">
+                              <div class="item___eld8Q" style="float: left;">
+                                  <div class="sc-EHOje epvfrs image___34tI0 " width="15px" height="15px">
+                                      <div class="lazyload-wrapper">
+                                          <img height="15px" width="15px" itemprop="" src="https://static.chotot.com/storage/chotot-icons/png/pro-grey-icon.png" alt="Bán chuyên" class="sc-bZQynM fCYIrf">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="item___eld8Q itemMobile___3dwWY">
+                                  <span class="ml___ffh7P"></span>
+                                  {{product.nguoi_dang_sp}}
+                              </div>
+                          </a>
+                          <span>
+                              <div class="deviderWrapper___39YOe">
+                              </div>&nbsp;
+                              <span class="item___eld8Q" title="Tp Hồ Chí Minh">
+                                  {{product.productAddress}}
+                              </span>
+                          </span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
