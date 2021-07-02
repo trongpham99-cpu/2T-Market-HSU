@@ -87,7 +87,6 @@ app.put("/user/changepassword",async (req,res)=>{
             }
         }
     );
-    // const result = await mongoose.model("users",userSchema).find({userPassword:userPassword});
 });
 
 app.get("/user", async (req, res) =>{
