@@ -5,7 +5,7 @@ const http = require('http').createServer(server);
 const io = require('socket.io')(http);
 
 async function main(){
-    await Database.instance.connect("mongodb+srv://admin:admin@cluster0.keosc.mongodb.net/shop-web?retryWrites=true&w=majority");
+    await Database.instance.connect("hihi");
     server.listen(process.env.PORT || 3000,()=>{
         console.log(`SERVER IS RUNNING!`);
     });
