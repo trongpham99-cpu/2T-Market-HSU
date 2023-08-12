@@ -1,0 +1,80 @@
+[{
+  "_id": {
+    "$oid": "64cf809f0f6e7740cae530bd"
+  },
+  "name": "Nhà cửa",
+  "status": "Bật",
+  "imagePath": "https://lighthouse.chotot.com/_next/image?url=https%3A%2F%2Fstatic.chotot.com%2Fstorage%2Fchapy-pro%2Fnewcats%2Fv8%2F1000.png&w=256&q=95"
+},
+{
+  "_id": {
+    "$oid": "64cf82d90f6e7740cae530ca"
+  },
+  "name": "Xe cộ",
+  "status": "Bật",
+  "imagePath": "https://lighthouse.chotot.com/_next/image?url=https%3A%2F%2Fstatic.chotot.com%2Fstorage%2Fchapy-pro%2Fnewcats%2Fv8%2F2000.png&w=256&q=95"
+},
+{
+  "_id": {
+    "$oid": "64cf839c0f6e7740cae530cb"
+  },
+  "name": "Đồ điện tử",
+  "status": "Bật",
+  "imagePath": "https://lighthouse.chotot.com/_next/image?url=https%3A%2F%2Fstatic.chotot.com%2Fstorage%2Fchapy-pro%2Fnewcats%2Fv8%2F5000.png&w=256&q=95"
+},
+{
+  "_id": {
+    "$oid": "64cf839c0f6e7740cae530cc"
+  },
+  "name": "Đồ gia dụng, nội thất, cây cảnh",
+  "status": "Bật",
+  "imagePath": "https://lighthouse.chotot.com/_next/image?url=https%3A%2F%2Fstatic.chotot.com%2Fstorage%2Fchapy-pro%2Fnewcats%2Fv8%2F14000.png&w=256&q=95"
+},
+{
+  "_id": {
+    "$oid": "64cf839c0f6e7740cae530cd"
+  },
+  "name": "Đồ ăn",
+  "status": "Bật",
+  "imagePath": "https://lighthouse.chotot.com/_next/image?url=https%3A%2F%2Fstatic.chotot.com%2Fstorage%2Fchapy-pro%2Fnewcats%2Fv8%2F7000.png&w=256&q=95"
+},
+{
+  "_id": {
+    "$oid": "64cf839c0f6e7740cae530ce"
+  },
+  "name": "Mẹ và bé",
+  "status": "Bật",
+  "imagePath": "https://lighthouse.chotot.com/_next/image?url=https%3A%2F%2Fstatic.chotot.com%2Fstorage%2Fchapy-pro%2Fnewcats%2Fv8%2F11000.png&w=256&q=95"
+},
+{
+  "_id": {
+    "$oid": "64cf839c0f6e7740cae530cf"
+  },
+  "name": "Dịch vụ du lịch",
+  "status": "Bật",
+  "imagePath": "https://lighthouse.chotot.com/_next/image?url=https%3A%2F%2Fstatic.chotot.com%2Fstorage%2Fchapy-pro%2Fnewcats%2Fv8%2F6000.png&w=256&q=95"
+},
+{
+  "_id": {
+    "$oid": "64cf839c0f6e7740cae530d0"
+  },
+  "name": "Dịch vụ du lịch",
+  "status": "Bật",
+  "imagePath": "https://lighthouse.chotot.com/_next/image?url=https%3A%2F%2Fstatic.chotot.com%2Fstorage%2Fchapy-pro%2Fnewcats%2Fv8%2F6000.png&w=256&q=95"
+},
+{
+  "_id": {
+    "$oid": "64cf839c0f6e7740cae530d1"
+  },
+  "name": "Thú cưng",
+  "status": "Bật",
+  "imagePath": "https://lighthouse.chotot.com/_next/image?url=https%3A%2F%2Fstatic.chotot.com%2Fstorage%2Fchapy-pro%2Fnewcats%2Fv8%2F12000.png&w=256&q=95"
+},
+{
+  "_id": {
+    "$oid": "64cf839c0f6e7740cae530d2"
+  },
+  "name": "Việc làm",
+  "status": "Bật",
+  "imagePath": "https://lighthouse.chotot.com/_next/image?url=https%3A%2F%2Fstatic.chotot.com%2Fstorage%2Fchapy-pro%2Fnewcats%2Fv8%2F13000.png&w=256&q=95"
+}]

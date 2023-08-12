@@ -18,4 +18,7 @@ https://www.dropbox.com/scl/fo/96kyr7nyjd1235xa02z9k/h?rlkey=5qa39f7cgacva9aixxk
 #### 
 
 ## How to run
-*To be updated...*
+Please install [Docker](https://www.docker.com/) before you run script code below.
+```
+Docker compose up
+```
