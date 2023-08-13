@@ -24,7 +24,7 @@ export class SanPhamChoDuyetComponent implements OnInit {
   }
   //delete san pham cho duyet
   async delete(profiles: Profile){
-    let temp = await this.http.delete('http://127.0.0.1:8080/api/product', {params: {id: profiles._id}}).toPromise();
+    let temp = await this.http.delete('https://server-2t-market-hsu-p27inhol4a-as.a.run.app/api/product', {params: {id: profiles._id}}).toPromise();
     window.location.reload();
     return temp;
   }
@@ -32,7 +32,7 @@ export class SanPhamChoDuyetComponent implements OnInit {
   public count = 0;price = 0;result=0;
   getAdminPostChoDuyet(){
     this.http
-          .get<{ getProductChoDuyet: Profile[] }>("http://127.0.0.1:8080/api/productwait?status=0")
+          .get<{ getProductChoDuyet: Profile[] }>("https://server-2t-market-hsu-p27inhol4a-as.a.run.app/api/productwait?status=0")
           .pipe(
             map((profileData) => {
               return profileData.getProductChoDuyet;

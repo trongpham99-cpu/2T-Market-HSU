@@ -14,7 +14,7 @@ import { ActivatedRoute } from "@angular/router";
 export class CategoryComponent implements OnInit {
   name:any;
   profiles: Profile []=[];
-  readonly url = "http://127.0.0.1:8080/api";
+  readonly url = "https://server-2t-market-hsu-p27inhol4a-as.a.run.app/api";
   private profileSubscription: Subscription;
   constructor(public ProfileService:ProfileService,public route:ActivatedRoute) { }
   public count = 0;temp;

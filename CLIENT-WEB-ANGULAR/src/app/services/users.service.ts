@@ -11,7 +11,7 @@ import { Profile } from '../models/Profile';
 
 export class UsersService {
   baseUrl: string ="http://127.0.0.1:8080/users";
-  productUrl: "http://127.0.0.1:8080/api"
+  productUrl: "https://server-2t-market-hsu-p27inhol4a-as.a.run.app/api"
   url: string = 'http://127.0.0.1:8080/'
   users : User[];
   profiles: Profile[];
@@ -23,7 +23,7 @@ export class UsersService {
       headers : new HttpHeaders({'Content-Type':'application/json'})
     }
     // const body = {id: profile._id}
-    let temp = await this.HttpClient.put('http://127.0.0.1:8080/api/dabansp', {}, {params: {id: profile._id}}).toPromise();
+    let temp = await this.HttpClient.put('https://server-2t-market-hsu-p27inhol4a-as.a.run.app/api/dabansp', {}, {params: {id: profile._id}}).toPromise();
     window.location.reload();
     return temp;
   }
@@ -33,7 +33,7 @@ export class UsersService {
       headers : new HttpHeaders({'Content-Type':'application/json'})
     }
     // const body = {id: profile._id}
-    let temp = await this.HttpClient.put('http://127.0.0.1:8080/api/tatsp', {}, {params: {id: profile._id}}).toPromise();
+    let temp = await this.HttpClient.put('https://server-2t-market-hsu-p27inhol4a-as.a.run.app/api/tatsp', {}, {params: {id: profile._id}}).toPromise();
     window.location.reload();
     return temp;
   }

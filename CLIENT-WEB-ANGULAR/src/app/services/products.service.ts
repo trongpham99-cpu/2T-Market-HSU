@@ -27,7 +27,7 @@ export class ProductsService {
   }
 
   getData_xe(){
-    return this.http.get("http://127.0.0.1:8080/api/category/?loai_sp=Bất Động Sản")
+    return this.http.get("https://server-2t-market-hsu-p27inhol4a-as.a.run.app/api/category/?loai_sp=Bất Động Sản")
   }
   // addProduct(products : Product): Observable<any>{
   //   return this.http.post(this.baseUrl, products);

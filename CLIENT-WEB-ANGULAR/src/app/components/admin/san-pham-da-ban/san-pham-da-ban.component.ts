@@ -25,7 +25,7 @@ export class SanPhamDaBanComponent implements OnInit {
   public count = 0;price = 0;result;
   getAdminPostDaBan(){
     this.http
-          .get<{ getProductChoDuyet: Profile[] }>("http://127.0.0.1:8080/api/productwait?status=2")
+          .get<{ getProductChoDuyet: Profile[] }>("https://server-2t-market-hsu-p27inhol4a-as.a.run.app/api/productwait?status=2")
           .pipe(
             map((profileData) => {
               return profileData.getProductChoDuyet;
@@ -45,7 +45,7 @@ export class SanPhamDaBanComponent implements OnInit {
   }
 
   async delete(profiles: Profile){
-    let temp = await this.http.delete('http://127.0.0.1:8080/api/product', {params: {id: profiles._id}}).toPromise();
+    let temp = await this.http.delete('https://server-2t-market-hsu-p27inhol4a-as.a.run.app/api/product', {params: {id: profiles._id}}).toPromise();
     window.location.reload();
     return temp;
   }

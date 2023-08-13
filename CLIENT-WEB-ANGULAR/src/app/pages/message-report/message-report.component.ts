@@ -42,7 +42,7 @@ export class MessageReportComponent implements OnInit {
     }
     // const body = {id: profile._id}
     console.log(profile._id);
-    let temp = await this.HttpClient.put('http://127.0.0.1:8080/api/user/message?id=' + profile._id,httpOptions).toPromise();
+    let temp = await this.HttpClient.put('https://server-2t-market-hsu-p27inhol4a-as.a.run.app/api/user/message?id=' + profile._id,httpOptions).toPromise();
     window.location.reload();
     return temp;
   }

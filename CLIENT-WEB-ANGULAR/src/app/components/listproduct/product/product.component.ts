@@ -18,7 +18,7 @@ export class ProductComponent implements OnInit {
   public price: any;
   page=1;
   private profiles$ = new Subject<Profile[]>();
-  readonly url = "http://127.0.0.1:8080/api";
+  readonly url = "https://server-2t-market-hsu-p27inhol4a-as.a.run.app/api";
   private profileSubscription: Subscription;
   constructor(public profilesService: ProfileService){
   }

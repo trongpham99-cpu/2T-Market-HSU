@@ -29,7 +29,7 @@ export class CategoriesComponent implements OnInit {
   }
 
   async delete(category: Category){
-    let temp = await this.http.delete('http://127.0.0.1:8080/api/deletecategory', {params: {id: category._id}}).toPromise();
+    let temp = await this.http.delete('https://server-2t-market-hsu-p27inhol4a-as.a.run.app/api/deletecategory', {params: {id: category._id}}).toPromise();
     window.location.reload();
     return temp;
   }
@@ -39,7 +39,7 @@ export class CategoriesComponent implements OnInit {
       headers : new HttpHeaders({'Content-Type':'application/json'})
     }
     // const body = {id: profile._id}
-    let temp = await this.http.put('http://127.0.0.1:8080/api/categoryon', {}, {params: {id: category._id}}).toPromise();
+    let temp = await this.http.put('https://server-2t-market-hsu-p27inhol4a-as.a.run.app/api/categoryon', {}, {params: {id: category._id}}).toPromise();
     window.location.reload();
     return temp;
   }
@@ -49,14 +49,14 @@ export class CategoriesComponent implements OnInit {
       headers : new HttpHeaders({'Content-Type':'application/json'})
     }
     // const body = {id: profile._id}
-    let temp = await this.http.put('http://127.0.0.1:8080/api/categoryoff', {}, {params: {id: category._id}}).toPromise();
+    let temp = await this.http.put('https://server-2t-market-hsu-p27inhol4a-as.a.run.app/api/categoryoff', {}, {params: {id: category._id}}).toPromise();
     window.location.reload();
     return temp;
   }
 
   async getAllCategoryAdmin() {
     await this.http
-      .get<{ categories: Category[] }>('http://127.0.0.1:8080/api/getallcateogory')
+      .get<{ categories: Category[] }>('https://server-2t-market-hsu-p27inhol4a-as.a.run.app/api/getallcateogory')
       .pipe(
         map((profileData) => {
           return profileData.categories;

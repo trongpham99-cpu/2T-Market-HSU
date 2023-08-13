@@ -23,7 +23,7 @@ export class ThongKeDoanhThuComponent implements OnInit {
       this.user = res;
       for(let i = 0; i<res.length;i++){
         this.http
-          .get<{ cart: Profile[] }>("http://127.0.0.1:8080/api/cart?nguoi_dang_sp="+ res[i].userAccount +"&status=0")
+          .get<{ cart: Profile[] }>("https://server-2t-market-hsu-p27inhol4a-as.a.run.app/api/cart?nguoi_dang_sp="+ res[i].userAccount +"&status=0")
           .pipe(
             map((profileData) => {
               return profileData.cart;

@@ -13,14 +13,14 @@ export class ReportService {
   private report: Report[] = [];
   private report$ = new Subject<Report[]>();
   constructor(private http: HttpClient) { }
-  baseUrl = "http://127.0.0.1:8080/api/user/messages?nguoi_nhan=";
+  baseUrl = "https://server-2t-market-hsu-p27inhol4a-as.a.run.app/api/user/messages?nguoi_nhan=";
 
 
   getReport(userAccount) {
     return this.http.get(this.baseUrl + userAccount)
   }
   getProductId(id_product) {
-    return this.http.get('http://127.0.0.1:8080/api/productid?id='+ id_product);
+    return this.http.get('https://server-2t-market-hsu-p27inhol4a-as.a.run.app/api/productid?id='+ id_product);
   }
 
   getProfilesStream() {

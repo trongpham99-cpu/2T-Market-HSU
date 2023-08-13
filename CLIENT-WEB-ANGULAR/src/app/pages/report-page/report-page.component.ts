@@ -35,7 +35,7 @@ export class ReportPageComponent implements OnInit {
   async postMessage(){
     const report = {id_product:this.data._id,tieu_de:this.tieu_de_text,nguoi_nhan:this.data.nguoi_dang_sp,noi_dung:this.noi_dung_text};
     console.log(report);
-    let endpointUrl = 'http://127.0.0.1:8080/api/admin/messages'
+    let endpointUrl = 'https://server-2t-market-hsu-p27inhol4a-as.a.run.app/api/admin/messages'
     this.http.post(endpointUrl, report).toPromise().then((data:any)=>{
         alert('Gửi Thành Công !!!')
     })

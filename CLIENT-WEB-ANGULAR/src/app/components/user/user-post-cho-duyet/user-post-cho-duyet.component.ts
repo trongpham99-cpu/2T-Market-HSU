@@ -27,7 +27,7 @@ export class UserPostChoDuyetComponent implements OnInit {
   public count = 0;price = 0;temp;
   getUserPostChoDuyet(userAccount){
     this.http
-          .get<{ cart: Profile[] }>("http://127.0.0.1:8080/api/cart?nguoi_dang_sp="+ userAccount+"&status=0")
+          .get<{ cart: Profile[] }>("https://server-2t-market-hsu-p27inhol4a-as.a.run.app/api/cart?nguoi_dang_sp="+ userAccount+"&status=0")
           .pipe(
             map((profileData) => {
               return profileData.cart;
@@ -45,7 +45,7 @@ export class UserPostChoDuyetComponent implements OnInit {
           });
   }
   async delete(profiles: Profile){
-    let temp = await this.http.delete('http://127.0.0.1:8080/api/product', {params: {id: profiles._id}}).toPromise();
+    let temp = await this.http.delete('https://server-2t-market-hsu-p27inhol4a-as.a.run.app/api/product', {params: {id: profiles._id}}).toPromise();
     window.location.reload();
     return temp;
   }

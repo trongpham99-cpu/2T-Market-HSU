@@ -13,7 +13,7 @@ import { UsersService } from './users.service';
 export class ProfileService {
   private profiles: Profile[] = [];
   private profiles$ = new Subject<Profile[]>();
-  readonly url = "http://127.0.0.1:8080/api";
+  readonly url = "https://server-2t-market-hsu-p27inhol4a-as.a.run.app/api";
 
   public count = 0;
   public price = 0;
@@ -46,7 +46,7 @@ export class ProfileService {
   
   getProductsNew(page) {
     this.http
-      .get<{ ProducstNew: Profile[] }>('http://127.0.0.1:8080/api/newproduct?page='+ page)
+      .get<{ ProducstNew: Profile[] }>('https://server-2t-market-hsu-p27inhol4a-as.a.run.app/api/newproduct?page='+ page)
       .pipe(
         map((profileData) => {
           return profileData.ProducstNew;
@@ -73,7 +73,7 @@ export class ProfileService {
       });
   }
   getDetail(id) {
-    return this.http.get("http://127.0.0.1:8080/api/detail/?id=" + id)
+    return this.http.get("https://server-2t-market-hsu-p27inhol4a-as.a.run.app/api/detail/?id=" + id)
   }
 
   deleteProduct(id){
@@ -83,7 +83,7 @@ export class ProfileService {
   }
 
   updateProduct(id, product){
-    const endpointUrl = 'http://127.0.0.1:8080/api/product/?id='
+    const endpointUrl = 'https://server-2t-market-hsu-p27inhol4a-as.a.run.app/api/product/?id='
     return this.http.put(endpointUrl + id,product);
   }
 

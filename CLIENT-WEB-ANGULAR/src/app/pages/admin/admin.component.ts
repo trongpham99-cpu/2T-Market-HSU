@@ -50,7 +50,7 @@ export class AdminComponent implements OnInit {
   public priceSpChoDuyet=0;result;
   async getSpChoDuyet(){
     await this.http
-          .get<{ getProductChoDuyet: Profile[] }>("http://127.0.0.1:8080/api/productwait?status=0")
+          .get<{ getProductChoDuyet: Profile[] }>("https://server-2t-market-hsu-p27inhol4a-as.a.run.app/api/productwait?status=0")
           .pipe(
             map((profileData) => {
               return profileData.getProductChoDuyet;
@@ -71,7 +71,7 @@ export class AdminComponent implements OnInit {
   public priceSpDaBan=0;resultDaBan;countDaBan = 0;
   async getSpDaBan(){
     await this.http
-          .get<{ getProductChoDuyet: Profile[] }>("http://127.0.0.1:8080/api/productwait?status=2")
+          .get<{ getProductChoDuyet: Profile[] }>("https://server-2t-market-hsu-p27inhol4a-as.a.run.app/api/productwait?status=2")
           .pipe(
             map((profileData) => {
               return profileData.getProductChoDuyet;
@@ -93,7 +93,7 @@ export class AdminComponent implements OnInit {
   public priceSpDangBan=0;resultDangBan;countDangBan = 0;
   async getSpDangBan(){
     await this.http
-          .get<{ getProductChoDuyet: Profile[] }>("http://127.0.0.1:8080/api/productwait?status=1")
+          .get<{ getProductChoDuyet: Profile[] }>("https://server-2t-market-hsu-p27inhol4a-as.a.run.app/api/productwait?status=1")
           .pipe(
             map((profileData) => {
               return profileData.getProductChoDuyet;

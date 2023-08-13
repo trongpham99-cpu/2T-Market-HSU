@@ -8,7 +8,7 @@ import { httpFactory } from '@angular/http/src/http_module';
   providedIn: 'root'
 })
 export class AdminService {
-public baseUrl = "http://127.0.0.1:8080/api";
+public baseUrl = "https://server-2t-market-hsu-p27inhol4a-as.a.run.app/api";
 constructor(private router: Router,
   private HttpClient:HttpClient,) { }
 

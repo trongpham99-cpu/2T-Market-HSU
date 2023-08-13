@@ -16,7 +16,7 @@ export class CategoriesComponent implements OnInit {
   private profileSubscription: Subscription;
   profiles: Profile[] = [];
   name:any;
-  readonly url = "http://127.0.0.1:8080/api";
+  readonly url = "https://server-2t-market-hsu-p27inhol4a-as.a.run.app/api";
   constructor(private CategoriesService: CategoriesService, public ProfileService:ProfileService,private http: HttpClient) { }
 
   ngOnInit(): void {

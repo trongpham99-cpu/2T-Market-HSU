@@ -10,12 +10,12 @@ export class ThongkeService {
 
   getThongke(year,month){
     console.log(year,month)
-    let temp =  this.http.get('http://127.0.0.1:8080/api/sanphamtrongngay?year='+ year +'&month=' + month)
+    let temp =  this.http.get('https://server-2t-market-hsu-p27inhol4a-as.a.run.app/api/sanphamtrongngay?year='+ year +'&month=' + month)
     return temp;
   }
 
   getThongkeThang6(){
-    return this.http.get('http://127.0.0.1:8080/api/sanphamtrongngay?year=2021&month=6')
+    return this.http.get('https://server-2t-market-hsu-p27inhol4a-as.a.run.app/api/sanphamtrongngay?year=2021&month=6')
   }
 
 }
