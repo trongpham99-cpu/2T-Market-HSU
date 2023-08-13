@@ -10,7 +10,7 @@ const io = require('socket.io')(http, {
     }
 });
 async function main(){
-    await Database.instance.connect(`mongodb://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}?authSource=admin`);
+    await Database.instance.connect(`mongodb+srv://admin:admin@cluster0.mvebh.mongodb.net/shop-web`);
     server.listen(process.env.PORT || 8080,()=>{
         console.log(`SERVER IS RUNNING!`);
     });
